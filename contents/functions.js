@@ -55,6 +55,7 @@ var passive4 = document.querySelector('.passive4');
 var active1 = document.querySelector('.active1');
 var active2 = document.querySelector('.active2');
 var active3 = document.querySelector('.active3');
+var active4 = document.querySelector('.active4');
 var talent1 = document.querySelector('.talent1');
 var talent2 = document.querySelector('.talent2');
 var talent3 = document.querySelector('.talent3');
@@ -336,6 +337,11 @@ function page(pagename){
                     active3.style.display = 'none';
                     active_const = 1;
                     break;
+                case 4:
+                    active1.style.display = 'flex';
+                    active4.style.display = 'none';
+                    active_const = 1;
+                    break;
             }
         break;
         case 'active2':
@@ -350,6 +356,11 @@ function page(pagename){
                 case 3:
                     active2.style.display = 'flex';
                     active3.style.display = 'none';
+                    active_const = 2;
+                    break;
+                case 4:
+                    active2.style.display = 'flex';
+                    active4.style.display = 'none';
                     active_const = 2;
                     break;
             }
@@ -367,6 +378,32 @@ function page(pagename){
                     active_const = 3;
                     break;
                 case 3:
+                    break;
+                case 4:
+                    active3.style.display = 'flex';
+                    active4.style.display = 'none';
+                    active_const = 3;
+                    break;
+            }
+        break;
+        case 'active4':
+            switch (active_const){
+                case 1:
+                    active4.style.display = 'flex';
+                    active1.style.display = 'none';
+                    active_const = 4;
+                    break;
+                case 2:
+                    active4.style.display = 'flex';
+                    active2.style.display = 'none';
+                    active_const = 4;
+                    break;
+                case 3:
+                    active4.style.display = 'flex';
+                    active3.style.display = 'none';
+                    active_const = 4;
+                    break;
+                case 4:
                     break;
             }
         break;

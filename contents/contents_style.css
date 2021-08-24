@@ -275,3 +275,67 @@
     margin: 0 auto;
 }
 
+/*skin_check.html*/
+#checking_skins{
+    width: calc(100% - 0.125rem);
+    height: calc(70% - 0.125rem);
+    border: 0.0625rem solid gray;
+    display: flex;
+}
+
+    #checking_skins a{
+        width: calc(100% / 3 - 0.0625rem);
+        height: 20%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+        #checking_skins a:not(:first-child){
+            border-left: 0.0625rem solid lightgrey;
+        }
+
+        #checking_skins a span{
+            width: calc(90% - 2rem);
+            height: calc(100% - 4rem);
+            padding: 1rem;
+            padding-top: 3rem;
+            margin: auto;
+            font-size: 2rem;
+        }
+    
+#kind_selector{
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    visibility: hidden;
+}
+
+    #kind_selector li{
+        width: calc(20% - 2.125rem);
+        height: calc(100% - 2.125rem);
+        padding: 1rem;
+        border: 0.0625rem solid gray;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+#skin_imgs{
+    width: 80%;
+    height: 95%;
+    margin: auto;
+}
+
+    #skin_imgs img{
+        width: 7%;
+        height: 12%;
+    }
+
+#skin_selectors{
+    width: 15%;
+    height: 95%;
+    margin: auto;
+}

@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+abbr{
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #wrap{
     width: 90%;
     max-width: 1200px;
@@ -337,3 +342,5 @@
         justify-content: center;
         text-align: center;
     }
+
+
