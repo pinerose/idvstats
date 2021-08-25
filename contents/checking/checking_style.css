@@ -140,22 +140,31 @@
 }
 
     #skin_selectors h2{
-        width: 100%;
+        width: 50%;
         height: 3%;
         text-align: center;
     }
 
-    #skin_selectors h2:first-child{
+    #skin_selectors h2{
         cursor: pointer;
         padding-bottom: 0.25rem;
     }
 
-    #skin_selectors li{
+    #choicer, #remover{
+        width: 100%;
+        height: 95%;
+        display: none;
+        flex-flow: row wrap;
+        margin: auto;
+    }
+
+    #choicer li, #remover li{
         width: calc(33%);
         height: 4%;
         border-top: 0.0625rem solid aliceblue;
         margin: auto;
         cursor: pointer;
         text-align: center;
-        background-color: antiquewhite;
+        filter: brightness(0.7);
+        background-color: whitesmoke;
     }
