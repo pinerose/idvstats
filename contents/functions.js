@@ -456,4 +456,20 @@ function page(pagename){
             }
         break;
     }
+};
+
+function select(grade, self){
+    switch (grade){
+        case 'S':
+            if (self.style.filter == 'brightness(1)'){
+                self.style.filter = 'brightness(0.5)';
+            } else {
+                self.style.filter = 'brightness(1)';
+            }
+            break;
+        case 'A':
+            break;
+        case 'Acc':
+            break;
+    }
 }
