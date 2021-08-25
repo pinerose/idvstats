@@ -5,6 +5,7 @@
         <title>희대의 스킨 체크표 - idvstats</title>
         <link rel="stylesheet" type="text/css" href="../../reset.css">
         <link rel="stylesheet" type="text/css" href="checking_style.css">
+        <script async src="../functions.js"></script>
     </head>
     <body>
         <div id="wrap">
@@ -22,110 +23,167 @@
             </nav>
             <div id="checking_skins">
                 <div id="skin_imgs">
-                    <img src="img/S_skins/akdang_maeryeok.png">
-                    <img src="img/S_skins/golden_cracket.png">
-                    <img src="img/S_skins/isegye_traveler.PNG">
-                    <img src="img/S_skins/beautiful_smile.PNG">
-                    <img src="img/S_skins/golden_tentacle.PNG">
-                    <img src="img/S_skins/saan_host.PNG">
-                    <img src="img/S_skins/myeongbu_boatman.PNG">
-                    <img src="img/S_skins/party_count.PNG">
-                    <img src="img/S_skins/golden_smith.PNG">
-                    <img src="img/S_skins/flame_dog.PNG">
-                    <img src="img/S_skins/god_crown.PNG">
-                    <img src="img/S_skins/necromancy.PNG">
-                    <img src="img/S_skins/singwon.PNG">
-                    <img src="img/S_skins/adeuk_baram.PNG">
-                    <img src="img/S_skins/frost.PNG">
-                    <img src="img/S_skins/azrael.PNG">
-                    <img src="img/S_skins/judge.PNG">
-                    <img src="img/S_skins/burning_anger.PNG">
-                    <img src="img/S_skins/myders_hand.PNG">
-                    <img src="img/S_skins/jeondangpo.PNG">
-                    <img src="img/S_skins/fractal.PNG">
-                    <img src="img/S_skins/ryuke.PNG">
-                    <img src="img/S_skins/march_rabbit.PNG">
-                    <img src="img/S_skins/monokuma.PNG">
-                    <img src="img/S_skins/hell_music.PNG">
-                    <img src="img/S_skins/moon_knight.PNG">
-                    <img src="img/S_skins/conquer.PNG">
-                    <img src="img/S_skins/three_face.PNG">
-                    <img src="img/S_skins/golden_candle.PNG">
-                    <img src="img/S_skins/flower_ritual.PNG">
-                    <img src="img/S_skins/sinbu.PNG">
-                    <img src="img/S_skins/siromuku.PNG">
-                    <img src="img/S_skins/sipsamnang.PNG">
-                    <img src="img/S_skins/uzet.PNG">
-                    <img src="img/S_skins/tomie.PNG">
-                    <img src="img/S_skins/blood_party.PNG">
-                    <img src="img/S_skins/madame_bella.PNG">
-                    <img src="img/S_skins/isabella.PNG">
-                    <img src="img/S_skins/white_trupple.PNG">
-                    <img src="img/S_skins/checkmate.PNG">
-                    <img src="img/S_skins/night_devil.PNG">
-                    <img src="img/S_skins/silent_spear.PNG">
+                    <div id="not_playable">
+                        <img onclick="select('S', this);" src="img/S_skins/akdang_maeryeok.png">
+                        <img onclick="select('S', this);" src="img/S_skins/house1.PNG">
+                        <img onclick="select('S', this);" src="img/S_skins/house2.PNG">
+                        <img onclick="select('S', this);" src="img/S_skins/house3.PNG">
+                        <span>
+                            스킨표: 람, 자헤드<br>
+                            사이트: 솔장미<br>
+                            2021.8.25
+                        </span>
+                    </div>
+                    <img id="hell_ember" onclick="select('S', this);" src="img/S_skins/golden_cracket.png">
+                    <img id="joker" onclick="select('S', this);" src="img/S_skins/isegye_traveler.PNG">
+                    <img id="joker_2" onclick="select('S', this);" src="img/S_skins/beautiful_smile.PNG">
+                    <img id="ripper" onclick="select('S', this);" src="img/S_skins/golden_tentacle.PNG">
+                    <img id="ripper_2" onclick="select('S', this);" src="img/S_skins/saan_host.PNG">
+                    <img id="ripper_3" onclick="select('S', this);" src="img/S_skins/myeongbu_boatman.PNG">
+                    <img id="ripper_4" onclick="select('S', this);" src="img/S_skins/party_count.PNG">
+                    <img id="game_keeper" onclick="select('S', this);" src="img/S_skins/golden_smith.PNG">
+                    <img id="game_keeper_2" onclick="select('S', this);" src="img/S_skins/flame_dog.PNG">
+                    <img id="feaster" onclick="select('S', this);" src="img/S_skins/god_crown.PNG">
+                    <img id="feaster_2" onclick="select('S', this);" src="img/S_skins/necromancy.PNG">
+                    <img id="wu_chang" onclick="select('S', this);" src="img/S_skins/singwon.PNG">
+                    <img id="wu_chang_2" onclick="select('S', this);" src="img/S_skins/adeuk_baram.PNG">
+                    <img id="wu_chang_3" onclick="select('S', this);" src="img/S_skins/frost.PNG">
+                    <img id="photographer" onclick="select('S', this);" src="img/S_skins/azrael.PNG">
+                    <img id="photographer_2" onclick="select('S', this);" src="img/S_skins/judge.PNG">
+                    <img id="mad_eye" onclick="select('S', this);" src="img/S_skins/burning_anger.PNG">
+                    <img id="axe_boy" onclick="select('S', this);" src="img/S_skins/myders_hand.PNG">
+                    <img id="axe_boy_2" onclick="select('S', this);" src="img/S_skins/jeondangpo.PNG">
+                    <img id="evil_raptilian" onclick="select('S', this);" src="img/S_skins/fractal.PNG">
+                    <img id="evil_raptilian_2" onclick="select('S', this);" src="img/S_skins/ryuke.PNG">
+                    <img id="guard_26" onclick="select('S', this);" src="img/S_skins/march_rabbit.PNG">
+                    <img id="guard_26_2" onclick="select('S', this);" src="img/S_skins/monokuma.PNG">
+                    <img id="violinist" onclick="select('S', this);" src="img/S_skins/hell_music.PNG">
+                    <img id="violinist_2" onclick="select('S', this);" src="img/S_skins/moon_knight.PNG">
+                    <img id="undead" onclick="select('S', this);" src="img/S_skins/conquer.PNG">
+                    <img id="breaking_wheel" onclick="select('S', this);" src="img/S_skins/three_face.PNG">
+                    <img id="violeta" onclick="select('S', this);" src="img/S_skins/golden_candle.PNG">
+                    <img id="violeta_2" onclick="select('S', this);" src="img/S_skins/flower_ritual.PNG">
+                    <img id="geisha" onclick="select('S', this);" src="img/S_skins/sinbu.PNG">
+                    <img id="geisha_2" onclick="select('S', this);" src="img/S_skins/siromuku.PNG">
+                    <img id="geisha_3" onclick="select('S', this);" src="img/S_skins/sipsamnang.PNG">
+                    <img id="yidra" onclick="select('S', this);" src="img/S_skins/uzet.PNG">
+                    <img id="yidra_2" onclick="select('S', this);" src="img/S_skins/tomie.PNG">
+                    <img id="mary" onclick="select('S', this);" src="img/S_skins/blood_party.PNG">
+                    <img id="mary_2" onclick="select('S', this);" src="img/S_skins/madame_bella.PNG">
+                    <img id="mary_3" onclick="select('S', this);" src="img/S_skins/isabella.PNG">
+                    <img id="disciple" onclick="select('S', this);" src="img/S_skins/white_trupple.PNG">
+                    <img id="sculptor" onclick="select('S', this);" src="img/S_skins/checkmate.PNG">
+                    <img id="sculptor_2" onclick="select('S', this);" src="img/S_skins/night_devil.PNG">
+                    <img id="naiad" onclick="select('S', this);" src="img/S_skins/silent_spear.PNG">
+                    <!--생존자 황스-->
+                    <img onclick="select('S', this);" src="img/S_skins/spring_dance.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/treasure_hunter.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/cheshire_cat.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/train.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/king_tailor.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/night_owl.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/unbreakable_belief.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/exorcist.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/spirit_guide.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/hinata.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/hero.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/swift.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/ren.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/joker.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/captain_hook.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/goro.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/crow.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/poong.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/sunset_desert.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/viper.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/golden_ratio.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/narcissism.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/lava_cake.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/firefly.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/revive_flame.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/ghost_princess.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/unluck_bird.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/snow_dance.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/nidhorg.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/red_hat.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/amaranthine_flower.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/golden_cake.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/dark_cake.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/architect.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/tomorrow_light.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/guide.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/morgan_le_fay.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/madame_coral.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/tonight_or_never.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/trainer.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/valkyrie.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/cloto.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/fate.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/strange_magician.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/judgment_alcohol.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/sophia.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/light_wing.PNG">
+                    <img onclick="select('S', this);" src="img/S_skins/heron_wing.PNG">
                 </div>
                 <div id="skin_selectors">
-                    <span>선택자 가리기 / 표시하기</span>
-                    <div class="select_character">
-                        <h2>캐릭터 선택</h2>
-                        <!--생존자-->
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <!--감시자-->
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </div>
+                    <h2 onclick="remove();">선택창 가리기</h2>
+                    <h2>캐릭터 선택</h2>
+                    <!--생존자-->
+                    <li>의사</li>
+                    <li><abbr title="변호사는 황스가 없습니다."><s>변호사</s></abbr></li>
+                    <li>도둑</li>
+                    <li>정원사</li>
+                    <li>마술사</li>
+                    <li><abbr title="모험가는 황스가 없습니다."><s>모험가</s></abbr></li>
+                    <li>용병</li>
+                    <li>공군</li>
+                    <li>기계공</li>
+                    <li>포워드</li>
+                    <li>맹인</li>
+                    <li>샤먼</li>
+                    <li>조향사</li>
+                    <li>카보</li>
+                    <li>무희</li>
+                    <li>선지자</li>
+                    <li>납관사</li>
+                    <li>탐사원</li>
+                    <li>주술사</li>
+                    <li>야만인</li>
+                    <li>곡예사</li>
+                    <li>항해사</li>
+                    <li>바텐더</li>
+                    <li>우배부</li>
+                    <li>묘지기</li>
+                    <li>죄수</li>
+                    <li>곤학</li>
+                    <li>화가</li>
+                    <li>타자</li>
+                    <li>장상</li>
+                    <li>심학</li>
+                    <li>환자</li>
+                    <li><abbr title="불운아는 황스가 없습니다."><s>불운아</s></abbr></li>
+                    <!--감시자-->
+                    <li>공장장</li>
+                    <li>광대</li>
+                    <li>노루</li>
+                    <li>리퍼</li>
+                    <li>거미</li>
+                    <li>미치코</li>
+                    <li>하스터</li>
+                    <li>우산</li>
+                    <li>사진사</li>
+                    <li>발크</li>
+                    <li>꿈마</li>
+                    <li>울보</li>
+                    <li>루키노</li>
+                    <li>마리</li>
+                    <li>봉봉</li>
+                    <li>사도</li>
+                    <li>안돈희</li>
+                    <li>조각가</li>
+                    <li>박사</li>
+                    <li>바퀴</li>
+                    <li>나이아스</li>
                 </div>
             </div>
         </div>

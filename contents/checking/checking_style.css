@@ -99,17 +99,63 @@
     width: 80%;
     height: 95%;
     margin: auto;
+    display: flex;
+    flex-flow: row wrap;
     overflow: scroll;
 }
 
     #skin_imgs img, #accessary_imgs img{
         width: 7%;
         height: 14%;
-        padding: 0.5rem;
+        background-color: aliceblue;
+        filter: brightness(0.5);
     }
 
+    #not_playable{
+        width: calc(100%);
+        height: 14%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+        #not_playable img{
+            width: 7%;
+            height: 100%;
+        }
+
+        #not_playable span{
+            text-align: end;
+            width: 71%;
+            height: 100%;
+            line-height: 1.2;
+        }
+
 #skin_selectors{
-    width: 15%;
+    width: 18%;
     height: 95%;
     margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: scroll;
 }
+
+    #skin_selectors h2{
+        width: 100%;
+        height: 3%;
+        text-align: center;
+    }
+
+    #skin_selectors h2:first-child{
+        cursor: pointer;
+        padding-bottom: 0.25rem;
+    }
+
+    #skin_selectors li{
+        width: calc(33%);
+        height: 4%;
+        border-top: 0.0625rem solid aliceblue;
+        margin: auto;
+        cursor: pointer;
+        text-align: center;
+        background-color: antiquewhite;
+    }
