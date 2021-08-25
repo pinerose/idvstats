@@ -54,16 +54,22 @@ var psychologist = document.querySelectorAll('.psychologist');
 
 var choicer = document.querySelector('#choicer');
 var remover = document.querySelector('#remover');
+var char_choicer = document.querySelector('#char_choicer');
+var char_remover = document.querySelector('#char_remover');
 
 function show(selecting){
     switch (selecting){
         case 'choicer':
             choicer.style.display = 'flex';
+            char_choicer.style.backgroundColor = 'lightgrey';
             remover.style.display = 'none';
+            char_remover.style.backgroundColor = 'aliceblue';
             break;
         case 'remover':
             choicer.style.display = 'none';
+            char_choicer.style.backgroundColor = 'aliceblue';
             remover.style.display = 'flex';
+            char_remover.style.backgroundColor = 'lightgrey';
     }
 }
 

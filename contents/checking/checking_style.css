@@ -141,13 +141,14 @@
 
     #skin_selectors h2{
         width: 50%;
-        height: 3%;
+        height: clac(3% - 0.5rem);
         text-align: center;
     }
 
     #skin_selectors h2{
         cursor: pointer;
         padding-bottom: 0.25rem;
+        padding-top: 0.5rem;
     }
 
     #choicer, #remover{
