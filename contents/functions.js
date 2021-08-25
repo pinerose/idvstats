@@ -1,3 +1,7 @@
+document.oncontextmenu = function(e){
+    return false;
+}
+
 // 진영 설정 틀 관련 함수
 var survivor_frame = document.querySelector('.survivor_frame');
 var survivor_arrow = document.querySelector('.survivor_arrow');
