@@ -64,3 +64,12 @@ input{
     border-radius: 0;
     font-family: "Noto Sans KR", Sans-serif;
 }
+
+s{
+    color: gray;
+}
+
+abbr{
+    text-decoration: none;
+    cursor: pointer;
+}
