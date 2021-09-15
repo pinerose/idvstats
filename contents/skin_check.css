@@ -1,0 +1,210 @@
+@charset "utf-8";
+
+#wrap{
+    width: 90%;
+    min-width: 900px;
+    max-width: 1200px;
+    height: calc(60 * 0.67rem);
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    user-select: none;
+}
+
+#contents_title{
+    width: 100%;
+    height: calc(10% / 0.67 - 2.0625rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.0625rem solid gray;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+#contents_nav{
+    width: 100%;
+    height: calc(7% / 0.67);
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+}
+
+    #contents_nav li{
+        width: 25%;
+        height: 50%;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #contents_nav li:not(:first-child){
+        width: calc(25% - 0.0625rem);
+        border-left: 0.0625rem solid gray;
+    }
+
+/* 스킨체크표 스타일시트 */
+#selector{
+    width: 100%;
+    height: calc(50% / 0.67);
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid lightgrey;
+}
+
+    /* "종류/등급 선택" 부분 공통 CSS */
+    
+    .selector_title{
+        width: calc(20% - 0.5rem);
+        height: calc(40% - 0.5rem);
+        padding: 0.25rem;
+        margin: auto 0;
+    }
+    
+    .alert{
+        width: calc(60% - 0.5rem);
+        height: calc(40% - 0.5rem);
+        padding: 0.25rem;
+        margin: auto 0;
+    }
+
+    #selector div li{
+        width: calc(15%);
+        height: calc(60% - 1rem);
+        margin: auto;
+    }
+
+    /* "종류 선택" 부분 CSS */
+    #kinds_selector{
+        width: 100%;
+        height: 15%;
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+        #kinds_selector #hiding_menu{
+            width: 10rem;
+            height: calc(40%);
+            margin: 0.25rem auto;
+        }
+
+        #selector div#kinds_selector li{
+            width: calc(20% - 1rem);
+            margin: 0.5rem;
+        }
+    
+    /* "등급 선택" 부분 CSS */
+    #grade_selector{
+        width: 100%;
+        height: 15%;
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+        #grade_selector .alert{
+            margin-right: 20%;
+        }
+
+    /* "캐릭터 선택" 부분 CSS */
+    #char_selector{
+        width: 100%;
+        height: 50%;
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+        #char_selector .selector_title{
+            height: 10%;
+            margin: auto;
+        }
+
+        #char_selector .alert{
+            height: 10%;
+            margin: auto;
+            margin-right: 20%;
+        }
+
+        #special_selector{
+            width: 100%;
+            height: 10%;
+            margin: auto;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+            #selector div#special_selector li{
+                width: calc(20% - 2rem);
+                min-width: 100px;
+                height: calc(80%);
+                margin: auto 1rem;
+            }
+
+        #normal_selector{
+            width: 100%;
+            height: 70%;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+            #selector div#normal_selector li{
+                width: calc(10% - 1rem);
+                min-width: 75px;
+                height: calc(12%);
+                margin: auto;
+            }
+
+    /* "버튼 모음집" 부분 CSS */
+    #button_array{
+        width: 100%;
+        height: 15%;
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+    }
+
+        #button_array button{
+            width: calc(10%);
+            height: calc(60%);
+            margin: 1rem 2rem;
+        }
+
+.sub_title, .thanks_to{
+    display: none;
+    width: 90%;
+    max-width: 1200px;
+    min-width: 900px;
+    height: 10rem;
+}
+
+#skin_checking{
+    width: 90%;
+    max-width: 1200px;
+    min-width: 900px;
+    height: 78rem;
+    padding: 1rem 0;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+    #skin_checking div{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    #skin_checking div img{
+        width: 7%;
+        height: 100px;
+        filter: brightness(0.5);
+    }

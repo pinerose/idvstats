@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>스킨 체크표 - idvstats</title>
+        <link rel="stylesheet" type="text/css" href="../reset.css">
+        <link rel="stylesheet" type="text/css" href="skin_check.css">
+        <script async src="functions.js"></script>
+        <script async src="fundemental.js"></script>
+        <script async src="skin_check.js"></script>
+        <script async src="accepting_selectors.js"></script>
+    </head>
+    <body>
+        <div id="wrap">
+            <h1 id="contents_title"><a href="../index.html">idvstats</a></h1>
+            <nav id="contents_nav">
+                <li><a href="char_info.html">캐릭터 정보</a></li>
+                <li><a href="char_tier.html">캐릭터 티어</a></li>
+                <li><a href="skin_check.html">스킨 체크표</a></li>
+                <li><a href="char_stat.html">캐릭터 스탯</a></li>
+            </nav>
+            <div id="selector">
+                <div id="kinds_selector">
+                    <h2 class="selector_title">종류 선택</h2>
+                    <span class="alert">! 악세사리는 아직 지원하지 않습니다 !</span>
+                    <button id="hiding_menu" onclick="menu_display(hide);">메뉴 가리기</button>
+                    <li class="select_skin" onclick="kind_select_function('skin');">스킨</li>
+                    <li class="select_acce" onclick="kind_select_function('acce');">악세사리</li>
+                </div>
+                <div id="grade_selector">
+                    <h2 class="selector_title">등급 선택</h2>
+                    <span class="alert">! 보스 ~ 초스는 아직 지원하지 않습니다 !</span>
+                    <li class="every_grade" onclick="grade_select_function('every');">모든 등급</li>
+                    <li class="S_grade" onclick="grade_select_function('S');">희대 이상</li>
+                    <li class="A_grade" onclick="grade_select_function('A');">보스/보악</li>
+                    <li class="B_grade" onclick="grade_select_function('B');">파스/파악</li>
+                    <li class="C_grade" onclick="grade_select_function('C');">초스/초악</li>
+                </div>
+                <div id="char_selector">
+                    <h2 class="selector_title">캐릭터 선택</h2>
+                    <span class="alert"></span>
+                    <div id="special_selector">
+                        <li class="every_survivor" onclick="char_select_function('survivor');">모든 생존자</li>
+                        <li class="every_hunter" onclick="char_select_function('hunter');">모든 감시자</li>
+                    </div>
+                    <div id="normal_selector">
+                        <li class="survivor" id="doctor" onclick="char_select_function('doctor');">의사</li>
+                        <li class="survivor" id="lawyer" onclick="char_select_function('lawyer');">변호사</li>
+                        <li class="survivor" id="thief" onclick="char_select_function('thief');">도둑</li>
+                        <li class="survivor" id="gardener" onclick="char_select_function('gardener');">정원사</li>
+                        <li class="survivor" id="magician" onclick="char_select_function('magician');">마술사</li>
+                        <li class="survivor" id="explorer" onclick="char_select_function('explorer');">모험가</li>
+                        <li class="survivor" id="mercenary" onclick="char_select_function('mercenary');">용병</li>
+                        <li class="survivor" id="coordinator" onclick="char_select_function('coordinator');">공군</li>
+                        <li class="survivor" id="mechanic" onclick="char_select_function('mechanic');">기계공</li>
+                        <li class="survivor" id="forward" onclick="char_select_function('forward');">포워드</li>
+                        <li class="survivor" id="mindeye" onclick="char_select_function('mindeye');">맹인</li>
+                        <li class="survivor" id="priestess" onclick="char_select_function('priestess');">샤먼</li>
+                        <li class="survivor" id="perfumer" onclick="char_select_function('perfumer');">조향사</li>
+                        <li class="survivor" id="cowboy" onclick="char_select_function('cowboy');">카보</li>
+                        <li class="survivor" id="dancer" onclick="char_select_function('dancer');">무희</li>
+                        <li class="survivor" id="seer" onclick="char_select_function('seer');">선지자</li>
+                        <li class="survivor" id="embalmer" onclick="char_select_function('embalmer');">납관사</li>
+                        <li class="survivor" id="prospector" onclick="char_select_function('prospector');">탐사원</li>
+                        <li class="survivor" id="enchantress" onclick="char_select_function('enchantress');">주술사</li>
+                        <li class="survivor" id="wildling" onclick="char_select_function('wildling');">야만인</li>
+                        <li class="survivor" id="acrobat" onclick="char_select_function('acrobat');">곡예사</li>
+                        <li class="survivor" id="officer" onclick="char_select_function('officer');">항해사</li>
+                        <li class="survivor" id="barmaid" onclick="char_select_function('barmaid');">바텐더</li>
+                        <li class="survivor" id="postman" onclick="char_select_function('postman');">우배부</li>
+                        <li class="survivor" id="graveyard" onclick="char_select_function('graveyard');">묘지기</li>
+                        <li class="survivor" id="prisoner" onclick="char_select_function('prisoner');">죄수</li>
+                        <li class="survivor" id="entomologist" onclick="char_select_function('entomologist');">곤학</li>
+                        <li class="survivor" id="painter" onclick="char_select_function('painter');">화가</li>
+                        <li class="survivor" id="batter" onclick="char_select_function('batter');">타자</li>
+                        <li class="survivor" id="merchant" onclick="char_select_function('merchant');">장상</li>
+                        <li class="survivor" id="psychologist" onclick="char_select_function('psychologist');">심학</li>
+                        <li class="survivor" id="patient" onclick="char_select_function('patient');">환자</li>
+                        <li class="survivor" id="unlucky" onclick="char_select_function('unlucky');">불운아</li>
+                        <span class="survivor_space"></span>
+                        <li class="hunter" id="hell_ember" onclick="char_select_function('hell_ember');">공장장</li>
+                        <li class="hunter" id="joker" onclick="char_select_function('joker');">조커</li>
+                        <li class="hunter" id="game_keeper" onclick="char_select_function('game_keeper');">노루</li>
+                        <li class="hunter" id="reaper" onclick="char_select_function('reaper');">리퍼</li>
+                        <li class="hunter" id="soul_weaver" onclick="char_select_function('soul_weaver');">거미</li>
+                        <li class="hunter" id="geisha" onclick="char_select_function('geisha');">미치코</li>
+                        <li class="hunter" id="feaster" onclick="char_select_function('feaster');">하스터</li>
+                        <li class="hunter" id="wu_chang" onclick="char_select_function('wu_chang');">우산</li>
+                        <li class="hunter" id="photographer" onclick="char_select_function('photographer');">요셉</li>
+                        <li class="hunter" id="mad_eye" onclick="char_select_function('mad_eye');">발크</li>
+                        <li class="hunter" id="dream_witch" onclick="char_select_function('dream_witch');">꿈마</li>
+                        <li class="hunter" id="axe_boy" onclick="char_select_function('axe_boy');">울보</li>
+                        <li class="hunter" id="evil_raptilian" onclick="char_select_function('evil_raptilian');">루키노</li>
+                        <li class="hunter" id="mary" onclick="char_select_function('mary');">마리</li>
+                        <li class="hunter" id="guard_26" onclick="char_select_function('guard_26');">봉봉</li>
+                        <li class="hunter" id="disciple" onclick="char_select_function('disciple');">사도</li>
+                        <li class="hunter" id="violinist" onclick="char_select_function('violinist');">안토니오</li>
+                        <li class="hunter" id="sculptor" onclick="char_select_function('sculptor');">조각가</li>
+                        <li class="hunter" id="undead" onclick="char_select_function('undead');">박사</li>
+                        <li class="hunter" id="breaking_wheel" onclick="char_select_function('breaking_wheel');">바퀴</li>
+                        <li class="hunter" id="naiad" onclick="char_select_function('naiad');">나이아스</li>
+                    </div>
+                </div>
+                <div id="button_array">
+                    <button class="displaying" onclick="select_all('showing');">표시하기</button>
+                    <button class="selecting" onclick="select_all('select');">선택하기</button>
+                    <button class="unselecting" onclick="select_all('');">선택 해제</button>
+                </div>
+            </div>
+        </div>
+        <span class="sub_title" onclick="menu_display('show');">idvstats</span>
+        <span class="thanks_to">
+            스킨표: 람, 자헤드<br>
+            2021.9.15.
+        </span>
+        <div id="skin_checking">
+            <div id="others">
+                <img onclick="select(this);" src="checking/img/S_skins/akdang_maeryeok.png">
+                <img onclick="select(this);" src="checking/img/S_skins/house1.PNG">
+                <img onclick="select(this);" src="checking/img/S_skins/house2.PNG">
+                <img onclick="select(this);" src="checking/img/S_skins/house3.PNG">
+            </div>
+            <div class="S_grade skin">
+                <img class="hell_ember" onclick="select(this);" src="checking/img/S_skins/golden_cracket.png">
+                <img class="joker" onclick="select(this);" src="checking/img/S_skins/isegye_traveler.PNG">
+                <img class="joker" onclick="select(this);" src="checking/img/S_skins/beautiful_smile.PNG">
+                <img class="ripper" onclick="select(this);" src="checking/img/S_skins/golden_tentacle.PNG">
+                <img class="ripper" onclick="select(this);" src="checking/img/S_skins/saan_host.PNG">
+                <img class="ripper" onclick="select(this);" src="checking/img/S_skins/myeongbu_boatman.PNG">
+                <img class="ripper" onclick="select(this);" src="checking/img/S_skins/party_count.PNG">
+                <img class="game_keeper" onclick="select(this);" src="checking/img/S_skins/golden_smith.PNG">
+                <img class="game_keeper" onclick="select(this);" src="checking/img/S_skins/flame_dog.PNG">
+                <img class="feaster" onclick="select(this);" src="checking/img/S_skins/god_crown.PNG">
+                <img class="feaster" onclick="select(this);" src="checking/img/S_skins/necromancy.PNG">
+                <img class="wu_chang" onclick="select(this);" src="checking/img/S_skins/singwon.PNG">
+                <img class="wu_chang" onclick="select(this);" src="checking/img/S_skins/adeuk_baram.PNG">
+                <img class="wu_chang" onclick="select(this);" src="checking/img/S_skins/frost.PNG">
+                <img class="photographer" onclick="select(this);" src="checking/img/S_skins/azrael.PNG">
+                <img class="photographer" onclick="select(this);" src="checking/img/S_skins/judge.PNG">
+                <img class="mad_eye" onclick="select(this);" src="checking/img/S_skins/burning_anger.PNG">
+                <img class="axe_boy" onclick="select(this);" src="checking/img/S_skins/myders_hand.PNG">
+                <img class="axe_boy" onclick="select(this);" src="checking/img/S_skins/jeondangpo.PNG">
+                <img class="evil_raptilian" onclick="select(this);" src="checking/img/S_skins/fractal.PNG">
+                <img class="evil_raptilian" onclick="select(this);" src="checking/img/S_skins/ryuke.PNG">
+                <img class="guard_26" onclick="select(this);" src="checking/img/S_skins/march_rabbit.PNG">
+                <img class="guard_26" onclick="select(this);" src="checking/img/S_skins/monokuma.PNG">
+                <img class="violinist" onclick="select(this);" src="checking/img/S_skins/hell_music.PNG">
+                <img class="violinist" onclick="select(this);" src="checking/img/S_skins/moon_knight.PNG">
+                <img class="undead" onclick="select(this);" src="checking/img/S_skins/conquer.PNG">
+                <img class="breaking_wheel" onclick="select(this);" src="checking/img/S_skins/three_face.PNG">
+                <img class="violeta" onclick="select(this);" src="checking/img/S_skins/golden_candle.PNG">
+                <img class="violeta" onclick="select(this);" src="checking/img/S_skins/flower_ritual.PNG">
+                <img class="geisha" onclick="select(this);" src="checking/img/S_skins/sinbu.PNG">
+                <img class="geisha" onclick="select(this);" src="checking/img/S_skins/siromuku.PNG">
+                <img class="geisha" onclick="select(this);" src="checking/img/S_skins/sipsamnang.PNG">
+                <img class="yidra" onclick="select(this);" src="checking/img/S_skins/uzet.PNG">
+                <img class="yidra" onclick="select(this);" src="checking/img/S_skins/tomie.PNG">
+                <img class="mary" onclick="select(this);" src="checking/img/S_skins/blood_party.PNG">
+                <img class="mary" onclick="select(this);" src="checking/img/S_skins/madame_bella.PNG">
+                <img class="mary" onclick="select(this);" src="checking/img/S_skins/isabella.PNG">
+                <img class="disciple" onclick="select(this);" src="checking/img/S_skins/white_trupple.PNG">
+                <img class="sculptor" onclick="select(this);" src="checking/img/S_skins/checkmate.PNG">
+                <img class="sculptor" onclick="select(this);" src="checking/img/S_skins/night_devil.PNG">
+                <img class="naiad" onclick="select(this);" src="checking/img/S_skins/silent_spear.PNG">
+                <!--생존자 황스-->
+                <img class="thief" onclick="select(this);" src="checking/img/S_skins/spring_dance.PNG">
+                <img class="magician" onclick="select(this);" src="checking/img/S_skins/treasure_hunter.PNG">
+                <img class="mercenary" onclick="select(this);" src="checking/img/S_skins/cheshire_cat.PNG">
+                <img class="forward" onclick="select(this);" src="checking/img/S_skins/train.PNG">
+                <img class="cowboy" onclick="select(this);" src="checking/img/S_skins/king_tailor.PNG">
+                <img class="seer" onclick="select(this);" src="checking/img/S_skins/night_owl.PNG">
+                <img class="seer" onclick="select(this);" src="checking/img/S_skins/unbreakable_belief.PNG">
+                <img class="embalmer" onclick="select(this);" src="checking/img/S_skins/exorcist.PNG">
+                <img class="prospector" onclick="select(this);" src="checking/img/S_skins/spirit_guide.PNG">
+                <img class="prospector" onclick="select(this);" src="checking/img/S_skins/hinata.PNG">
+                <img class="wildling" onclick="select(this);" src="checking/img/S_skins/hero.PNG">
+                <img class="acrobat" onclick="select(this);" src="checking/img/S_skins/swift.PNG">
+                <img class="acrobat" onclick="select(this);" src="checking/img/S_skins/ren.PNG">
+                <img class="acrobat" onclick="select(this);" src="checking/img/S_skins/joker.PNG">
+                <img class="officer" onclick="select(this);" src="checking/img/S_skins/captain_hook.PNG">
+                <img class="officer" onclick="select(this);" src="checking/img/S_skins/goro.PNG">
+                <img class="officer" onclick="select(this);" src="checking/img/S_skins/crow.PNG">
+                <img class="postman" onclick="select(this);" src="checking/img/S_skins/poong.PNG">
+                <img class="graveyard" onclick="select(this);" src="checking/img/S_skins/sunset_desert.PNG">
+                <img class="prisoner" onclick="select(this);" src="checking/img/S_skins/viper.PNG">
+                <img class="painter" onclick="select(this);" src="checking/img/S_skins/golden_ratio.PNG">
+                <img class="painter" onclick="select(this);" src="checking/img/S_skins/narcissism.PNG">
+                <img class="batter" onclick="select(this);" src="checking/img/S_skins/lava_cake.PNG">
+                <img class="patient" onclick="select(this);" src="checking/img/S_skins/punished_man.PNG">
+                <img class="doctor" onclick="select(this);" src="checking/img/S_skins/firefly.PNG">
+                <img class="doctor" onclick="select(this);" src="checking/img/S_skins/revive_flame.PNG">
+                <img class="gardener" onclick="select(this);" src="checking/img/S_skins/ghost_princess.PNG">
+                <img class="gardener" onclick="select(this);" src="checking/img/S_skins/unluck_bird.PNG">
+                <img class="coordinator" onclick="select(this);" src="checking/img/S_skins/snow_dance.PNG">
+                <img class="coordinator" onclick="select(this);" src="checking/img/S_skins/nidhorg.PNG">
+                <img class="mechanic" onclick="select(this);" src="checking/img/S_skins/red_hat.PNG">
+                <img class="mechanic" onclick="select(this);" src="checking/img/S_skins/amaranthine_flower.PNG">
+                <img class="mindeye" onclick="select(this);" src="checking/img/S_skins/golden_cake.PNG">
+                <img class="mindeye" onclick="select(this);" src="checking/img/S_skins/dark_cake.PNG">
+                <img class="mindeye" onclick="select(this);" src="checking/img/S_skins/architect.PNG">
+                <img class="priestess" onclick="select(this);" src="checking/img/S_skins/tomorrow_light.PNG">
+                <img class="priestess" onclick="select(this);" src="checking/img/S_skins/guide.PNG">
+                <img class="priestess" onclick="select(this);" src="checking/img/S_skins/morgan_le_fay.PNG">
+                <img class="perfumer" onclick="select(this);" src="checking/img/S_skins/madame_coral.PNG">
+                <img class="perfumer" onclick="select(this);" src="checking/img/S_skins/tonight_or_never.PNG">
+                <img class="dancer" onclick="select(this);" src="checking/img/S_skins/trainer.PNG">
+                <img class="dancer" onclick="select(this);" src="checking/img/S_skins/valkyrie.PNG">
+                <img class="dancer" onclick="select(this);" src="checking/img/S_skins/cloto.PNG">
+                <img class="enchantress" onclick="select(this);" src="checking/img/S_skins/fate.PNG">
+                <img class="enchantress" onclick="select(this);" src="checking/img/S_skins/strange_magician.PNG">
+                <img class="barmaid" onclick="select(this);" src="checking/img/S_skins/judgment_alcohol.PNG">
+                <img class="entomologist" onclick="select(this);" src="checking/img/S_skins/sophia.PNG">
+                <img class="merchant" onclick="select(this);" src="checking/img/S_skins/light_wing.PNG">
+                <img class="psychologist" onclick="select(this);" src="checking/img/S_skins/heron_wing.PNG">
+            </div>
+            <div class="A_grade skin"></div>
+            <div class="B_grade skin"></div>
+            <div class="C_grade skin"></div>
+            <div class="S_grade acce"></div>
+            <div class="A_grade acce"></div>
+            <div class="B_grade acce"></div>
+            <div class="C_grade acce"></div>
+        </div>
+    </body>
+</html>
