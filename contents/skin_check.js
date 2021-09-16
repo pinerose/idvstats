@@ -2141,7 +2141,7 @@ function select_all(displaying){
             for (var i = 0; i < survivor.length; i++){
                 if (survivor[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
-                        document.querySelectorAll(survivor[i])[j].style.filter = 'block';
+                        document.querySelectorAll(survivor[i])[j].style.display = 'block';
                     }
                 }
             }
@@ -2149,7 +2149,7 @@ function select_all(displaying){
             for (var i = 0; i < hunter.length; i++){
                 if (hunter[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
-                        document.querySelectorAll(hunter[i])[j].style.filter = 'block';
+                        document.querySelectorAll(hunter[i])[j].style.display = 'block';
                     }
                 }
             }
