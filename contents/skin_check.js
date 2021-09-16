@@ -2145,7 +2145,6 @@ function select_all(displaying){
                     }
                 }
             }
-            break;
             for (var i = 0; i < hunter.length; i++){
                 if (hunter[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
