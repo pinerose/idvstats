@@ -5,7 +5,7 @@ function kind_select_function(kind_selector){
                 case 0:
                     select_skin.style.backgroundColor = "aqua";
                     counter_skin = 1;
-                    kind[0] = 'skin';
+                    kind[0] = '.skin';
                     break;
                 case 1:
                     select_skin.style.backgroundColor = "aliceblue";
@@ -19,7 +19,7 @@ function kind_select_function(kind_selector){
                 case 0:
                     select_acce.style.backgroundColor = "aqua";
                     counter_acce = 1;
-                    kind[1] = 'acce';
+                    kind[1] = '.acce';
                     break;
                 case 1:
                     select_acce.style.backgroundColor = "aliceblue";
@@ -41,7 +41,7 @@ function grade_select_function(grade_selector){
                     for (var i = 0; i < grade_counter.length; i++){
                         grade_counter[i] = 1;
                     }
-                    grade = ['S_grade', 'A_grade', 'B_grade', 'C_grade'];
+                    grade = ['.S_grade', '.A_grade', '.B_grade', '.C_grade'];
                     break;
                 case 1:
                     for (let x of select_grade){
@@ -59,7 +59,7 @@ function grade_select_function(grade_selector){
                 case 0:
                     select_S_grade.style.backgroundColor = 'aqua';
                     grade_counter[1] = 1;
-                    grade[0] = 'S_grade';
+                    grade[0] = '.S_grade';
                     var i = 0;
                     for (let x of grade){
                         if (x == undefined){
@@ -93,7 +93,7 @@ function grade_select_function(grade_selector){
                 case 0:
                     select_A_grade.style.backgroundColor = 'aqua';
                     grade_counter[2] = 1;
-                    grade[1] = 'A_grade';
+                    grade[1] = '.A_grade';
                     var i = 0;
                     for (let x of grade){
                         if (x == undefined){
@@ -127,7 +127,7 @@ function grade_select_function(grade_selector){
                 case 0:
                     select_B_grade.style.backgroundColor = 'aqua';
                     grade_counter[3] = 1;
-                    grade[2] = 'B_grade';
+                    grade[2] = '.B_grade';
                     var i = 0;
                     for (let x of grade){
                         if (x == undefined){
@@ -161,7 +161,7 @@ function grade_select_function(grade_selector){
                 case 0:
                     select_C_grade.style.backgroundColor = 'aqua';
                     grade_counter[4] = 1;
-                    grade[3] = 'C_grade';
+                    grade[3] = '.C_grade';
                     var i = 0;
                     for (let x of grade){
                         if (x == undefined){
@@ -248,7 +248,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[0].style.backgroundColor = 'aqua';
                     survivor_counter[1] = 1;
-                    survivor[0] = 'doctor';
+                    survivor[0] = '.doctor';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -282,7 +282,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[1].style.backgroundColor = 'aqua';
                     survivor_counter[2] = 1;
-                    survivor[1] = 'lawyer';
+                    survivor[1] = '.lawyer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -316,7 +316,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[2].style.backgroundColor = 'aqua';
                     survivor_counter[3] = 1;
-                    survivor[2] = 'thief';
+                    survivor[2] = '.thief';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -350,7 +350,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[3].style.backgroundColor = 'aqua';
                     survivor_counter[4] = 1;
-                    survivor[3] = 'gardener';
+                    survivor[3] = '.gardener';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -384,7 +384,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[4].style.backgroundColor = 'aqua';
                     survivor_counter[5] = 1;
-                    survivor[4] = 'magician';
+                    survivor[4] = '.magician';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -418,7 +418,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[5].style.backgroundColor = 'aqua';
                     survivor_counter[6] = 1;
-                    survivor[5] = 'explorer';
+                    survivor[5] = '.explorer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -452,7 +452,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[6].style.backgroundColor = 'aqua';
                     survivor_counter[7] = 1;
-                    survivor[6] = 'mercenary';
+                    survivor[6] = '.mercenary';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -486,7 +486,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[7].style.backgroundColor = 'aqua';
                     survivor_counter[8] = 1;
-                    survivor[7] = 'coordinator';
+                    survivor[7] = '.coordinator';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -520,7 +520,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[8].style.backgroundColor = 'aqua';
                     survivor_counter[9] = 1;
-                    survivor[8] = 'mechanic';
+                    survivor[8] = '.mechanic';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -554,7 +554,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[9].style.backgroundColor = 'aqua';
                     survivor_counter[10] = 1;
-                    survivor[9] = 'forward';
+                    survivor[9] = '.forward';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -588,7 +588,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[10].style.backgroundColor = 'aqua';
                     survivor_counter[11] = 1;
-                    survivor[10] = 'mindeye';
+                    survivor[10] = '.mindeye';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -622,7 +622,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[11].style.backgroundColor = 'aqua';
                     survivor_counter[12] = 1;
-                    survivor[11] = 'priestess';
+                    survivor[11] = '.priestess';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -656,7 +656,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[12].style.backgroundColor = 'aqua';
                     survivor_counter[13] = 1;
-                    survivor[12] = 'perfumer';
+                    survivor[12] = '.perfumer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -690,7 +690,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[13].style.backgroundColor = 'aqua';
                     survivor_counter[14] = 1;
-                    survivor[13] = 'cowboy';
+                    survivor[13] = '.cowboy';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -724,7 +724,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[14].style.backgroundColor = 'aqua';
                     survivor_counter[15] = 1;
-                    survivor[14] = 'dancer';
+                    survivor[14] = '.dancer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -758,7 +758,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[15].style.backgroundColor = 'aqua';
                     survivor_counter[16] = 1;
-                    survivor[15] = 'seer';
+                    survivor[15] = '.seer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -792,7 +792,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[16].style.backgroundColor = 'aqua';
                     survivor_counter[17] = 1;
-                    survivor[16] = 'embalmer';
+                    survivor[16] = '.embalmer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -826,7 +826,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[17].style.backgroundColor = 'aqua';
                     survivor_counter[16] = 1;
-                    survivor[17] = 'prospector';
+                    survivor[17] = '.prospector';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -860,7 +860,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[16].style.backgroundColor = 'aqua';
                     survivor_counter[19] = 1;
-                    survivor[16] = 'enchantress';
+                    survivor[16] = '.enchantress';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -894,7 +894,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[19].style.backgroundColor = 'aqua';
                     survivor_counter[20] = 1;
-                    survivor[19] = 'wildling';
+                    survivor[19] = '.wildling';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -928,7 +928,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[20].style.backgroundColor = 'aqua';
                     survivor_counter[21] = 1;
-                    survivor[20] = 'acrobat';
+                    survivor[20] = '.acrobat';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -962,7 +962,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[21].style.backgroundColor = 'aqua';
                     survivor_counter[22] = 1;
-                    survivor[21] = 'officer';
+                    survivor[21] = '.officer';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -996,7 +996,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[22].style.backgroundColor = 'aqua';
                     survivor_counter[23] = 1;
-                    survivor[22] = 'barmaid';
+                    survivor[22] = '.barmaid';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1030,7 +1030,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[23].style.backgroundColor = 'aqua';
                     survivor_counter[24] = 1;
-                    survivor[23] = 'postman';
+                    survivor[23] = '.postman';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1064,7 +1064,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[24].style.backgroundColor = 'aqua';
                     survivor_counter[25] = 1;
-                    survivor[24] = 'graveyard';
+                    survivor[24] = '.graveyard';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1098,7 +1098,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[25].style.backgroundColor = 'aqua';
                     survivor_counter[26] = 1;
-                    survivor[25] = 'prisoner';
+                    survivor[25] = '.prisoner';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1132,7 +1132,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[26].style.backgroundColor = 'aqua';
                     survivor_counter[27] = 1;
-                    survivor[26] = 'entomologist';
+                    survivor[26] = '.entomologist';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1166,7 +1166,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[27].style.backgroundColor = 'aqua';
                     survivor_counter[28] = 1;
-                    survivor[27] = 'painter';
+                    survivor[27] = '.painter';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1200,7 +1200,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[28].style.backgroundColor = 'aqua';
                     survivor_counter[29] = 1;
-                    survivor[28] = 'batter';
+                    survivor[28] = '.batter';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1234,7 +1234,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[29].style.backgroundColor = 'aqua';
                     survivor_counter[30] = 1;
-                    survivor[29] = 'merchant';
+                    survivor[29] = '.merchant';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1268,7 +1268,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[30].style.backgroundColor = 'aqua';
                     survivor_counter[31] = 1;
-                    survivor[30] = 'psychologist';
+                    survivor[30] = '.psychologist';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1302,7 +1302,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[31].style.backgroundColor = 'aqua';
                     survivor_counter[32] = 1;
-                    survivor[31] = 'patient';
+                    survivor[31] = '.patient';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1336,7 +1336,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_survivor[32].style.backgroundColor = 'aqua';
                     survivor_counter[33] = 1;
-                    survivor[32] = 'unlucky';
+                    survivor[32] = '.unlucky';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -1370,7 +1370,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[0].style.backgroundColor = 'aqua';
                     hunter_counter[1] = 1;
-                    hunter[0] = 'hell_ember';
+                    hunter[0] = '.hell_ember';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1404,7 +1404,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[1].style.backgroundColor = 'aqua';
                     hunter_counter[2] = 1;
-                    hunter[1] = 'joker';
+                    hunter[1] = '.joker';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1438,7 +1438,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[2].style.backgroundColor = 'aqua';
                     hunter_counter[3] = 1;
-                    hunter[2] = 'game_keeper';
+                    hunter[2] = '.game_keeper';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1472,7 +1472,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[3].style.backgroundColor = 'aqua';
                     hunter_counter[4] = 1;
-                    hunter[3] = 'reaper';
+                    hunter[3] = '.reaper';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1506,7 +1506,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[4].style.backgroundColor = 'aqua';
                     hunter_counter[5] = 1;
-                    hunter[4] = 'soul_weaver';
+                    hunter[4] = '.soul_weaver';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1540,7 +1540,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[5].style.backgroundColor = 'aqua';
                     hunter_counter[6] = 1;
-                    hunter[5] = 'geisha';
+                    hunter[5] = '.geisha';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1574,7 +1574,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[6].style.backgroundColor = 'aqua';
                     hunter_counter[7] = 1;
-                    hunter[6] = 'feaster';
+                    hunter[6] = '.feaster';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1608,7 +1608,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[7].style.backgroundColor = 'aqua';
                     hunter_counter[8] = 1;
-                    hunter[7] = 'wu_chang';
+                    hunter[7] = '.wu_chang';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1642,7 +1642,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[8].style.backgroundColor = 'aqua';
                     hunter_counter[9] = 1;
-                    hunter[8] = 'photographer';
+                    hunter[8] = '.photographer';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1676,7 +1676,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[9].style.backgroundColor = 'aqua';
                     hunter_counter[10] = 1;
-                    hunter[9] = 'mad_eye';
+                    hunter[9] = '.mad_eye';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1710,7 +1710,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[10].style.backgroundColor = 'aqua';
                     hunter_counter[11] = 1;
-                    hunter[10] = 'dream_witch';
+                    hunter[10] = '.dream_witch';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1744,7 +1744,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[11].style.backgroundColor = 'aqua';
                     hunter_counter[12] = 1;
-                    hunter[11] = 'axe_boy';
+                    hunter[11] = '.axe_boy';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1778,7 +1778,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[12].style.backgroundColor = 'aqua';
                     hunter_counter[13] = 1;
-                    hunter[12] = 'evil_raptilian';
+                    hunter[12] = '.evil_raptilian';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1812,7 +1812,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[13].style.backgroundColor = 'aqua';
                     hunter_counter[14] = 1;
-                    hunter[13] = 'mary';
+                    hunter[13] = '.mary';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1846,7 +1846,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[14].style.backgroundColor = 'aqua';
                     hunter_counter[15] = 1;
-                    hunter[14] = 'guard_26';
+                    hunter[14] = '.guard_26';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1880,7 +1880,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[15].style.backgroundColor = 'aqua';
                     hunter_counter[16] = 1;
-                    hunter[15] = 'disciple';
+                    hunter[15] = '.disciple';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1914,7 +1914,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[16].style.backgroundColor = 'aqua';
                     hunter_counter[17] = 1;
-                    hunter[16] = 'violinist';
+                    hunter[16] = '.violinist';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1948,7 +1948,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[17].style.backgroundColor = 'aqua';
                     hunter_counter[18] = 1;
-                    hunter[17] = 'sculptor';
+                    hunter[17] = '.sculptor';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -1982,7 +1982,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[18].style.backgroundColor = 'aqua';
                     hunter_counter[19] = 1;
-                    hunter[18] = 'undead';
+                    hunter[18] = '.undead';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -2016,7 +2016,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[19].style.backgroundColor = 'aqua';
                     hunter_counter[20] = 1;
-                    hunter[19] = 'breaking_wheel';
+                    hunter[19] = '.breaking_wheel';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -2050,7 +2050,7 @@ function char_select_function(char_selector) {
                 case 0:
                     select_hunter[20].style.backgroundColor = 'aqua';
                     hunter_counter[21] = 1;
-                    hunter[20] = 'naiad';
+                    hunter[20] = '.naiad';
                     var i = 0;
                     for (let x of hunter){
                         if (x == undefined){
@@ -2097,6 +2097,52 @@ function select(self){
         self.style.filter = 'brightness(0.5)';
     } else {
         self.style.filter = 'brightness(1)';
+    }
+}
+
+function select_all(displaying){
+    switch (displaying){
+        case 'select':
+            for (var i = 0; i < survivor.length; i++){
+                if (survivor[i] != undefined){
+                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
+                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(1)';
+                    }
+                }
+            }
+            for (var i = 0; i < hunter.length; i++){
+                if (hunter[i] != undefined){
+                    for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
+                        document.querySelectorAll(hunter[i])[j].style.filter = 'brightness(1)';
+                    }
+                }
+            }
+            break;
+        case 'unselect':
+            for (var i = 0; i < survivor.length; i++){
+                if (survivor[i] != undefined){
+                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
+                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(0.5)';
+                    }
+                }
+            }
+            for (var i = 0; i < hunter.length; i++){
+                if (hunter[i] != undefined){
+                    for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
+                        document.querySelectorAll(hunter[i])[j].style.filter = 'brightness(0.5)';
+                    }
+                }
+            }
+            break;
+        case 'showing':
+            for (var i = 0; i < survivor.length; i++){
+                if (survivor[i] != undefined){
+                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
+                        document.querySelectorAll(survivor[i])[j].style.filter = 'block';
+                    }
+                }
+            }
+            break;
     }
 }
 /*
