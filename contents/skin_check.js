@@ -2135,7 +2135,7 @@ function select_all(displaying){
             }
             break;
         case 'showing':
-            document.querySelectorAll('div:not(#others) img').style.backgroundColor = 'none';
+            document.querySelectorAll('div:not(#others) img').style.display = 'none';
             for (var i = 0; i < survivor.length; i++){
                 if (survivor[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
