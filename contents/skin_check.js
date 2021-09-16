@@ -2135,10 +2135,19 @@ function select_all(displaying){
             }
             break;
         case 'showing':
+            document.querySelectorAll('#skin_checking img').style.backgroundColor = 'none';
             for (var i = 0; i < survivor.length; i++){
                 if (survivor[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
                         document.querySelectorAll(survivor[i])[j].style.filter = 'block';
+                    }
+                }
+            }
+            break;
+            for (var i = 0; i < hunter.length; i++){
+                if (hunter[i] != undefined){
+                    for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
+                        document.querySelectorAll(hunter[i])[j].style.filter = 'block';
                     }
                 }
             }
