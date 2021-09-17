@@ -2094,7 +2094,7 @@ function menu_display(displaying){
 
 function select(self){
     if (self.style.filter == 'brightness(1)'){
-        self.style.filter = 'brightness(0.5)';
+        self.style.filter = 'brightness(0.3)';
     } else {
         self.style.filter = 'brightness(1)';
     }
@@ -2122,14 +2122,14 @@ function select_all(displaying){
             for (var i = 0; i < survivor.length; i++){
                 if (survivor[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
-                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(0.5)';
+                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(0.3)';
                     }
                 }
             }
             for (var i = 0; i < hunter.length; i++){
                 if (hunter[i] != undefined){
                     for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
-                        document.querySelectorAll(hunter[i])[j].style.filter = 'brightness(0.5)';
+                        document.querySelectorAll(hunter[i])[j].style.filter = 'brightness(0.3)';
                     }
                 }
             }
