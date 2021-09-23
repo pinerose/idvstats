@@ -2109,15 +2109,15 @@ function select_all(displaying){
                         if (grade[i] != undefined){
                             for (var k = 0; k < survivor.length; k++){
                                 if (survivor[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].survivor[k]).length; l++){
-                                        document.querySelectorAll(kind[i].grade[j].survivor[k])[l].style.filter = "brightness(1.0)";
+                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+survivor[k]).length; l++){
+                                        document.querySelectorAll(kind[i]+grade[j]+survivor[k])[l].style.filter = "brightness(1.0)";
                                     }
                                 }
                             }
                             for (var k = 0; k < hunter.length; k++){
                                 if (hunter[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].hunter[k]).length; l++){
-                                        document.querySelectorAll(kind[i].grade[j].hunter[k])[l].style.filter = "brightness(1.0)";
+                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+hunter[k]).length; l++){
+                                        document.querySelectorAll(kind[i]+grade[j]+hunter[k])[l].style.filter = "brightness(1.0)";
                                     }
                                 }
                             }
@@ -2133,15 +2133,15 @@ function select_all(displaying){
                         if (grade[i] != undefined){
                             for (var k = 0; k < survivor.length; k++){
                                 if (survivor[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].survivor[k]).length; l++){
-                                        document.querySelectorAll(kind[i].grade[j].survivor[k])[l].style.filter = "brightness(0.3)";
+                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+survivor[k]).length; l++){
+                                        document.querySelectorAll(kind[i]+grade[j]+survivor[k])[l].style.filter = "brightness(0.3)";
                                     }
                                 }
                             }
                             for (var k = 0; k < hunter.length; k++){
                                 if (hunter[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].hunter[k]).length; l++){
-                                        document.querySelectorAll(kind[i].grade[j].hunter[k])[l].style.filter = "brightness(0.3)";
+                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+hunter[k]).length; l++){
+                                        document.querySelectorAll(kind[i]+grade[j]+hunter[k])[l].style.filter = "brightness(0.3)";
                                     }
                                 }
                             }
@@ -2160,15 +2160,15 @@ function select_all(displaying){
                         if (grade[i] != undefined){
                             for (var k = 0; k < survivor.length; k++){
                                 if (survivor[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].survivor[k]).length; l++){
-                                        document.querySelectorAll(kind[i].grade[j].survivor[k])[l].style.display = "block";
+                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+survivor[k]).length; l++){
+                                        document.querySelectorAll(kind[i]+grade[j]+survivor[k])[l].style.display = "block";
                                     }
                                 }
                             }
                             for (var k = 0; k < hunter.length; k++){
                                 if (hunter[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].hunter[k]).length; l++){
-                                        document.querySelectorAll(kind[i].grade[j].hunter[k])[l].style.display = "block";
+                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+hunter[k]).length; l++){
+                                        document.querySelectorAll(kind[i]+grade[j]+hunter[k])[l].style.display = "block";
                                     }
                                 }
                             }
