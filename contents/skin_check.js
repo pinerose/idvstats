@@ -2103,33 +2103,49 @@ function select(self){
 function select_all(displaying){
     switch (displaying){
         case 'select':
-            for (var i = 0; i < survivor.length; i++){
-                if (survivor[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
-                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(1)';
-                    }
-                }
-            }
-            for (var i = 0; i < hunter.length; i++){
-                if (hunter[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
-                        document.querySelectorAll(hunter[i])[j].style.filter = 'brightness(1)';
+            for (var i = 0; i < kind.length; i++){
+                if (kind[i] != undefined){
+                    for (var j = 0; j < grade.length; j++){
+                        if (grade[i] != undefined){
+                            for (var k = 0; k < survivor.length; k++){
+                                if (survivor[k] != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].survivor[k]).length; l++){
+                                        document.querySelectorAll(kind[i].grade[j].survivor[k])[l].style.filter = "brightness(1.0)";
+                                    }
+                                }
+                            }
+                            for (var k = 0; k < hunter.length; k++){
+                                if (hunter[k] != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].hunter[k]).length; l++){
+                                        document.querySelectorAll(kind[i].grade[j].hunter[k])[l].style.filter = "brightness(1.0)";
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
             break;
         case 'unselect':
-            for (var i = 0; i < survivor.length; i++){
-                if (survivor[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
-                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(0.3)';
-                    }
-                }
-            }
-            for (var i = 0; i < hunter.length; i++){
-                if (hunter[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
-                        document.querySelectorAll(hunter[i])[j].style.filter = 'brightness(0.3)';
+            for (var i = 0; i < kind.length; i++){
+                if (kind[i] != undefined){
+                    for (var j = 0; j < grade.length; j++){
+                        if (grade[i] != undefined){
+                            for (var k = 0; k < survivor.length; k++){
+                                if (survivor[k] != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].survivor[k]).length; l++){
+                                        document.querySelectorAll(kind[i].grade[j].survivor[k])[l].style.filter = "brightness(0.3)";
+                                    }
+                                }
+                            }
+                            for (var k = 0; k < hunter.length; k++){
+                                if (hunter[k] != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].hunter[k]).length; l++){
+                                        document.querySelectorAll(kind[i].grade[j].hunter[k])[l].style.filter = "brightness(0.3)";
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -2138,17 +2154,25 @@ function select_all(displaying){
             for (var i = 0; i < document.querySelectorAll('div img').length; i++){
                 document.querySelectorAll('div img')[i].style.display = 'none';
             }
-            for (var i = 0; i < survivor.length; i++){
-                if (survivor[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
-                        document.querySelectorAll(survivor[i])[j].style.display = 'block';
-                    }
-                }
-            }
-            for (var i = 0; i < hunter.length; i++){
-                if (hunter[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(hunter[i]).length; j++){
-                        document.querySelectorAll(hunter[i])[j].style.display = 'block';
+            for (var i = 0; i < kind.length; i++){
+                if (kind[i] != undefined){
+                    for (var j = 0; j < grade.length; j++){
+                        if (grade[i] != undefined){
+                            for (var k = 0; k < survivor.length; k++){
+                                if (survivor[k] != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].survivor[k]).length; l++){
+                                        document.querySelectorAll(kind[i].grade[j].survivor[k])[l].style.display = "block";
+                                    }
+                                }
+                            }
+                            for (var k = 0; k < hunter.length; k++){
+                                if (hunter[k] != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(kind[i].grade[j].hunter[k]).length; l++){
+                                        document.querySelectorAll(kind[i].grade[j].hunter[k])[l].style.display = "block";
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
