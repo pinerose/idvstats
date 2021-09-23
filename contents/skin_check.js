@@ -822,10 +822,10 @@ function char_select_function(char_selector) {
             }
             break;
         case 'prospector':
-            switch (survivor_counter[16]){
+            switch (survivor_counter[18]){
                 case 0:
                     select_survivor[17].style.backgroundColor = 'aqua';
-                    survivor_counter[16] = 1;
+                    survivor_counter[18] = 1;
                     survivor[17] = '.prospector';
                     var i = 0;
                     for (let x of survivor){
@@ -840,7 +840,7 @@ function char_select_function(char_selector) {
                     break;
                 case 1:
                     select_survivor[17].style.backgroundColor = 'aliceblue';
-                    survivor_counter[16] = 0;
+                    survivor_counter[18] = 0;
                     survivor[17] = undefined;
                     var i = 0;
                     for (let x of survivor){
@@ -858,9 +858,9 @@ function char_select_function(char_selector) {
         case 'enchantress':
             switch (survivor_counter[19]){
                 case 0:
-                    select_survivor[16].style.backgroundColor = 'aqua';
+                    select_survivor[18].style.backgroundColor = 'aqua';
                     survivor_counter[19] = 1;
-                    survivor[16] = '.enchantress';
+                    survivor[18] = '.enchantress';
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -873,9 +873,9 @@ function char_select_function(char_selector) {
                     }
                     break;
                 case 1:
-                    select_survivor[16].style.backgroundColor = 'aliceblue';
+                    select_survivor[18].style.backgroundColor = 'aliceblue';
                     survivor_counter[19] = 0;
-                    survivor[16] = undefined;
+                    survivor[18] = undefined;
                     var i = 0;
                     for (let x of survivor){
                         if (x == undefined){
@@ -2103,21 +2103,21 @@ function select(self){
 function select_all(displaying){
     switch (displaying){
         case 'select':
-            for (var i = 0; i < kind.length; i++){
-                if (kind[i] != undefined){
-                    for (var j = 0; j < grade.length; j++){
-                        if (grade[i] != undefined){
-                            for (var k = 0; k < survivor.length; k++){
-                                if (survivor[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+survivor[k]).length; l++){
-                                        document.querySelectorAll(kind[i]+grade[j]+survivor[k])[l].style.filter = "brightness(1.0)";
+            for (let x of kind){
+                if (x != undefined){
+                    for (let y of grade){
+                        if (y != undefined){
+                            for (let z of survivor){
+                                if (z != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
+                                        document.querySelectorAll(x+y+z)[l].style.filter = "brightness(1.0)";
                                     }
                                 }
                             }
-                            for (var k = 0; k < hunter.length; k++){
-                                if (hunter[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+hunter[k]).length; l++){
-                                        document.querySelectorAll(kind[i]+grade[j]+hunter[k])[l].style.filter = "brightness(1.0)";
+                            for (let z of hunter){
+                                if (z != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
+                                        document.querySelectorAll(x+y+z)[l].style.filter = "brightness(1.0)";
                                     }
                                 }
                             }
@@ -2127,21 +2127,21 @@ function select_all(displaying){
             }
             break;
         case 'unselect':
-            for (var i = 0; i < kind.length; i++){
-                if (kind[i] != undefined){
-                    for (var j = 0; j < grade.length; j++){
-                        if (grade[i] != undefined){
-                            for (var k = 0; k < survivor.length; k++){
-                                if (survivor[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+survivor[k]).length; l++){
-                                        document.querySelectorAll(kind[i]+grade[j]+survivor[k])[l].style.filter = "brightness(0.3)";
+            for (let x of kind){
+                if (x != undefined){
+                    for (let y of grade){
+                        if (y != undefined){
+                            for (let z of survivor){
+                                if (z != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
+                                        document.querySelectorAll(x+y+z)[l].style.filter = "brightness(0.3)";
                                     }
                                 }
                             }
-                            for (var k = 0; k < hunter.length; k++){
-                                if (hunter[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+hunter[k]).length; l++){
-                                        document.querySelectorAll(kind[i]+grade[j]+hunter[k])[l].style.filter = "brightness(0.3)";
+                            for (let z of hunter){
+                                if (z != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
+                                        document.querySelectorAll(x+y+z)[l].style.filter = "brightness(0.3)";
                                     }
                                 }
                             }
@@ -2154,21 +2154,21 @@ function select_all(displaying){
             for (var i = 0; i < document.querySelectorAll('div img').length; i++){
                 document.querySelectorAll('div img')[i].style.display = 'none';
             }
-            for (var i = 0; i < kind.length; i++){
-                if (kind[i] != undefined){
-                    for (var j = 0; j < grade.length; j++){
-                        if (grade[i] != undefined){
-                            for (var k = 0; k < survivor.length; k++){
-                                if (survivor[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+survivor[k]).length; l++){
-                                        document.querySelectorAll(kind[i]+grade[j]+survivor[k])[l].style.display = "block";
+            for (let x of kind){
+                if (x != undefined){
+                    for (let y of grade){
+                        if (y != undefined){
+                            for (let z of survivor){
+                                if (z != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
+                                        document.querySelectorAll(x+y+z)[l].style.display = "block";
                                     }
                                 }
                             }
-                            for (var k = 0; k < hunter.length; k++){
-                                if (hunter[k] != undefined){
-                                    for (var l = 0; l < document.querySelectorAll(kind[i]+grade[j]+hunter[k]).length; l++){
-                                        document.querySelectorAll(kind[i]+grade[j]+hunter[k])[l].style.display = "block";
+                            for (let z of hunter){
+                                if (z != undefined){
+                                    for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
+                                        document.querySelectorAll(x+y+z)[l].style.display = "block";
                                     }
                                 }
                             }
