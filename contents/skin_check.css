@@ -156,7 +156,7 @@
             #selector div#special_selector li{
                 width: calc(20% - 2rem);
                 min-width: 100px;
-                height: calc(80%);
+                height: calc(85%);
                 margin: auto 1rem;
             }
 
@@ -170,7 +170,7 @@
             #selector div#normal_selector li{
                 width: calc(10% - 1rem);
                 min-width: 75px;
-                height: calc(12%);
+                height: calc(13%);
                 margin: auto;
             }
 
@@ -220,7 +220,12 @@
     #others{
         display: flex;
         justify-content: flex-end;
+        align-items: flex-end;
         text-align: right;
+    }
+
+    #others .house{
+        height: 75px;
     }
 
     #others span{
