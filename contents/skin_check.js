@@ -2226,6 +2226,7 @@ function switching_bgcolor(){
             document.querySelector('#selector').style.color = 'black';
             document.querySelector('#wrap').style.filter = 'brightness(0.8)';
             document.querySelector('#sub_title').style.filter = 'brightness(0.8)';
+            document.querySelector('#others span').style.filter = 'brightness(0.8)';
             body_bgcolor = 'black';
             break;
         case 'black':
@@ -2233,6 +2234,7 @@ function switching_bgcolor(){
             document.querySelector('body').style.color = 'black';
             document.querySelector('#wrap').style.filter = 'brightness(1)';
             document.querySelector('#sub_title').style.filter = 'brightness(1)';
+            document.querySelector('#others span').style.filter = 'brightness(1)';
             body_bgcolor = 'aliceblue';
             break;
     }
