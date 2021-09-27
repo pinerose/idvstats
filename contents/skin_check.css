@@ -209,7 +209,7 @@
     width: 90%;
     max-width: 1200px;
     min-width: 900px;
-    height: 78rem;
+    height: 180rem;
     padding: 1rem 0;
     margin: 0 auto;
     display: flex;
@@ -243,4 +243,9 @@
         width: 7%;
         height: 100px;
         filter: brightness(0.3);
+    }
+
+    #skin_checking div img.acce{
+        width: 7%;
+        height: 75px;
     }
