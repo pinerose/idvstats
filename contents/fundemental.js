@@ -11,6 +11,7 @@
     // counter
     var counter_skin = 0;
     var counter_acce = 0;
+    var counter_all = 0;
 
 // grade_select_function variables
 
@@ -30,6 +31,10 @@
     for (var i = 0; i < grade_counter.length; i++){
         grade_counter[i] = 0;
     }
+
+//select_house and detective variables
+    var house = '';
+    var detective = '';
 
 //char_select_function variables
 
@@ -114,3 +119,8 @@
     // array
     var grade_skin = document.querySelectorAll('.skin');
     var grade_acce = document.querySelectorAll('.acce');
+
+// switching_bgcolor
+
+    // variable
+    var body_bgcolor = 'aliceblue';

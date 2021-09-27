@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="skin_check.css">
         <script async src="functions.js"></script>
         <script async src="fundemental.js"></script>
+        <script async src="selector_refactoring_function.js"></script>
         <script async src="skin_check.js"></script>
         <script async src="accepting_selectors.js"></script>
     </head>
@@ -23,9 +24,11 @@
                 <div id="kinds_selector">
                     <h2 class="selector_title">종류 선택</h2>
                     <span class="alert">! 스킨 버튼을 꼭 눌러주세요(악세 미지원) !</span>
-                    <button id="hiding_menu" onclick="menu_display(hide);">메뉴 가리기</button>
+                    <button id="switching_bgcolor" onclick="switching_bgcolor();">배경색 변경</button>
+                    <button id="hiding_menu" onclick="menu_display('hide');">메뉴 가리기</button>
                     <li class="select_skin" onclick="kind_select_function('skin');">스킨</li>
                     <li class="select_acce" onclick="kind_select_function('acce');">악세사리</li>
+                    <li class="select_all" onclick="kind_select_function('all');">모두 선택</li>
                 </div>
                 <div id="grade_selector">
                     <h2 class="selector_title">등급 선택</h2>
@@ -42,6 +45,8 @@
                     <div id="special_selector">
                         <li class="every_survivor" onclick="char_select_function('survivor');">모든 생존자</li>
                         <li class="every_hunter" onclick="char_select_function('hunter');">모든 감시자</li>
+                        <li class="every_house" onclick="select_house();">모든 자택</li>
+                        <li class="every_detective" onclick="select_detective();">탐정스킨</li>
                     </div>
                     <div id="normal_selector">
                         <li class="survivor" id="doctor" onclick="char_select_function('doctor');">의사</li>
@@ -108,18 +113,14 @@
                 </div>
             </div>
         </div>
-        <span class="sub_title" onclick="menu_display('show');">idvstats</span>
-        <span class="thanks_to">
-            스킨표: 람, 자헤드<br>
-            2021.9.15.
-        </span>
+        <span id="sub_title" onclick="menu_display('show');">idvstats</span>
         <div id="skin_checking">
             <div id="others">
-                <img onclick="select(this);" src="checking/img/S_skins/akdang_maeryeok.png">
-                <img onclick="select(this);" src="checking/img/S_skins/house1.PNG">
-                <img onclick="select(this);" src="checking/img/S_skins/house2.PNG">
-                <img onclick="select(this);" src="checking/img/S_skins/house3.PNG">
-                <img onclick="select(this);" src="checking/img/S_skins/house4.PNG">
+                <img class="detective" onclick="select(this);" src="checking/img/S_skins/akdang_maeryeok.png">
+                <img class="house" onclick="select(this);" src="checking/img/S_skins/house1.PNG">
+                <img class="house" onclick="select(this);" src="checking/img/S_skins/house2.PNG">
+                <img class="house" onclick="select(this);" src="checking/img/S_skins/house3.PNG">
+                <img class="house" onclick="select(this);" src="checking/img/S_skins/house4.PNG">
                 <span>
                     스킨표: 2020.10.01 람<br>
                     2021.8.27 자헤드
@@ -222,6 +223,7 @@
                 <img class="skin S_grade enchantress" onclick="select(this);" src="checking/img/S_skins/strange_magician.PNG">
                 <img class="skin S_grade barmaid" onclick="select(this);" src="checking/img/S_skins/judgment_alcohol.PNG">
                 <img class="skin S_grade entomologist" onclick="select(this);" src="checking/img/S_skins/sophia.PNG">
+                <img class="skin S_grade entomologist" onclick="select(this);" src="checking/img/S_skins/mujika.PNG">
                 <img class="skin S_grade merchant" onclick="select(this);" src="checking/img/S_skins/light_wing.PNG">
                 <img class="skin S_grade psychologist" onclick="select(this);" src="checking/img/S_skins/heron_wing.PNG">
             </div>
@@ -242,6 +244,7 @@
                 <img class="skin A_grade reaper" onclick="select(this);" src="checking/img/A_skins/gate_crasher.PNG">
                 <img class="skin A_grade reaper" onclick="select(this);" src="checking/img/A_skins/forest_knight.PNG">
                 <img class="skin A_grade reaper" onclick="select(this);" src="checking/img/A_skins/good_child.PNG">
+                <img class="skin A_grade reaper" onclick="select(this);" src="checking/img/A_skins/sonju.PNG">
                 <img class="skin A_grade game_keeper" onclick="select(this);" src="checking/img/A_skins/steam_punk.PNG">
                 <img class="skin A_grade game_keeper" onclick="select(this);" src="checking/img/A_skins/forest_guardian.PNG">
                 <img class="skin A_grade game_keeper" onclick="select(this);" src="checking/img/A_skins/anubis.PNG">
@@ -259,6 +262,7 @@
                 <img class="skin A_grade photographer" onclick="select(this);" src="checking/img/A_skins/apolon.PNG">
                 <img class="skin A_grade photographer" onclick="select(this);" src="checking/img/A_skins/blood_sword.PNG">
                 <img class="skin A_grade photographer" onclick="select(this);" src="checking/img/A_skins/en_ligne.PNG">
+                <img class="skin A_grade photographer" onclick="select(this);" src="checking/img/A_skins/peter_retri.PNG">
                 <img class="skin A_grade mad_eye" onclick="select(this);" src="checking/img/A_skins/imprisoned_director.PNG">
                 <img class="skin A_grade mad_eye" onclick="select(this);" src="checking/img/A_skins/miser.PNG">
                 <img class="skin A_grade axe_boy" onclick="select(this);" src="checking/img/A_skins/time_boy.PNG">
@@ -269,6 +273,7 @@
                 <img class="skin A_grade guard_26" onclick="select(this);" src="checking/img/A_skins/western_boss.PNG">
                 <img class="skin A_grade guard_26" onclick="select(this);" src="checking/img/A_skins/mister_egg.PNG">
                 <img class="skin A_grade violinist" onclick="select(this);" src="checking/img/A_skins/uroboros.PNG">
+                <img class="skin A_grade undead" onclick="select(this);" src="checking/img/A_skins/zazie.PNG">
             </div>
             <div class="A_skin_felame_hunter">
                 <img class="skin A_grade soul_weaver" onclick="select(this);" src="checking/img/A_skins/candle.PNG">

@@ -3,28 +3,46 @@ function kind_select_function(kind_selector){
         case "skin":
             switch (counter_skin){
                 case 0:
-                    select_skin.style.backgroundColor = "aqua";
-                    counter_skin = 1;
-                    kind[0] = '.skin';
+                    select_skin_function('on');
                     break;
                 case 1:
-                    select_skin.style.backgroundColor = "aliceblue";
-                    counter_skin = 0;
-                    kind[0] = undefined;
+                    select_skin_function('off');
                     break;
             }
             break;
         case "acce":
             switch (counter_acce){
                 case 0:
-                    select_acce.style.backgroundColor = "aqua";
-                    counter_acce = 1;
-                    kind[1] = '.acce';
+                    select_acce_function('on');
                     break;
                 case 1:
-                    select_acce.style.backgroundColor = "aliceblue";
-                    counter_acce = 0;
-                    kind[1] = undefined;
+                    select_acce_function('off');
+                    break;
+            }
+            break;
+        case "all":
+            switch (counter_all){
+                case 0:
+                    select_every_grade_function('on');
+                    select_survivor_function('on');
+                    select_hunter_function('on');
+                    select_skin_function('on');
+                    select_acce_function('on');
+                    select_house_function('on');
+                    select_detective_function('on');
+                    document.querySelector('.select_all').style.backgroundColor = 'aqua';
+                    counter_all = 1;
+                    break;
+                case 1:
+                    select_every_grade_function('off');
+                    select_survivor_function('off');
+                    select_hunter_function('off');
+                    select_skin_function('off');
+                    select_acce_function('off');
+                    select_house_function('off');
+                    select_detective_function('off');
+                    document.querySelector('.select_all').style.backgroundColor = 'aliceblue';
+                    counter_all = 0;
                     break;
             }
     }
@@ -35,22 +53,10 @@ function grade_select_function(grade_selector){
         case "every":
             switch (grade_counter[0]){
                 case 0:
-                    for (let x of select_grade){
-                        x.style.backgroundColor = 'aqua';
-                    }
-                    for (var i = 0; i < grade_counter.length; i++){
-                        grade_counter[i] = 1;
-                    }
-                    grade = ['.S_grade', '.A_grade', '.B_grade', '.C_grade'];
+                    select_every_grade_function('on');
                     break;
                 case 1:
-                    for (let x of select_grade){
-                        x.style.backgroundColor = 'aliceblue';
-                    }
-                    for (var i = 0; i < grade_counter.length; i++){
-                        grade_counter[i] = 0;
-                    }
-                    grade = new Array(4);
+                    select_every_grade_function('off');
                     break;
             }
             break;
@@ -193,53 +199,47 @@ function grade_select_function(grade_selector){
     }
 }
 
+function select_house(){
+    switch (house){
+        case '':
+            select_house_function('on');
+            break;
+        case 'house':
+            select_house_function('off');
+            break;
+    }
+}
+
+function select_detective(){
+    switch (detective){
+        case '':
+            select_detective_function('on');
+            break;
+        case 'detective':
+            select_detective_function('off');
+            break;
+    }
+}
+
 function char_select_function(char_selector) {
     switch (char_selector){
         case 'survivor':
             switch (survivor_counter[0]){
                 case 0:
-                    for (let x of select_survivor){
-                        x.style.backgroundColor = 'aqua';
-                    }
-                    select_every_survivor.style.backgroundColor = 'aqua';
-                    for (var i = 0; i < survivor_counter.length; i++){
-                        survivor_counter[i] = 1;
-                    }
-                    survivor = ['.doctor', '.lawyer', '.thief', '.gardener', '.magician', '.explorer', '.mercenary', '.coordinator', '.mechanic', '.forward', '.mindeye', '.priestess', '.perfumer', '.cowboy', '.dancer', '.seer', '.embalmer', '.prospector', '.enchantress', '.wildling', '.acrobat', '.officer', '.barmaid', '.postman', '.graveyard', '.prisoner', '.entomologist', '.painter', '.batter', '.merchant', '.psychologist', '.patient', '.unlucky'];
+                    select_survivor_function('on');
                     break;
                 case 1:
-                    for (let x of select_survivor){
-                        x.style.backgroundColor = 'aliceblue';
-                    }
-                    select_every_survivor.style.backgroundColor = 'aliceblue';
-                    for (var i = 0; i < survivor_counter.length; i++){
-                        survivor_counter[i] = 0;
-                    }
-                    survivor = new Array(33);
+                    select_survivor_function('off');
                     break;
             }
             break;
         case 'hunter':
             switch (hunter_counter[0]){
                 case 0:
-                    for (let x of select_hunter){
-                        x.style.backgroundColor = 'aqua';
-                    }
-                    select_every_hunter.style.backgroundColor = 'aqua';
-                    for (var i = 0; i < hunter_counter.length; i++){
-                        hunter_counter[i] = 1;
-                    }
-                    hunter = ['.hell_ember', '.joker', '.game_keeper', '.reaper', '.soul_weaver', '.geisha', '.feaster', '.wu_chang', '.photographer', '.mad_eye', '.dream_witch', '.axe_boy', '.evil_raptilian', '.mary', '.guard_26', '.disciple', '.violinist', '.sculptor', '.undead', '.breaking_wheel', '.naiad'];
+                    select_hunter_function('on');
                     break;
                 case 1:
-                    for (let x of select_hunter){
-                        x.style.backgroundColor = 'aliceblue';
-                    }
-                    select_every_hunter.style.backgroundColor = 'aliceblue';
-                    for (var i = 0; i < hunter_counter.length; i++){
-                        hunter_counter[i] = 0;
-                    }
-                    hunter = new Array(21);
+                    select_hunter_function('off');
                     break;
             }
             break;
@@ -2086,8 +2086,12 @@ function char_select_function(char_selector) {
 function menu_display(displaying){
     switch(displaying){
         case 'hide':
+            document.querySelector('#wrap').style.display = 'none';
+            document.querySelector('#sub_title').style.display = 'block';
             break;
         case 'show':
+            document.querySelector('#wrap').style.display = 'flex';
+            document.querySelector('#sub_title').style.display = 'none';
             break;
     }
 }
@@ -2125,6 +2129,16 @@ function select_all(displaying){
                     }
                 }
             }
+            if (house == 'house'){
+                for (let x of document.querySelectorAll('.house')){
+                    x.style.filter = 'brightness(1.0)';
+                }
+            }
+            if (detective == 'detective'){
+                for (let x of document.querySelectorAll('.detective')){
+                    x.style.filter = 'brightness(1.0)';
+                }
+            }
             break;
         case 'unselect':
             for (let x of kind){
@@ -2149,10 +2163,23 @@ function select_all(displaying){
                     }
                 }
             }
+            if (house == 'house'){
+                for (let x of document.querySelectorAll('.house')){
+                    x.style.filter = 'brightness(0.3)';
+                }
+            }
+            if (detective == 'detective'){
+                for (let x of document.querySelectorAll('.detective')){
+                    x.style.filter = 'brightness(0.3)';
+                }
+            }
             break;
         case 'showing':
             for (var i = 0; i < document.querySelectorAll('div img').length; i++){
                 document.querySelectorAll('div img')[i].style.display = 'none';
+            }
+            for (let x of document.querySelectorAll('#others img')){
+                x.style.display = 'none';
             }
             for (let x of kind){
                 if (x != undefined){
@@ -2176,68 +2203,37 @@ function select_all(displaying){
                     }
                 }
             }
+            if (house == 'house'){
+                for (let x of document.querySelectorAll('.house')){
+                    x.style.display = 'block';
+                }
+            }
+            if (detective == 'detective'){
+                for (let x of document.querySelectorAll('.detective')){
+                    x.style.display = 'block';
+                }
+            }
             break;
     }
 }
-/*
-function select_all(displaying){
-    switch (displaying){
-        case "select":
-            for (var i = 0; i < survivor.length; i++){
-                if (survivor[i] != undefined){
-                    for (var j = 0; j < document.querySelectorAll(survivor[i]).length; j++){
-                        document.querySelectorAll(survivor[i])[j].style.filter = 'brightness(1)';
-                    }
-                }
-            }
-            for (var i = 0; i < grade.length; i++){
-                if (grade[i] == undefined){
-                    switch (i){
-                        case 0:
-                            for (var j = 0; j < document.querySelectorAll('.S_grade').length; j++){
-                                document.querySelectorAll('.S_grade')[j].style.filter = 'brightness(0.5)';
-                            }
-                            break;
-                        case 1:
-                            for (var j = 0; j < document.querySelectorAll('.A_grade').length; j++){
-                                document.querySelectorAll('.A_grade')[j].style.filter = 'brightness(0.5)';
-                            }
-                            break;
-                        case 2:
-                            for (var j = 0; j < document.querySelectorAll('.B_grade').length; j++){
-                                document.querySelectorAll('.B_grade')[j].style.filter = 'brightness(0.5)';
-                            }
-                            break;
-                        case 3:
-                            for (var j = 0; j < document.querySelectorAll('.C_grade').length; j++){
-                                document.querySelectorAll('.C_grade')[j].style.filter = 'brightness(0.5)';
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
 
-            for (var i = 0; i < kind.length; i++){
-                if (kind[i] == undefined){
-                    switch (i){
-                        case 0:
-                            for (var j = 0; j < document.querySelectorAll('.skin').length; j++){
-                                document.querySelectorAll('.skin')[j].style.filter = 'brightness(0.5)';
-                            }
-                            break;
-                        case 1:
-                            for (var j = 0; j < document.querySelectorAll('.acce').length; j++){
-                                document.querySelectorAll('.acce')[j].style.filter = 'brightness(0.5)';
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-
+function switching_bgcolor(){
+    switch (body_bgcolor){
+        case 'aliceblue':
+            document.querySelector('body').style.backgroundColor = "black";
+            document.querySelector('body').style.color = 'white';
+            document.querySelector('#selector').style.backgroundColor = "aliceblue";
+            document.querySelector('#selector').style.color = 'black';
+            document.querySelector('#wrap').style.filter = 'brightness(0.8)';
+            document.querySelector('#sub_title').style.filter = 'brightness(0.8)';
+            body_bgcolor = 'black';
+            break;
+        case 'black':
+            document.querySelector('body').style.backgroundColor = "aliceblue";
+            document.querySelector('body').style.color = 'black';
+            document.querySelector('#wrap').style.filter = 'brightness(1)';
+            document.querySelector('#sub_title').style.filter = 'brightness(1)';
+            body_bgcolor = 'aliceblue';
+            break;
     }
 }
-*/
