@@ -1,256 +1,491 @@
 @charset "utf-8";
 
+*:not(html, head){
+    text-align: center;
+}
+body{
+    touch-action: manipulation;
+}
+
 #wrap{
-    width: 90%;
+    width: 100%;
+    height: 400rem;
     min-width: 900px;
     max-width: 1200px;
-    height: calc(60 * 0.67rem);
     margin: auto;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
     user-select: none;
-}
-
-#contents_title{
-    width: 100%;
-    height: calc(10% / 0.67 - 2.0625rem);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 0.0625rem solid gray;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     text-align: center;
 }
 
-#contents_nav{
-    width: 100%;
-    height: calc(7% / 0.67);
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-}
-
-    #contents_nav li{
-        width: 25%;
-        height: 50%;
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    #contents_nav li:not(:first-child){
-        width: calc(25% - 0.0625rem);
-        border-left: 0.0625rem solid gray;
-    }
-
-/* 스킨체크표 스타일시트 */
-#selector{
-    width: 100%;
-    height: calc(50% / 0.67);
-    display: flex;
-    flex-flow: row wrap;
-    border: 1px solid lightgrey;
-}
-
-    /* "종류/등급 선택" 부분 공통 CSS */
-    
-    .selector_title{
-        width: calc(20% - 0.5rem);
-        height: calc(40% - 0.5rem);
-        padding: 0.25rem;
-        margin: auto 0;
-    }
-    
-    .alert{
-        width: calc(60% - 0.5rem);
-        height: calc(40% - 0.5rem);
-        padding: 0.25rem;
-        margin: auto 0;
-    }
-
-    #selector div li{
-        width: calc(15%);
-        height: calc(60% - 1rem);
-        margin: auto;
-    }
-
-    /* "종류 선택" 부분 CSS */
-    #kinds_selector{
+    #contents_title, #contents_nav{
         width: 100%;
-        height: 15%;
-        margin: auto;
+        height: 10rem;
         display: flex;
         flex-flow: row wrap;
-        text-align: center;
-        font-size: 1.2rem;
     }
 
-        #kinds_selector .alert{
-            width: calc(60% - 10.5rem);
-            height: calc(40% - 0.5rem);
-            padding: 0.25rem;
-            margin: auto 0;
-        }
-
-        #kinds_selector #switching_bgcolor{
-            width: calc(10rem - 0.5rem);
-            height: calc(40%);
-            margin: 0.25rem auto;
-        }
-
-        #kinds_selector #hiding_menu{
-            width: calc(10rem - 0.5rem);
-            height: calc(40%);
-            margin: 0.25rem auto;
-        }
-
-        #selector div#kinds_selector li{
-            width: calc(20% - 1rem);
-            margin: 0.5rem;
-        }
-    
-    /* "등급 선택" 부분 CSS */
-    #grade_selector{
-        width: 100%;
-        height: 15%;
-        margin: auto;
-        display: flex;
-        flex-flow: row wrap;
-        text-align: center;
-        font-size: 1.2rem;
+    #contents_title{
+        border-bottom: 1px solid gray;
     }
+        /* contents_title */
 
-        #grade_selector .alert{
-            margin-right: 20%;
+        #contents_name{
+            width: 60%;
+            height: 100%;
+            font-size: 7rem;
+            line-height: 8rem;
+            font-weight: bold;
+            font-family: 'Times New Roman';
         }
 
-    /* "캐릭터 선택" 부분 CSS */
-    #char_selector{
-        width: 100%;
-        height: 50%;
-        margin: auto;
-        display: flex;
-        flex-flow: row wrap;
-        text-align: center;
-        font-size: 1.2rem;
+        #menu_icon, #categories_icon{
+            width: calc(20% - 1px);
+            height: 100%;
+            font-size: 3rem;
+            line-height: 8.5rem;
+            cursor: pointer;
+            border-left: 1px solid gray;
+        }
+
+        #menu_icon{
+            border-left: none;
+            border-right: 1px solid gray;
+        }
+    #contents_nav{
+        display: none;
+        width: 90%;
+        height: calc(80rem - 1px);
+        border-right: 1px solid gray;
+        border-bottom: 1px solid gray;
+        justify-content: flex-start;
+        align-content: flex-start;
     }
+        /* contents_nav */
 
-        #char_selector .selector_title{
-            height: 10%;
-            margin: auto;
+        #contents_nav li{
+            width: 100%;
+            height: 7.5%;
+            font-size: 3rem;
+            line-height: 6rem;
+            margin: calc(100% / 40) 0;
         }
 
-        #char_selector .alert{
-            height: 10%;
-            margin: auto;
-            margin-right: 20%;
-        }
-
-        #special_selector{
+        #contents_nav footer{
             width: 100%;
             height: 10%;
-            margin: auto;
+            margin-top: calc(100% / 2.5);
+            line-height: 4rem;
+        }
+
+    #selector{
+        width: 90%;
+        height: 100rem;
+        border-left: 1px solid gray;
+        border-bottom: 1px solid gray;
+        margin-left: 10%;
+        display: none;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+    }
+
+        #settings{
+            width: 100%;
+            height: 5%;
             display: flex;
             flex-flow: row wrap;
         }
 
-            #selector div#special_selector li{
-                width: calc(20% - 2rem);
-                min-width: 100px;
-                height: calc(85%);
-                margin: auto 1rem;
+            #settings button{
+                width: 32%;
+                height: 80%;
+                margin: auto;
+                font-size: 3rem;
+                line-height: 0rem;
+                font-family: "Noto Serif KR";
             }
 
-        #normal_selector{
+        #kinds_selector, #grade_selector{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+            #kinds_selector h2, #grade_selector h2, #char_selector h2{
+                width: 90%;
+                height: 50%;
+                margin: auto;
+                font-size: 3rem;
+                line-height: 5rem;
+                text-align: left;
+            }
+
+            #kinds_selector li, #kinds_selector button{
+                width: 25%;
+                height: 40%;
+                margin: auto;
+                font-family: "Noto Serif KR";
+                font-size: 3rem;
+                line-height: 4rem;
+            }
+
+            /* grade_selector */
+
+            #grade_selector li{
+                width: 19%;
+                height: 40%;
+                margin: auto;
+                line-height: 4rem;
+            }
+
+        #char_selector{
             width: 100%;
             height: 70%;
             display: flex;
             flex-flow: row wrap;
         }
 
-            #selector div#normal_selector li{
-                width: calc(10% - 1rem);
-                min-width: 75px;
-                height: calc(13%);
-                margin: auto;
+            #char_selector h2{
+                height: 7%;
             }
 
-    /* "버튼 모음집" 부분 CSS */
-    #button_array{
+            #special_selector{
+                width: 100%;
+                height: calc(7% - 1rem);
+                margin-bottom: 1rem;
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+                #special_selector li{
+                    width: 24%;
+                    height: 100%;
+                    margin: auto;
+                    line-height: 4rem;
+                }
+
+            #normal_selector{
+                width: 100%;
+                height: 86%;
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+                #normal_selector li{
+                    width: 16%;
+                    height: 8%;
+                    margin: 0 auto;
+                }
+        
+        #button_array{
+            width: 100%;
+            height: 5%;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+            #button_array button{
+                width: 30%;
+                height: 80%;
+                margin: auto;
+                font-size: 3rem;
+                line-height: 0rem;
+                font-family: "Noto Serif KR";
+            }
+
+    #sub_title{
         width: 100%;
-        height: 15%;
+        height: 10rem;
+        display: none;
+        font-size: 7rem;
+        line-height: 8rem;
+        font-weight: bold;
+        font-family: 'Times New Roman';
+    }
+        
+    #skin_checking{
+        width: 95%;
+        height: calc(100% - 10rem);
+        margin: auto;
+    }
+
+        #skin_checking div{
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+            #skin_checking div:not(#others) img{
+                width: 12.5%;
+                height: 9rem;
+                margin: 0;
+                filter: brightness(0.3);
+            }
+
+            #skin_checking div .acce{
+                height: 7rem;
+            }
+
+        #others{
+            width: 100%;
+            height: 10rem;
+            padding: 1rem 0;
+            display: flex;
+            flex-flow: row wrap;
+            align-content: flex-end;
+        }
+
+            #skin_checking #others .detective{
+                width: 12%;
+                height: 100%;
+                filter: brightness(0.3);
+            }
+        
+            #skin_checking #others .house{
+                width: 12%;
+                height: 7rem;
+                filter: brightness(0.3);
+            }
+
+            #skin_checking #others span{
+                width: 40%;
+                height: 100%;
+                text-align: right;
+            }
+
+@media all and (min-width:1200px){ 
+
+    #wrap,#contents_title, #contents_nav,#contents_title,#contents_name,
+    #menu_icon, #categories_icon,#contents_nav,#contents_nav li,#contents_nav footer
+    #selector,#settings,#settings button,#kinds_selector, #grade_selector,
+    #kinds_selector h2, #grade_selector h2, #char_selector h2,
+    #kinds_selector li, #kinds_selector button,#grade_selector li,#char_selector,
+    #char_selector h2,#special_selector,#special_selector li,#normal_selector,
+    #normal_selector li,#button_array,#button_array button,#sub_title,
+    #skin_checking,#skin_checking div,#skin_checking div:not(#others) img,
+    #skin_checking div .acce,#others,#skin_checking #others .detective,
+    #skin_checking #others .house,#skin_checking #others span{
+        display: block;
+        flex-flow: row wrap;
+        text-align: center;
+        line-height: 1;
+        font-size: 2rem;
+        padding: 0;
+        margin: 0;
+        border: none;
+        justify-content: flex-start;
+        align-content: flex-start;
+        font-family: "Noto Serif KR";
+    }
+    
+    #menu_icon, #categories_icon, footer{
+        display: none;
+    }
+    
+    #wrap{
+        width: 90%;
+        height: 200rem;
         margin: auto;
         display: flex;
         flex-flow: row wrap;
-        justify-content: flex-end;
+        text-align: center;
+        user-select: none;
     }
 
-        #button_array button{
-            width: calc(10%);
-            height: calc(60%);
-            margin: 1rem 2rem;
+        #contents_title{
+            width: 100%;
+            height: calc(7rem - 1px);
+            border-bottom: 1px solid gray;
+            font-size: 3.5rem;
+            line-height: 7rem;
+            font-weight: bold;
+            font-family: "Times New Roman";
         }
 
-#sub_title{
-    display: none;
-    width: 90%;
-    max-width: 1200px;
-    min-width: 900px;
-    height: 5rem;
-    margin: auto;
-    text-align: center;
-    font-size: 3rem;
-    line-height: 4rem;
-    font-weight: bold;
-    font-family: "Times New Roman";
-    cursor: pointer;
-}
+        #contents_nav{
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            flex-flow: row wrap;
+        }
 
-#skin_checking{
-    width: 90%;
-    max-width: 1200px;
-    min-width: 900px;
-    height: 180rem;
-    padding: 1rem 0;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-}
+            #contents_nav li{
+                width: 20%;
+                height: 70%;
+                margin: auto;
+                font-size: 2rem;
+                line-height: 3rem;
+            }
 
-    #others{
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        text-align: right;
-    }
+            #contents_nav li:not(:first-child){
+                border-left: 1px solid gray;
+                width: calc(20% - 1px);
 
-    #others .house{
-        height: 75px;
-    }
+            }
 
-    #others span{
-        width: 35%;
-        height: 100px;
-        margin-left: 28%;
-        margin-right: 2%;
-        font-size: 1.2rem;
-        line-height: 1.2;
-    }
+        #selector{
+            width: calc(100% - 2px);
+            height: calc(66rem);
+            display: flex;
+            flex-flow: row wrap;
+            align-content: flex-start;
+            border: 1px solid gray;
+        }
 
-    #skin_checking div{
-        width: 100%;
-        gap: 0;
-        display: flex;
-        flex-flow: row wrap;
-    }
+            #settings{
+                width: 100%;
+                height: 5rem;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-end;
+            }
 
-    #skin_checking div img{
-        width: 7%;
-        height: 100px;
-        filter: brightness(0.3);
-    }
+                #settings button{
+                    width: 12%;
+                    height: 60%;
+                    margin: auto 4%;
+                }
 
-    #skin_checking div img.acce{
-        width: 7%;
-        height: 75px;
-    }
+            #kinds_selector, #grade_selector{
+                width: 100%;
+                height: 7rem;
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+                #kinds_selector h2, #grade_selector h2, #char_selector h2{
+                    width: 90%;
+                    height: 40%;
+                    margin: auto;
+                    text-align: left;
+                    line-height: 3rem;
+                    font-size: 1.5rem;
+                }
+
+                #kinds_selector li, #kinds_selector button, #grade_selector li{
+                    width: calc(20% - 2rem);
+                    height: 40%;
+                    margin: auto 1rem;
+                    font-size: 1.5rem;
+                    line-height: 2.5rem;
+                    cursor: pointer;
+                }
+
+            #char_selector{
+                width: 100%;
+                height: 40rem;
+                display: flex;
+                flex-flow: row wrap;
+                align-content: flex-start;
+            }
+
+                #char_selector h2{
+                    height: calc(7rem * 0.4);
+                    margin: 0 auto;
+                }
+
+                #special_selector{
+                    width: 100%;
+                    height: calc(7rem * 0.4);
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-start;
+                }
+
+                    #special_selector li{
+                        width: calc(20% - 2rem);
+                        height: 100%;
+                        margin: auto 1rem;
+                        font-size: 1.5rem;
+                        line-height: 2.5rem;
+                    }
+
+                #normal_selector{
+                    width: 100%;
+                    height: 34.4rem;
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-content: flex-start;
+                }
+
+                    #normal_selector li{
+                        width: calc(10% - 1rem);
+                        height: calc(15% - 1rem);
+                        margin: 0.5rem;
+                        font-size: 1.5rem;
+                        line-height: 2.5rem;
+                    }
+
+            #button_array{
+                width: 100%;
+                height: 7rem;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-end;
+            }
+
+                #button_array button{
+                    width: 15%;
+                    height: 40%;
+                    margin: auto 1rem;
+                }
+
+        #sub_title{
+            width: 100%;
+            height: 7rem;
+            font-size: 3.5rem;
+            line-height: 5rem;
+            font-family: "Times New Roman";
+            text-align: center;
+            display: none;
+        }
+
+        #skin_checking{
+            width: 100%;
+            height: 115rem;
+        }
+
+            #skin_checking div{
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-content: flex-start;
+            }
+
+                #skin_checking div img{
+                    width: 7%;
+                    height: 7rem;
+                    margin: 0;
+                    filter: brightness(0.3);
+                }
+
+                #skin_checking .acce img{
+                    height: 5rem;
+                }
+
+            #others{
+                width: 100%;
+                height: 7.5rem;
+                display: flex;
+                flex-flow: row wrap;
+                align-items: flex-end;
+            }
+
+                #others span{
+                    width: 65%;
+                    height: 7rem;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                    text-align: right;
+                }
+
+                #others .house{
+                    height: 5rem;
+                }
+} 

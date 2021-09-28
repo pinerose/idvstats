@@ -2239,3 +2239,70 @@ function switching_bgcolor(){
             break;
     }
 }
+
+function select_menu(turning){
+    switch (turning){
+        case 'on':
+            document.querySelector('#contents_nav').style.display = 'flex';
+            document.querySelector('#menu_icon').style.filter = 'opacity(1)';
+            for (let x of document.querySelectorAll('#contents_title *:not(#menu_icon)')){
+                x.style.filter = 'opacity(0.1)';
+            }
+            menu = 'menu';
+            break;
+        case 'off':
+            document.querySelector('#contents_nav').style.display = 'none';
+            menu = '';
+            break;
+    }
+}
+
+function select_categories(turning){
+    switch (turning){
+        case 'on':
+            document.querySelector('#selector').style.display = 'flex';
+            document.querySelector('#categories_icon').style.filter = 'opacity(1)';
+            for (let x of document.querySelectorAll('#contents_title *:not(#categories_icon)')){
+                x.style.filter = 'opacity(0.1)';
+            }
+            categories = 'categories';
+            break;
+        case 'off':
+            document.querySelector('#selector').style.display = 'none';
+            categories = '';
+            break;
+    }
+}
+
+function select_icon(kinds){
+    switch (kinds){
+        case 'menu':
+            switch (menu){
+                case '':
+                    select_menu('on');
+                    select_categories('off');
+                    categories = '';
+                    break;
+                case 'menu':
+                    select_menu('off');
+                    for (let x of document.querySelectorAll('#contents_title *:not(#menu_icon)')){
+                        x.style.filter = 'opacity(1)';
+                    }
+                    break;
+            }
+            break;
+        case 'categories':
+            switch (categories){
+                case '':
+                    select_categories('on');
+                    select_menu('off');
+                    break;
+                case 'categories':
+                    select_categories('off');
+                    for (let x of document.querySelectorAll('#contents_title *:not(#categories_icon)')){
+                        x.style.filter = 'opacity(1)';
+                    }
+                    break;
+            }
+    }
+}

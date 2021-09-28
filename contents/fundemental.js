@@ -124,3 +124,9 @@
 
     // variable
     var body_bgcolor = 'aliceblue';
+
+// select_icon
+
+    // variable
+    var menu = '';
+    var categories = '';
