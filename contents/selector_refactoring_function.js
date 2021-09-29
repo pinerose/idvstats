@@ -130,7 +130,7 @@ function select_detective_function(turning){
 //select_char
 
 var survivor_list = ['.doctor', '.lawyer', '.thief', '.gardener', '.magician', '.explorer', '.mercenary', '.coordinator', '.mechanic', '.forward', '.mindeye', '.priestess', '.perfumer', '.cowboy', '.dancer', '.seer', '.embalmer', '.prospector', '.enchantress', '.wildling', '.acrobat', '.officer', '.barmaid', '.postman', '.graveyard', '.prisoner', '.entomologist', '.painter', '.batter', '.merchant', '.psychologist', '.patient', '.unlucky'];
-var hunter_list = ['.hell_ember', '.joker', '.game_keeper', '.reaper', '.soul_weaver', '.geisha', '.feaster', '.wu_chang', '.photographer', '.mad_eye', '.dream_witch', '.axe_boy', '.evil_raptilian', '.mary', '.guard_26', '.disciple', '.violinist', '.sculptor', '.undead', '.breaking_wheel', '.naiad'];
+var hunter_list = ['.hell_ember', '.joker', '.game_keeper', '.reaper', '.soul_weaver', '.geisha', '.feaster', '.wu_chang', '.photographer', '.mad_eye', '.dream_witch', '.axe_boy', '.evil_raptilian', '.mary', '.guard_26', '.disciple', '.violinist', '.sculptor', '.undead', '.breaking_wheel', '.naiad', '.philip'];
 
 
 function select_each_survivor_function(ordinal_number){
@@ -199,6 +199,40 @@ function select_each_hunter_function(ordinal_number){
                 select_every_hunter.style.backgroundColor = 'aliceblue';
                 hunter_counter[ordinal_number - 1] = 0;
             }
+            break;
+    }
+}
+
+function select_menu(turning){
+    switch (turning){
+        case 'on':
+            document.querySelector('#contents_nav').style.display = 'flex';
+            document.querySelector('#menu_icon').style.filter = 'opacity(1)';
+            for (let x of document.querySelectorAll('#contents_title *:not(#menu_icon)')){
+                x.style.filter = 'opacity(0.1)';
+            }
+            menu = 'menu';
+            break;
+        case 'off':
+            document.querySelector('#contents_nav').style.display = 'none';
+            menu = '';
+            break;
+    }
+}
+
+function select_categories(turning){
+    switch (turning){
+        case 'on':
+            document.querySelector('#selector').style.display = 'flex';
+            document.querySelector('#categories_icon').style.filter = 'opacity(1)';
+            for (let x of document.querySelectorAll('#contents_title *:not(#categories_icon)')){
+                x.style.filter = 'opacity(0.1)';
+            }
+            categories = 'categories';
+            break;
+        case 'off':
+            document.querySelector('#selector').style.display = 'none';
+            categories = '';
             break;
     }
 }

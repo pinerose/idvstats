@@ -404,6 +404,9 @@ function char_select_function(char_selector) {
         case 'naiad':
             select_each_hunter_function(21);
             break;
+        case 'philip':
+            select_each_hunter_function(22);
+            break;
     }
 
 }
@@ -420,7 +423,24 @@ function menu_display(displaying){
             document.querySelector('#contents_title').style.display = 'flex';
             document.querySelector('#selector').style.display = 'flex';
             document.querySelector('#contents_nav').style.display = 'flex';
-            document.querySelector('#sub_title').style.display = 'none';
+            document.querySelector('#mobile_sub_title').style.display = 'none';
+            break;
+    }
+}
+
+function mobile_menu_display(displaying){
+    switch (displaying){
+        case 'hide':
+            document.querySelector('#contents_title').style.display = 'none';
+            select_categories('off');
+            document.querySelector('#sub_title_mobile').style.display = 'block';
+            break;
+        case 'show':
+            document.querySelector('#contents_title').style.display = 'flex';
+            for (let x of document.querySelectorAll('#contents_title *:not(#categories_icon)')){
+                x.style.filter = 'opacity(1)';
+            }
+            document.querySelector('#sub_title_mobile').style.display = 'none';
             break;
     }
 }
@@ -569,40 +589,6 @@ function switching_bgcolor(){
     }
 }
 
-function select_menu(turning){
-    switch (turning){
-        case 'on':
-            document.querySelector('#contents_nav').style.display = 'flex';
-            document.querySelector('#menu_icon').style.filter = 'opacity(1)';
-            for (let x of document.querySelectorAll('#contents_title *:not(#menu_icon)')){
-                x.style.filter = 'opacity(0.1)';
-            }
-            menu = 'menu';
-            break;
-        case 'off':
-            document.querySelector('#contents_nav').style.display = 'none';
-            menu = '';
-            break;
-    }
-}
-
-function select_categories(turning){
-    switch (turning){
-        case 'on':
-            document.querySelector('#selector').style.display = 'flex';
-            document.querySelector('#categories_icon').style.filter = 'opacity(1)';
-            for (let x of document.querySelectorAll('#contents_title *:not(#categories_icon)')){
-                x.style.filter = 'opacity(0.1)';
-            }
-            categories = 'categories';
-            break;
-        case 'off':
-            document.querySelector('#selector').style.display = 'none';
-            categories = '';
-            break;
-    }
-}
-
 function select_icon(kinds){
     switch (kinds){
         case 'menu':
@@ -633,5 +619,21 @@ function select_icon(kinds){
                     }
                     break;
             }
+    }
+}
+
+function information(turning){
+    switch (turning){
+        case 'on':
+            for (let x of document.querySelectorAll('#selector div:not(informations)')){
+                x.style.display = 'none';
+            }
+            document.querySelector('#informations').style.display = 'flex';
+            break;
+        case 'off':
+            for (let x of document.querySelectorAll('#selector div:not(informations)')){
+                x.style.display = 'flex';
+            }
+            document.querySelector('#informations').style.display = 'none';
     }
 }

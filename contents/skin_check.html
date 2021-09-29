@@ -15,7 +15,7 @@
         <div id="wrap">
             <div id="contents_title">
                 <span id="menu_icon" onclick="select_icon('menu');">메뉴</span>
-                <a href="../index.html" id="contents_name">idvstats</a>
+                <a href="skin_check.html" id="contents_name">idvstats</a>
                 <span id="categories_icon" onclick="select_icon('categories');">카테고리</span>
             </div>
             <nav id="contents_nav">
@@ -30,9 +30,36 @@
             </nav>
             <div id="selector">
                 <div id="settings">
-                    <button class="alert" onclick="information();">안내사항</button>
+                    <button class="alert" onclick="information('on');">안내사항</button>
                     <button id="switching_bgcolor" onclick="switching_bgcolor();">배경색 변경</button>
                     <button id="hiding_menu" onclick="menu_display('hide');">메뉴 가리기</button>
+                    <button id="hiding_mobile_menu" onclick="mobile_menu_display('hide');">메뉴 가리기</button>
+                </div>
+                <div id="informations">
+                    <h2 onclick="information('off')">안내사항</h2>
+                    <p>
+                        안내사항: 기능 안내입니다. <br> 
+                        '안내사항'을 누르면 원래대로 돌아옵니다.<br>
+                        <br>
+                        배경색 변경: 배경색을 검정으로 바꿔줍니다. <br>
+                        다시 누르면 원래대로 돌아옵니다.<br>
+                        <br>
+                        메뉴 가리기: 사이트 상단 메뉴를 가려주며,<br>
+                        메뉴가 가려진 상태에서 화면 상단의 'idvstats'를 누르면 다시 돌아옵니다. <br>
+                        <br>
+                        모두 선택: 모든 아이템을 선택합니다. <br>
+                        다시 누르면 해제됩니다. <br>
+                        <br>
+                        표시하기: 선택된 카테고리에 해당하는 아이템만 표시합니다.<br>
+                        <br>
+                        선택하기: 선택한 카테고리에 해당하는 아이템만 체크합니다.<br>
+                        <br>
+                        선택 해제: 선택한 카테고리에 해당하는 아이템만 체크합니다.<br>
+                        <br>
+                        * 자택과 탐정스킨을 제외한 아이템은 *<br>
+                        종류와 등급을 먼저 선택해야 합니다.<br>
+                        <br>
+                    </p>
                 </div>
                 <div id="kinds_selector">
                     <h2 class="selector_title">종류 선택</h2>
@@ -112,6 +139,7 @@
                         <li class="hunter" id="undead" onclick="char_select_function('undead');">박사</li>
                         <li class="hunter" id="breaking_wheel" onclick="char_select_function('breaking_wheel');">바퀴</li>
                         <li class="hunter" id="naiad" onclick="char_select_function('naiad');">해녀</li>
+                        <li class="hunter" id="philip" onclick="char_select_function('philip');">밀랍</li>
                     </div>
                 </div>
                 <div id="button_array">
@@ -121,6 +149,7 @@
                 </div>
             </div>
             <span id="sub_title" onclick="menu_display('show');">idvstats</span>
+            <span id="sub_title_mobile" onclick="mobile_menu_display('show');">idvstats</span>
             <div id="skin_checking">
                 <div id="others">
                     <img class="detective" onclick="select(this);" src="checking/img/S_skins/akdang_maeryeok.png">
@@ -135,6 +164,7 @@
                 </div>
                 <div class="S_skin_male_hunter">
                     <img class="skin S_grade hell_ember" onclick="select(this);" src="checking/img/S_skins/golden_cracket.png">
+                    <img class="skin S_grade joker" onclick="select(this);" src="checking/img/S_skins/joker_king.PNG">
                     <img class="skin S_grade joker" onclick="select(this);" src="checking/img/S_skins/isegye_traveler.PNG">
                     <img class="skin S_grade joker" onclick="select(this);" src="checking/img/S_skins/beautiful_smile.PNG">
                     <img class="skin S_grade game_keeper" onclick="select(this);" src="checking/img/S_skins/golden_smith.PNG">
@@ -480,18 +510,27 @@
                     <img class="acce S_grade postman" onclick="select(this);" src="checking/img/S_acces/S_acce_postman.PNG">
                     <img class="acce S_grade painter" onclick="select(this);" src="checking/img/S_acces/S_acce_painter.PNG">
                 </div>
-                <div class="A_grade acce"></div>
+                <div class="A_grade acce"><!--
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">
+                    <img class="acce A_grade " onclick="select(this);" src="checking/img/A_acce/">-->
+                </div>
                 <div class="B_grade acce"></div>
                 <div class="C_grade acce"></div>
             </div>
         </div>
-
-
-        <!--
-        <div id="wrap">
-            <h1 id="contents_title"><a href="../index.html">idvstats</a></h1>
-            
-        </div>
-    -->
     </body>
 </html>

@@ -109,7 +109,7 @@
     for (var i = 0; i < survivor_counter.length; i++){
         survivor_counter[i] = 0;
     }
-    var hunter_counter = new Array (22);
+    var hunter_counter = new Array (23);
     for (var i = 0; i < hunter_counter.length; i++){
         hunter_counter[i] = 0;
     }
