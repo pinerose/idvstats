@@ -271,7 +271,8 @@ body{
             display: flex;
             flex-flow: row wrap;
             justify-content: flex-end;
-            align-content: flex-end;
+            align-content: center;
+            align-items: flex-end;
         }
 
             #skin_checking #others .detective{
