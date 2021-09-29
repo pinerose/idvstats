@@ -126,3 +126,79 @@ function select_detective_function(turning){
             break;
     }
 }
+
+//select_char
+
+var survivor_list = ['.doctor', '.lawyer', '.thief', '.gardener', '.magician', '.explorer', '.mercenary', '.coordinator', '.mechanic', '.forward', '.mindeye', '.priestess', '.perfumer', '.cowboy', '.dancer', '.seer', '.embalmer', '.prospector', '.enchantress', '.wildling', '.acrobat', '.officer', '.barmaid', '.postman', '.graveyard', '.prisoner', '.entomologist', '.painter', '.batter', '.merchant', '.psychologist', '.patient', '.unlucky'];
+var hunter_list = ['.hell_ember', '.joker', '.game_keeper', '.reaper', '.soul_weaver', '.geisha', '.feaster', '.wu_chang', '.photographer', '.mad_eye', '.dream_witch', '.axe_boy', '.evil_raptilian', '.mary', '.guard_26', '.disciple', '.violinist', '.sculptor', '.undead', '.breaking_wheel', '.naiad'];
+
+
+function select_each_survivor_function(ordinal_number){
+    switch (survivor_counter[ordinal_number]){
+        case 0:
+            select_survivor[ordinal_number - 1].style.backgroundColor = 'aqua';
+            survivor_counter[ordinal_number] = 1;
+            survivor[ordinal_number - 1] = survivor_list[ordinal_number - 1];
+            var i = 0;
+            for (let x of survivor){
+                if (x == undefined){
+                    i++;
+                }
+            }
+            if (i == 0){
+                select_every_survivor.style.backgroundColor = 'aqua';
+                survivor_counter[ordinal_number - 1] = 1;
+            }
+            break;
+        case 1:
+            select_survivor[ordinal_number - 1].style.backgroundColor = 'aliceblue';
+            survivor_counter[ordinal_number] = 0;
+            survivor[ordinal_number - 1] = undefined;
+            var i = 0;
+            for (let x of survivor){
+                if (x == undefined){
+                    i++;
+                }
+            }
+            if (i == 1){
+                select_every_survivor.style.backgroundColor = 'aliceblue';
+                survivor_counter[ordinal_number - 1] = 0;
+            }
+            break;
+    }
+}
+
+function select_each_hunter_function(ordinal_number){
+    switch (hunter_counter[ordinal_number]){
+        case 0:
+            select_hunter[ordinal_number - 1].style.backgroundColor = 'aqua';
+            hunter_counter[ordinal_number] = 1;
+            hunter[ordinal_number - 1] = hunter_list[ordinal_number - 1];
+            var i = 0;
+            for (let x of hunter){
+                if (x == undefined){
+                    i++;
+                }
+            }
+            if (i == 0){
+                select_every_hunter.style.backgroundColor = 'aqua';
+                hunter_counter[0] = 1;
+            }
+            break;
+        case 1:
+            select_hunter[ordinal_number - 1].style.backgroundColor = 'aliceblue';
+            hunter_counter[ordinal_number] = 0;
+            hunter[ordinal_number - 1] = undefined;
+            var i = 0;
+            for (let x of hunter){
+                if (x == undefined){
+                    i++;
+                }
+            }
+            if (i == 1){
+                select_every_hunter.style.backgroundColor = 'aliceblue';
+                hunter_counter[ordinal_number - 1] = 0;
+            }
+            break;
+    }
+}
