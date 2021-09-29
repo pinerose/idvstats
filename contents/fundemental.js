@@ -35,6 +35,7 @@
 //select_house and detective variables
     var house = '';
     var detective = '';
+    var hahoetal = '';
 
 //char_select_function variables
 

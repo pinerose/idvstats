@@ -127,6 +127,19 @@ function select_detective_function(turning){
     }
 }
 
+function select_hahoetal_function(turning){
+    switch (turning){
+        case 'on':
+            document.querySelector('.every_hahoetal').style.backgroundColor = 'aqua';
+            hahoetal = 'hahoetal';
+            break;
+        case 'off':
+            document.querySelector('.every_hahoetal').style.backgroundColor = 'aliceblue';
+            hahoetal = '';
+            break;
+    }
+}
+
 //select_char
 
 var survivor_list = ['.doctor', '.lawyer', '.thief', '.gardener', '.magician', '.explorer', '.mercenary', '.coordinator', '.mechanic', '.forward', '.mindeye', '.priestess', '.perfumer', '.cowboy', '.dancer', '.seer', '.embalmer', '.prospector', '.enchantress', '.wildling', '.acrobat', '.officer', '.barmaid', '.postman', '.graveyard', '.prisoner', '.entomologist', '.painter', '.batter', '.merchant', '.psychologist', '.patient', '.unlucky'];

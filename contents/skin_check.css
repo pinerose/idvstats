@@ -150,6 +150,10 @@ body{
                 text-align: left;
             }
 
+            #char_selector h2{
+                width: 65%;
+            }
+
             #kinds_selector li, #kinds_selector button{
                 width: 25%;
                 height: 40%;
@@ -251,7 +255,7 @@ body{
 
             #skin_checking div:not(#others) img{
                 width: 12.5%;
-                height: 9rem;
+                height: 10rem;
                 margin: 0;
                 filter: brightness(0.3);
             }
@@ -277,6 +281,12 @@ body{
             }
         
             #skin_checking #others .house{
+                width: 12%;
+                height: 7rem;
+                filter: brightness(0.3);
+            }
+
+            #skin_checking #others .acce{
                 width: 12%;
                 height: 7rem;
                 filter: brightness(0.3);
@@ -543,6 +553,13 @@ body{
                 }
 
                 #skin_checking #others .house{
+                    width: 7%;
+                    height: 5rem;
+                    margin: 0;
+                    filter: brightness(0.3);
+                }
+
+                #skin_checking #others .acce{
                     width: 7%;
                     height: 5rem;
                     margin: 0;

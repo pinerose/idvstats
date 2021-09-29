@@ -221,6 +221,17 @@ function select_detective(){
     }
 }
 
+function select_hahoetal(){
+    switch (hahoetal){
+        case '':
+            select_hahoetal_function('on');
+            break;
+        case 'hahoetal':
+            select_hahoetal_function('off');
+            break;
+    }
+}
+
 function char_select_function(char_selector) {
     switch (char_selector){
         case 'survivor':
@@ -489,6 +500,11 @@ function select_all(displaying){
                     x.style.filter = 'brightness(1.0)';
                 }
             }
+            if (hahoetal == 'hahoetal'){
+                for (let x of document.querySelectorAll('.hahoetal')){
+                    x.style.filter = 'brightness(1.0)';
+                }
+            }
             break;
         case 'unselect':
             for (let x of kind){
@@ -520,6 +536,11 @@ function select_all(displaying){
             }
             if (detective == 'detective'){
                 for (let x of document.querySelectorAll('.detective')){
+                    x.style.filter = 'brightness(0.3)';
+                }
+            }
+            if (hahoetal == 'hahoetal'){
+                for (let x of document.querySelectorAll('.hahoetal')){
                     x.style.filter = 'brightness(0.3)';
                 }
             }
@@ -560,6 +581,11 @@ function select_all(displaying){
             }
             if (detective == 'detective'){
                 for (let x of document.querySelectorAll('.detective')){
+                    x.style.display = 'block';
+                }
+            }
+            if (hahoetal == 'hahoetal'){
+                for (let x of document.querySelectorAll('.hahoetal')){
                     x.style.display = 'block';
                 }
             }
