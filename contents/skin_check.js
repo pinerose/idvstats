@@ -253,93 +253,94 @@ function char_select_function(char_selector) {
             select_each_survivor_function(3);
             break;
         case 'gardener':
-            select_each_survivor_function(5);
+            select_each_survivor_function(4);
             break;
         case 'magician':
-            select_each_survivor_function(6);
+            select_each_survivor_function(5);
             break;
         case 'explorer':
-            select_each_survivor_function(7);
+            select_each_survivor_function(6);
             break;
         case 'mercenary':
-            select_each_survivor_function(8);
+            select_each_survivor_function(7);
             break;
         case 'coordinator':
-            select_each_survivor_function(9);
+            select_each_survivor_function(8);
             break;
         case 'mechanic':
-            select_each_survivor_function(10);
+            select_each_survivor_function(9);
             break;
         case 'forward':
-            select_each_survivor_function(11);
+            select_each_survivor_function(10);
             break;
         case 'mindeye':
-            select_each_survivor_function(12);
+            select_each_survivor_function(11);
             break;
         case 'priestess':
-            select_each_survivor_function(13);
+            select_each_survivor_function(12);
             break;
         case 'perfumer':
-            select_each_survivor_function(14);
+            select_each_survivor_function(13);
             break;
         case 'cowboy':
-            select_each_survivor_function(15);
+            select_each_survivor_function(14);
             break;
         case 'dancer':
-            select_each_survivor_function(16);
+            select_each_survivor_function(15);
             break;
         case 'seer':
-            select_each_survivor_function(17);
+            select_each_survivor_function(16);
             break;
         case 'embalmer':
-            select_each_survivor_function(18);
+            select_each_survivor_function(17);
             break;
         case 'prospector':
-            select_each_survivor_function(19);
+            select_each_survivor_function(18);
             break;
         case 'enchantress':
-            select_each_survivor_function(20);
+            select_each_survivor_function(19);
             break;
         case 'wildling':
-            select_each_survivor_function(21);
+            select_each_survivor_function(20);
             break;
         case 'acrobat':
-            select_each_survivor_function(22);
+            select_each_survivor_function(21);
             break;
         case 'officer':
-            select_each_survivor_function(23);
+            select_each_survivor_function(22);
             break;
         case 'barmaid':
-            select_each_survivor_function(24);
+            select_each_survivor_function(23);
             break;
         case 'postman':
-            select_each_survivor_function(25);
+            select_each_survivor_function(24);
             break;
         case 'graveyard':
-            select_each_survivor_function(26);
+            select_each_survivor_function(25);
+            break;
         case 'prisoner':
-            select_each_survivor_function(27);
+            select_each_survivor_function(26);
             break;
         case 'entomologist':
-            select_each_survivor_function(28);
+            select_each_survivor_function(27);
             break;
         case 'painter':
-            select_each_survivor_function(29);
+            select_each_survivor_function(28);
             break;
         case 'batter':
-            select_each_survivor_function(30);
+            select_each_survivor_function(29);
             break;
         case 'merchant':
-            select_each_survivor_function(31);
+            select_each_survivor_function(30);
             break;
         case 'psychologist':
-            select_each_survivor_function(32);
+            select_each_survivor_function(31);
             break;
         case 'patient':
-            select_each_survivor_function(33);
+            select_each_survivor_function(32);
             break;
         case 'unlucky':
-            select_each_survivor_function(34);
+            select_each_survivor_function(33);
             break;
         case 'hell_ember':
             select_each_hunter_function(1);
