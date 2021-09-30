@@ -435,7 +435,7 @@ function menu_display(displaying){
             document.querySelector('#contents_title').style.display = 'flex';
             document.querySelector('#selector').style.display = 'flex';
             document.querySelector('#contents_nav').style.display = 'flex';
-            document.querySelector('#mobile_sub_title').style.display = 'none';
+            document.querySelector('#sub_title').style.display = 'none';
             break;
     }
 }
