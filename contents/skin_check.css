@@ -77,9 +77,10 @@ body{
 
         #contents_nav footer{
             width: 100%;
-            height: 10%;
-            margin-top: calc(100% / 2.5);
+            height: 20%;
+            margin-top: 30%;
             line-height: 4rem;
+            float: left;
         }
 
     #selector{
@@ -262,6 +263,10 @@ body{
 
             #skin_checking div:not(#others).acce img{
                 height: 7rem;
+            }
+
+            #skin_checking div:not(#others) img.B_grade, #skin_checking div img.C_grade{
+                display: none;
             }
 
         #others{
