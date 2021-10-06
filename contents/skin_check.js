@@ -466,6 +466,7 @@ function select(self){
 }
 
 function select_all(displaying){
+    let survivor_element_exist = 0;
     switch (displaying){
         case 'select':
             for (let x of kind){
@@ -477,6 +478,7 @@ function select_all(displaying){
                                     for (var l = 0; l < document.querySelectorAll(x+y+z).length; l++){
                                         document.querySelectorAll(x+y+z)[l].style.filter = "brightness(1.0)";
                                     }
+                                    survivor_element_exist++;
                                 }
                             }
                             for (let z of hunter){
@@ -500,7 +502,7 @@ function select_all(displaying){
                     x.style.filter = 'brightness(1.0)';
                 }
             }
-            if (hahoetal == 'hahoetal'){
+            if (survivor_element_exist == survivor.length){
                 for (let x of document.querySelectorAll('.hahoetal')){
                     x.style.filter = 'brightness(1.0)';
                 }
@@ -539,7 +541,7 @@ function select_all(displaying){
                     x.style.filter = 'brightness(0.3)';
                 }
             }
-            if (hahoetal == 'hahoetal'){
+            if (survivor_element_exist == survivor.length){
                 for (let x of document.querySelectorAll('.hahoetal')){
                     x.style.filter = 'brightness(0.3)';
                 }
@@ -584,7 +586,7 @@ function select_all(displaying){
                     x.style.display = 'block';
                 }
             }
-            if (hahoetal == 'hahoetal'){
+            if (survivor_element_exist == survivor.length){
                 for (let x of document.querySelectorAll('.hahoetal')){
                     x.style.display = 'block';
                 }

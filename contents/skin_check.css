@@ -135,6 +135,12 @@ body{
                 line-height: 3rem;
             }
 
+        #canvas{
+            width: 100%;
+            height: 95%;
+            display: none;
+        }
+
         #kinds_selector, #grade_selector{
             width: 100%;
             height: 10%;
