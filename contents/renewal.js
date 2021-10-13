@@ -47,6 +47,7 @@ function select_change_function(input){
             document.querySelector('#category_selector').style.display = 'none';
             document.querySelector('#survivor_selector').style.display = 'none';
             document.querySelector('#hunter_selector').style.display = 'none';
+            document.querySelector('#event_selector').style.display = 'none';
             break;
 
     }
