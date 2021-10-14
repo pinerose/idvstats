@@ -11,7 +11,7 @@
         <div id="wrap">
             <div id="contents_title">
                 <span onclick="show_menu();" id="left_icon">메뉴</span>
-                <h2>idvstats</h2>
+                <h2 onclick="hide_menubar()">idvstats</h2>
                 <span onclick="show_selector();" id="right_icon">추가기능</span>
             </div>
             <nav id="contents_nav">
@@ -23,15 +23,27 @@
             </nav>
             <div id="selector">
                 <div id="settings">
-                    <button onclick="">안내사항</button>
-                    <button onclick="">배경색 바꾸기</button>
-                    <button onclick="">메뉴바 가리기</button>
+                    <button onclick="information();">안내사항</button>
+                    <button onclick="switch_bgcolor();">배경색 바꾸기</button>
+                    <button onclick="hide_menubar();">메뉴바 가리기</button>
                 </div>
                 <div id="informations">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia voluptas laboriosam doloremque totam. Quam, doloremque consequatur? Maxime accusamus harum deleniti, animi eius adipisci, velit asperiores ab aliquid mollitia quia cum?</p>
+                    <p>
+                        안내사항: 기능 안내입니다.<br>
+                        안내사항을 누르면 원래대로 돌아옵니다.<br>
+                        <br>
+                        배경색 변경: 배경색을 검정으로 바꿔줍니다. <br>
+                        다시 누르면 원래대로 돌아옵니다.<br>
+                        <br>
+                        메뉴 가리기: 사이트 상단의 메뉴를 가려줍니다.<br>
+                        화면 상단의 'idvstats'를 누르면 다시 보여집니다.<br>
+                        <br>
+                        추기기능의 항목 변경 - 원하는 캐릭터명 - 표시하기<br>
+                        를 눌러
+                    </p>
                 </div>
                 <div id="kind_selector">
-                    <h2>종류 선택</h2> <button onclick="select_change_function('first');">항목 변경</button>
+                    <h2>종류 선택</h2> <button onclick="select_change_function();">항목 변경</button>
                     <li id="kind_all" onclick="kind_function('all');">모두 선택</li>
                     <li id="kind_skin" onclick="kind_function('skin');">스킨</li>
                     <li id="kind_acce" onclick="kind_function('acce');">악세사리</li>
@@ -47,7 +59,7 @@
                     <li id="grade_C" onclick="grade_function('C');">초록등급</li>
                 </div>
                 <div id="category_selector">
-                    <h2>카테고리 선택</h2> <button onclick="select_change_function('second');">항목 변경</button>
+                    <h2>카테고리 선택</h2> <button onclick="select_change_function();">항목 변경</button>
                     <li id="category_role" onclick="category_kind_function('role');">모든 진영</li>
                     <li id="category_survivor" onclick="category_kind_function('survivor');">생존자</li>
                     <li id="category_hunter" onclick="category_kind_function('hunter');">감시자</li>
@@ -167,6 +179,7 @@
                     <img class="skin S_grade violinist" onclick="select(this);" src="checking/img/S_skins/moon_knight.PNG">
                     <img class="skin S_grade undead" onclick="select(this);" src="checking/img/S_skins/conquer.PNG">
                     <img class="skin S_grade breaking_wheel" onclick="select(this);" src="checking/img/S_skins/three_face.PNG">
+                    <img class="skin S_grade philip" onclick="select(this)" src="checking/img/S_skins/fury.PNG">
                 </div>
                 <div class="S_skin_female_hunter">
                     <img class="skin S_grade soul_weaver" onclick="select(this);" src="checking/img/S_skins/golden_candle.PNG">
@@ -416,6 +429,7 @@
                     <img class="skin A_grade coordinator" onclick="select(this);" src="checking/img/A_skins/queen.PNG">
                     <img class="skin A_grade coordinator" onclick="select(this);" src="checking/img/A_skins/kirigiri.PNG">
                     <img class="skin A_grade coordinator" onclick="select(this);" src="checking/img/A_skins/true_judge.PNG">
+                    <img class="skin A_grade coordinator" onclick="select(this);" src="checking/img/A_skins/susanna.PNG">
                     <img class="skin A_grade mechanic" onclick="select(this);" src="checking/img/A_skins/lauphing.PNG">
                     <img class="skin A_grade mechanic" onclick="select(this);" src="checking/img/A_skins/futaba.PNG">
                     <img class="skin A_grade mechanic" onclick="select(this);" src="checking/img/A_skins/oracle.PNG">
@@ -453,6 +467,7 @@
                     <img class="skin A_grade barmaid" onclick="select(this);" src="checking/img/A_skins/blackrose.PNG">
                     <img class="skin A_grade barmaid" onclick="select(this);" src="checking/img/A_skins/enosima.PNG">
                     <img class="skin A_grade barmaid Call_abyss" onclick="select(this);" src="checking/img/A_skins/accelerator.PNG">
+                    <img class="skin A_grade barmaid" onclick="select(this);" src="checking/img/A_skins/soprano.PNG">
                     <img class="skin A_grade entomologist" onclick="select(this);" src="checking/img/A_skins/black_witch.PNG">
                 </div>
                 <div class="B_skin_male_hunter">
@@ -528,6 +543,7 @@
                         <img class="skin B_grade mad_eye" onclick="select(this);" src="checking/img/B_skins/toothless_lion.PNG">
                         <img class="skin B_grade mad_eye" onclick="select(this);" src="checking/img/B_skins/valerian.PNG">
                         <img class="skin B_grade mad_eye" onclick="select(this);" src="checking/img/B_skins/shock.PNG">
+                        <img class="skin B_grade mad_eye" onclick="select(this);" src="checking/img/B_skins/reveler.PNG">
                         <img class="skin B_grade axe_boy" onclick="select(this);" src="checking/img/B_skins/freak.PNG">
                         <img class="skin B_grade axe_boy" onclick="select(this);" src="checking/img/B_skins/death_eurya.PNG">
                         <img class="skin B_grade axe_boy Call_abyss" onclick="select(this);" src="checking/img/B_skins/hysterical_fans.PNG">
@@ -594,6 +610,7 @@
                         <img class="skin B_grade mary" onclick="select(this);" src="checking/img/B_skins/heart_queen.PNG">
                         <img class="skin B_grade mary" onclick="select(this);" src="checking/img/B_skins/roaster.PNG">
                         <img class="skin B_grade mary" onclick="select(this);" src="checking/img/B_skins/rouge.PNG">
+                        <img class="skin B_grade mary" onclick="select(this);" src="checking/img/B_skins/pipe_dream.PNG">
                         <img class="skin B_grade disciple" onclick="select(this);" src="checking/img/B_skins/coward.PNG">
                         <img class="skin B_grade disciple" onclick="select(this);" src="checking/img/B_skins/absinthe.PNG">
                         <img class="skin B_grade disciple" onclick="select(this);" src="checking/img/B_skins/dominator.PNG">
@@ -698,6 +715,7 @@
                         <img class="skin B_grade embalmer" onclick="select(this);" src="checking/img/B_skins/man_dream_embalmer.PNG">
                         <img class="skin B_grade embalmer" onclick="select(this);" src="checking/img/B_skins/music_master.PNG">
                         <img class="skin B_grade embalmer" onclick="select(this);" src="checking/img/B_skins/rorschach_physician.PNG">
+                        <img class="skin B_grade embalmer" onclick="select(this);" src="checking/img/B_skins/honored_guest.PNG">
                         <img class="skin B_grade prospector" onclick="select(this);" src="checking/img/B_skins/helm_accusation.PNG">
                         <img class="skin B_grade prospector" onclick="select(this);" src="checking/img/B_skins/gold_digger.PNG">
                         <img class="skin B_grade prospector" onclick="select(this);" src="checking/img/B_skins/jarhead.PNG">
@@ -705,6 +723,7 @@
                         <img class="skin B_grade prospector Call_abyss" onclick="select(this);" src="checking/img/B_skins/patchwork.PNG">
                         <img class="skin B_grade prospector" onclick="select(this);" src="checking/img/B_skins/wanderer.PNG">
                         <img class="skin B_grade prospector" onclick="select(this);" src="checking/img/B_skins/wild_pitch.PNG">
+                        <img class="skin B_grade prospector" onclick="select(this);" src="checking/img/B_skins/tune.PNG">
                         <img class="skin B_grade wildling Call_abyss" onclick="select(this);" src="checking/img/B_skins/bodyguard.PNG">
                         <img class="skin B_grade wildling" onclick="select(this);" src="checking/img/B_skins/conquerer.PNG">
                         <img class="skin B_grade wildling" onclick="select(this);" src="checking/img/B_skins/fish_soup_feast.PNG">
@@ -802,6 +821,7 @@
                         <img class="skin B_grade mechanic" onclick="select(this);" src="checking/img/B_skins/tomb_guide.PNG">
                         <img class="skin B_grade mechanic" onclick="select(this);" src="checking/img/B_skins/tuning.PNG">
                         <img class="skin B_grade mechanic" onclick="select(this);" src="checking/img/B_skins/velvet_puzzle.PNG">
+                        <img class="skin B_grade mechanic" onclick="select(this);" src="checking/img/B_skins/scene_four.PNG">
                         <img class="skin B_grade mindeye" onclick="select(this);" src="checking/img/B_skins/clio.PNG">
                         <img class="skin B_grade mindeye" onclick="select(this);" src="checking/img/B_skins/foreign_athenian_mindeye.PNG">
                         <img class="skin B_grade mindeye" onclick="select(this);" src="checking/img/B_skins/good_old_times.PNG">
@@ -1020,21 +1040,25 @@
                     <img class="acce A_grade undead" onclick="select(this);" src="checking/img/A_acces/A_acce_undead.PNG">
                 </div>
                 <div class="B_grade acce">
-                    <!--lorem-->
+                    <!--
+                        <img class="acce B_grade " onclick="select(this);" src="checking/img/B_acces/B_acce.PNG">
+                    -->
                 </div>
                 <div class="C_grade acce">
                     <!--lorem-->
                 </div>
+            </div>
+            <footer>
+                <p>
+                    made by pinerose, 2021.9.28<br>
+                    S / A 등급 스킨 / 악세 출처:<br>
+                    2020.10.01 람<br>
+                    2021.8.27 자헤드<br>
+                    B / C 등급 및 시즌 18-2 이후 S / A 등급은 <br>
+                    'identity v wiki'에서 가져왔습니다.<br>
+                    CCL : CC-BY-SA
+                </p>
+            </footer>
         </div>
-        <footer>
-            <p>made by pinerose, 2021.9.28</p>
-            <p>
-                S / A 등급 스킨 / 악세 출처:<br>
-                2020.10.01 람<br>
-                2021.8.27 자헤드<br>
-            </p>
-            <p>B / C 등급 스킨은 'identity v wiki'에서 가져왔습니다.</p>
-            <p>CCL : CC-BY-SA</p>
-        </footer>
     </body>
 </html>

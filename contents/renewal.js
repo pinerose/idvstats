@@ -32,27 +32,6 @@ function show_selector(){
     }
 }
 
-function select_change_function(input){
-    switch (input){
-        case 'first':
-            document.querySelector('#kind_selector').style.display = 'none';
-            document.querySelector('#grade_selector').style.display = 'none';
-            document.querySelector('#category_selector').style.display = 'flex';
-            document.querySelector('#survivor_selector').style.display = 'flex';
-            document.querySelector('#hunter_selector').style.display = 'flex';
-            break;
-        case 'second':
-            document.querySelector('#kind_selector').style.display = 'flex';
-            document.querySelector('#grade_selector').style.display = 'flex';
-            document.querySelector('#category_selector').style.display = 'none';
-            document.querySelector('#survivor_selector').style.display = 'none';
-            document.querySelector('#hunter_selector').style.display = 'none';
-            document.querySelector('#event_selector').style.display = 'none';
-            break;
-
-    }
-}
-
 /* 변수 정의 */
 let kind = ['skin', 'acce', 'house', 'detective'];
 let kind_counter = new Array(kind.length);
@@ -74,7 +53,7 @@ let hunter = ['hell_ember', 'joker', 'game_keeper', 'reaper', 'soul_weaver', 'ge
 let hunter_counter = new Array(hunter.length);
 hunter_counter.fill(0);
 
-let event = ['Call_abyss', 'Itou_zyunzi', 'Scissorhands', 'Danganronpa', 'PromisedNeverlands', 'Persona5', 'Deathnote', 'Once', 'IvoryTower'];
+let event = ['Call_abyss', 'Itou_zyunzi', 'Scissorhands', 'Danganronpa', 'PromisedNeverLands', 'Persona5', 'Deathnote', 'Once', 'IvoryTower'];
 let event_counter = new Array(event.length);
 event_counter.fill(0);
 
@@ -220,11 +199,11 @@ function category_select_function(input){
         if (hunter[i] == input){
             switch (hunter_counter[i]){
                 case 0:
-                    document.querySelector('#hunter_'+hunter[i]).style.backgroundColor = 'aqua';
+                    document.querySelector('#hunter_'+input).style.backgroundColor = 'aqua';
                     hunter_counter[i] = 1;
                     break;
                 case 1:
-                    document.querySelector('#hunter_'+hunter[i]).style.backgroundColor = 'aliceblue';
+                    document.querySelector('#hunter_'+input).style.backgroundColor = 'aliceblue';
                     hunter_counter[i] = 0;
                     break;
             }
@@ -234,11 +213,11 @@ function category_select_function(input){
         if (event[i] == input){
             switch (event_counter[i]){
                 case 0:
-                    document.querySelector('#event_'+event[i]).style.backgroundColor = 'aqua';
+                    document.querySelector('#event_'+input).style.backgroundColor = 'aqua';
                     event_counter[i] = 1;
                     break;
                 case 1:
-                    document.querySelector('#event_'+event[i]).style.backgroundColor = 'aliceblue';
+                    document.querySelector('#event_'+input).style.backgroundColor = 'aliceblue';
                     event_counter[i] = 0;
                     break;
             }
@@ -299,10 +278,127 @@ function display(){
     }
 }
 
+let present_page = 1;
+function select_change_function(){
+    switch (present_page){
+        case 1:
+            kind_counter.fill(1);
+            document.querySelector('#kind_selector').style.display = 'none';
+            for (let i = 0; i < kind.length; i++){
+                kind_function(kind[i]);
+            }
+            grade_counter.fill(1);
+            document.querySelector('#grade_selector').style.display = 'none';
+            for (let i = 0; i < grade.length; i++){
+                grade_function(grade[i]);
+            }
+            document.querySelector('#category_selector').style.display = 'flex';
+            document.querySelector('#survivor_selector').style.display = 'flex';
+            document.querySelector('#hunter_selector').style.display = 'flex';
+            present_page = 2;
+            break;
+        case 2:
+            document.querySelector('#kind_selector').style.display = 'flex';
+            document.querySelector('#grade_selector').style.display = 'flex';
+            category_counter.fill(1);
+            document.querySelector('#category_selector').style.display = 'none';
+            for (let i = 0; i < category.length; i++){
+                category_kind_function(category[i]);
+            }
+            survivor_counter.fill(1);
+            hunter_counter.fill(1);
+            event_counter.fill(1);
+            document.querySelector('#survivor_selector').style.display = 'none';
+            document.querySelector('#hunter_selector').style.display = 'none';
+            document.querySelector('#event_selector').style.display = 'none';
+            for (let i = 0; i < survivor.length; i++){
+                category_select_function(survivor[i]);
+            }
+            for (let i = 0; i < hunter.length; i++){
+                category_select_function(hunter[i]);
+            }
+            for (let i = 0; i < event.length; i++){
+                category_select_function(event[i]);
+            }
+            present_page = 1;
+            break;
+
+    }
+}
+
+
 function select(self){
     if (self.style.filter == 'brightness(1)'){
         self.style.filter = 'brightness(0.3)';
     } else {
         self.style.filter = 'brightness(1)';
+    }
+}
+
+let information_counter = 0;
+function information(){
+    switch (information_counter){
+        case 0:
+            for (let i = 2; i < document.querySelectorAll('#selector div').length - 1; i++){
+                document.querySelectorAll('#selector div')[i].style.display = 'none';
+            }
+            document.querySelector('#informations').style.display = 'flex';
+            information_counter = 1;
+            break;
+        case 1:
+            switch (present_page){
+                case 1:
+                    select_change_function();
+                    select_change_function();
+                    break;
+                case 2:
+                    select_change_function();
+                    select_change_function();
+                    break;
+            }
+            document.querySelector('#informations').style.display = 'none';
+            information_counter = 0;
+            break;
+    }
+}
+
+let body_background = 'aliceblue';
+function switch_bgcolor(){
+    switch (body_background){
+        case 'aliceblue':
+            document.querySelector('#wrap').style.backgroundColor = 'black';
+            document.querySelector('#wrap').style.color = 'white';
+            document.querySelector('#selector').style.color = 'black';
+            document.querySelector('#wrap').style.filter = 'brightness(0.7)';
+            document.querySelector('#skin_checking').style.filter = 'brightness(1.2)';
+            document.querySelector('#selector').style.backgroundColor = 'aliceblue';
+            body_background = 'black';
+            break;
+        case 'black':
+            document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
+            document.querySelector('#wrap').style.color = 'black';
+            document.querySelector('#wrap').style.filter = 'brightness(1)';
+            body_background = 'aliceblue';
+            break;
+    }
+}
+
+let menubar = 'shown';
+function hide_menubar(){
+    switch (menubar){
+        case 'shown':
+            for (let x of document.querySelectorAll('#contents_title span')){
+                x.style.display = 'none';
+            }
+            document.querySelector('#selector').style.display = 'none';
+            menubar = 'hidden';
+            selector = 'hidden';
+            break;
+        case 'hidden':
+            for (let x of document.querySelectorAll('#contents_title span')){
+                x.style.display = 'block';
+            }
+            menubar = 'shown';
+            break;
     }
 }
