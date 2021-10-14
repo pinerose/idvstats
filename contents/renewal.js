@@ -44,6 +44,7 @@ grade_counter.fill(0);
 let category = ['role', 'survivor', 'hunter', 'event'];
 let category_counter = new Array(category.length);
 category_counter.fill(0);
+category_counter[0] = 1;
 
 let survivor = ['doctor', 'lawyer', 'thief', 'gardener', 'magician', 'explorer', 'mercenary', 'coordinator', 'mechanic', 'forward', 'mindeye', 'priestess', 'perfumer', 'cowboy', 'dancer', 'seer', 'embalmer', 'prospector', 'enchantress', 'wildling', 'acrobat', 'officer', 'barmaid', 'postman', 'graveyard', 'prisoner', 'entomologist', 'painter', 'batter', 'merchant', 'psychologist', 'patient', 'unlucky'];
 let survivor_counter = new Array(survivor.length);
@@ -151,6 +152,7 @@ function category_kind_function(input){
                         document.querySelector('#hunter_selector').style.display = 'flex';
                         document.querySelector('#event_selector').style.display = 'none';
                         for (let j = 1; j < category.length; j++){
+                            category_counter[j] = 0;
                             document.querySelector('#category_'+category[j]).style.backgroundColor = 'aliceblue';
                         }
                         document.querySelector('#category_'+category[i]).style.backgroundColor = 'aqua';
@@ -305,6 +307,7 @@ function select_change_function(){
             for (let i = 0; i < category.length; i++){
                 category_kind_function(category[i]);
             }
+            category_kind_function(category[0]);
             survivor_counter.fill(1);
             hunter_counter.fill(1);
             event_counter.fill(1);
