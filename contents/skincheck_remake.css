@@ -218,7 +218,7 @@ body{
         height: 10rem;
     }
 
-    img.B_grade{
+    img.B_grade, img.C_grade{
         display: none;
     }
 
@@ -228,6 +228,7 @@ body{
 
     div#others img.house, #skin_checking div img.acce{
         height: 7rem;
+        display: block;
     }
 
     footer{

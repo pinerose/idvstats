@@ -278,6 +278,7 @@ function display(){
             }
         }
     }
+
 }
 
 let present_page = 1;
@@ -403,6 +404,13 @@ function hide_menubar(){
             }
             menubar = 'shown';
             break;
+    }
+}
+
+
+function onloaded_table(){
+    for (let x of document.querySelectorAll('div img')) {
+        x.style.filter = 'brightness(0.3)';
     }
 }
 
