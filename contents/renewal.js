@@ -405,3 +405,25 @@ function hide_menubar(){
             break;
     }
 }
+
+let show_selected_counter = 0;
+function show_selected(){
+    switch (show_selected_counter){
+        case 0:
+            for (let x of document.querySelectorAll('div img')) {
+                if (x.style.filter == 'brightness(0.3)'){
+                    x.style.display = 'none';
+                }
+            }
+            show_selected_counter = 1;
+            break;
+        case 1:
+            for (let x of document.querySelectorAll('div img')) {
+                if (x.style.filter == 'brightness(0.3)'){
+                    x.style.display = 'block';
+                }
+            }
+            show_selected_counter = 0;
+            break;
+        }
+}
