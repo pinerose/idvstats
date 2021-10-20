@@ -222,6 +222,10 @@ body{
         display: none;
     }
 
+    div#others img{
+        display: block;
+    }
+
     div#others{
         align-items: flex-end;
     }
