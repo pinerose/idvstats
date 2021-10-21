@@ -407,13 +407,6 @@ function hide_menubar(){
     }
 }
 
-
-function onloaded_table(){
-    for (let x of document.querySelectorAll('div img')) {
-        x.style.filter = 'brightness(0.3)';
-    }
-}
-
 let show_selected_counter = 0;
 function show_selected(){
     switch (show_selected_counter){
@@ -437,6 +430,9 @@ function show_selected(){
 }
 
 function onloaded_table(){
+    for (let x of document.querySelectorAll('div img')) {
+        x.style.filter = 'brightness(0.3)';
+    }
     document.querySelector('#loading_screen').style.display = 'none';
     document.querySelector('#wrap').style.display = 'flex';
 }
