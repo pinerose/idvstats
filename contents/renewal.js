@@ -435,3 +435,8 @@ function show_selected(){
             break;
         }
 }
+
+function onloaded_table(){
+    document.querySelector('#loading_screen').style.display = 'none';
+    document.querySelector('#wrap').style.display = 'flex';
+}
