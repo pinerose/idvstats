@@ -7,11 +7,18 @@ body{
 #loading_screen{
     width: 100%;
     display: flex;
+    flex-flow: row wrap;
+    align-content: center;
     text-align: center;
-    padding-top: 20rem;
     font-size: 2.5rem;
+    line-height: 5rem;
     height: 100rem;
 }
+
+    #loading_screen p{
+        width: 100%;
+        text-align: center;
+    }
 
 #wrap{
     width: 100%;
