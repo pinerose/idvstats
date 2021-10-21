@@ -228,10 +228,14 @@ body{
         justify-content: flex-start;
     }
 
-    #skin_checking div img{
+    div img{
         filter: brightness(0.3);
         width: 12.5%;
         height: 10rem;
+    }
+
+    div img.acce{
+        height: 7rem;
     }
 
     img.B_grade, img.C_grade{
@@ -246,7 +250,7 @@ body{
         align-items: flex-end;
     }
 
-    div#others img.house, #skin_checking div img.acce{
+    div#others img.house, div img.house{
         height: 7rem;
         display: block;
     }
