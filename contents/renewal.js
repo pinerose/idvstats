@@ -54,7 +54,7 @@ let hunter = ['hell_ember', 'joker', 'game_keeper', 'reaper', 'soul_weaver', 'ge
 let hunter_counter = new Array(hunter.length);
 hunter_counter.fill(0);
 
-let event = ['Call_abyss', 'Itou_zyunzi', 'Scissorhands', 'Danganronpa', 'PromisedNeverLands', 'Persona5', 'Deathnote', 'Once', 'IvoryTower'];
+let event = ['Call_abyss', 'Itou_zyunzi', 'Scissorhands', 'Danganronpa', 'PromisedNeverLands', 'Persona5', 'Deathnote', 'Once', 'IvoryTower', 'halloween', 'logic_path', 'deduction_star'];
 let event_counter = new Array(event.length);
 event_counter.fill(0);
 
