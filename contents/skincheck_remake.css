@@ -15,9 +15,37 @@ body{
     height: 100rem;
 }
 
-    #loading_screen p{
+    #loading_screen button{
+        width: 25%;
+        height: 5rem;
+        margin: 1%;
+        font-size: 2.5rem;
+        font-family: "Noto Serif KR";
+    }
+
+    #screen_exit_button{
+        visibility: hidden;
+    }
+
+    #loading_screen footer{
+        width: 46%;
+        margin: 1% 0;
+        text-align: center;
+        border-top: none;
+        display: block;
+    }
+
+    #loading_screen p, #loading_screen h3{
+        font-family: "Noto Serif KR";
         width: 100%;
         text-align: center;
+        border-top: none;
+        display: block;
+    }
+
+    .loading_information{
+        width: 100%;
+        height: 45rem;
     }
 
 #wrap{

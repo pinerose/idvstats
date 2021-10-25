@@ -147,16 +147,16 @@ function category_kind_function(input){
         if (category[i] == input){
             switch (category_counter[i]){
                 case 0:
-                    if (category[i] == 'role'){
+                    if (i == 0){
                         document.querySelector('#survivor_selector').style.display = 'flex';
                         document.querySelector('#hunter_selector').style.display = 'flex';
                         document.querySelector('#event_selector').style.display = 'none';
+                        category_counter.fill(0);
+                        category_counter[0] = 1;
                         for (let j = 1; j < category.length; j++){
-                            category_counter[j] = 0;
                             document.querySelector('#category_'+category[j]).style.backgroundColor = 'aliceblue';
                         }
                         document.querySelector('#category_'+category[i]).style.backgroundColor = 'aqua';
-                        category_counter[0] = 1;
                     } else {
                         for (let j = 1; j < category.length; j++){
                             document.querySelector('#'+category[j]+'_selector').style.display = 'none';
@@ -169,10 +169,34 @@ function category_kind_function(input){
                         document.querySelector('#category_'+category[i]).style.backgroundColor = 'aqua';
                         category_counter[i] = 1;
                     }
+                    survivor_counter.fill(1);
+                    hunter_counter.fill(1);
+                    event_counter.fill(1);
+                    for (let i = 0; i < survivor.length; i++){
+                        category_select_function(survivor[i]);
+                    }
+                    for (let i = 0; i < hunter.length; i++){
+                        category_select_function(hunter[i]);
+                    }
+                    for (let i = 0; i < event.length; i++){
+                        category_select_function(event[i]);
+                    }
                     break;
                 case 1:
                     document.querySelector('#category_'+category[i]).style.backgroundColor = 'aliceblue';
                     category_counter[i] = 0;
+                    if (category_counter.reduce(function(accumulator, currentValue){
+                        return accumulator + currentValue;
+                    }) == 0){
+                        document.querySelector('#category_'+category[0]).style.backgroundColor = 'aqua';
+                        category_counter[0] = 1;
+                    }
+                    if (i == 3){
+                        event_counter.fill(1);
+                        for (let x of event){
+                            category_select_function(x);
+                        }
+                    }
                     document.querySelector('#survivor_selector').style.display = 'flex';
                     document.querySelector('#hunter_selector').style.display = 'flex';
                     document.querySelector('#event_selector').style.display = 'none';
@@ -282,6 +306,7 @@ function display(){
 }
 
 let present_page = 1;
+
 function select_change_function(){
     switch (present_page){
         case 1:
@@ -339,32 +364,6 @@ function select(self){
     }
 }
 
-let information_counter = 0;
-function information(){
-    switch (information_counter){
-        case 0:
-            for (let i = 2; i < document.querySelectorAll('#selector div').length - 1; i++){
-                document.querySelectorAll('#selector div')[i].style.display = 'none';
-            }
-            document.querySelector('#informations').style.display = 'flex';
-            information_counter = 1;
-            break;
-        case 1:
-            switch (present_page){
-                case 1:
-                    select_change_function();
-                    select_change_function();
-                    break;
-                case 2:
-                    select_change_function();
-                    select_change_function();
-                    break;
-            }
-            document.querySelector('#informations').style.display = 'none';
-            information_counter = 0;
-            break;
-    }
-}
 
 let body_background = 'aliceblue';
 function switch_bgcolor(){
@@ -433,6 +432,34 @@ function onloaded_table(){
     for (let x of document.querySelectorAll('div img')) {
         x.style.filter = 'brightness(0.3)';
     }
+    document.querySelector("#screen_exit_button").style.visibility = 'visible';
+}
+
+function exit_screen(){
     document.querySelector('#loading_screen').style.display = 'none';
     document.querySelector('#wrap').style.display = 'flex';
+}
+
+
+let present_info = 1;
+function goto_next_info(){
+    switch (present_info){
+        case 1:
+            document.querySelector('h3').innerHTML = "안내사항";
+            document.querySelector('.loading_information').innerText = 
+            "배경색 변경: 배경색을 검정으로 바꿔줍니다.\n다시 누르면 원래대로 돌아옵니다.\n\n선택스킨 표시: 선택한 스킨만을 보여줍니다.\n다시 누르면 모든 스킨을 표시합니다.\n\n화면 상단의 'idvstats'를 눌러\n메뉴를 가리거나 띄울 수 있습니다.\n\n"
+            present_info = 2;
+            break;
+        case 2:
+            document.querySelector('.loading_information').innerText = 
+            "\"항목 변경 - 원하는 캐릭터명 - 모두 표시\"\n를 눌러 캐릭터 스킨체크표를 제작할 수 있습니다.\n\n또는 \"이벤트 - 이벤트명 - 모두 표시\"\n를 눌러 이벤트 스킨체크표를 제작할 수 있습니다.\n\n"
+            present_info = 3;
+            break;
+        case 3:
+            document.querySelector('h3').innerHTML = "주의사항";
+            document.querySelector('.loading_information').innerText = 
+            "브라우저의 캐시를 삭제하지 않는 것을 권장합니다.\n\n처음 시작시 또는 업데이트 이후 처음 접속시\n와이파이를 통한 접속을 권장합니다.\n(사이트 크기 50MB 이상)"
+            present_info = 1;
+            break;
+    }
 }
