@@ -432,6 +432,7 @@ function onloaded_table(){
     for (let x of document.querySelectorAll('div img')) {
         x.style.filter = 'brightness(0.3)';
     }
+    document.querySelector('#loading_screen footer').innerText = '스킨체크표 로딩완료!';
     document.querySelector("#screen_exit_button").style.visibility = 'visible';
 }
 
