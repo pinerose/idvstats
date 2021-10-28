@@ -54,7 +54,7 @@ let hunter = ['hell_ember', 'joker', 'game_keeper', 'reaper', 'soul_weaver', 'ge
 let hunter_counter = new Array(hunter.length);
 hunter_counter.fill(0);
 
-let event = ['Call_abyss', 'Itou_zyunzi', 'Scissorhands', 'Danganronpa', 'PromisedNeverLands', 'Persona5', 'Deathnote', 'Once', 'IvoryTower', 'halloween', 'logic_path', 'deduction_star'];
+let event = ['Call_abyss', 'Itou_zyunzi', 'Scissorhands', 'Danganronpa', 'PromisedNeverLands', 'Persona5', 'Deathnote', 'Once', 'IvoryTower', 'halloween', 'logic_path', 'deduction_star', 'conan'];
 let event_counter = new Array(event.length);
 event_counter.fill(0);
 
@@ -459,7 +459,7 @@ function goto_next_info(){
         case 3:
             document.querySelector('h3').innerHTML = "주의사항";
             document.querySelector('.loading_information').innerText = 
-            "브라우저의 캐시를 삭제하지 않는 것을 권장합니다.\n\n처음 시작시 또는 업데이트 이후 처음 접속시\n와이파이를 통한 접속을 권장합니다.\n(사이트 크기 50MB 이상)"
+            "브라우저의 캐시를 삭제하지 않는 것을 권장합니다.\n\n처음 시작시 또는 업데이트 이후 처음 접속시\n와이파이를 통한 접속을 권장합니다.\n(사이트 크기 50MB 이상)\n\n버그 제보는 이메일로 부탁드립니다.\nerurang1004@gmail.com"
             present_info = 1;
             break;
     }

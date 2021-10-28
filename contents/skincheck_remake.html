@@ -14,7 +14,9 @@
                 브라우저의 캐시를 삭제하지 않는 것을 권장합니다.<br><br>
                 처음 시작시 또는 업데이트 이후 처음 접속시 <br>
                 와이파이를 통한 접속을 권장합니다.<br>
-                (사이트 크기 50MB 이상)<br>
+                (사이트 크기 50MB 이상)<br><br>
+                버그 제보는 이메일로 부탁드립니다.<br>
+                erurang1004@gmail.com<br>
             </p>
             <button id="screen_exit_button" onclick="exit_screen();">그만 보기</button>
             <footer>스킨체크표 로딩중...</footer>
@@ -133,7 +135,7 @@
                     <li id="event_halloween" onclick="category_select_function('halloween');">할로윈</li>
                     <li id="event_logic_path" onclick="category_select_function('logic_path');">추길</li>
                     <li id="event_deduction_star" onclick="category_select_function('deduction_star');">연역스킨</li>
-                    <!--<li id="event_conan" onclick="category_select_function('conan');">코난</li> -->
+                    <li id="event_conan" onclick="category_select_function('conan');">코난</li>
                 </div>
                 <div id="command_button">
                     <button onclick="checking('choose');">전부 체크</button>
@@ -144,6 +146,8 @@
             <div id="skin_checking">
                 <div id="others">
                     <img class="detective S_grade" onclick="select(this);" src="checking/img/S_skins/akdang_maeryeok.png">
+                    <img class="detective S_grade conan" onclick="select(this);" src="checking/img/S_skins/conan_edogawa.png">
+                    <img class="detective S_grade conan" onclick="select(this);" src="checking/img/S_skins/shinichi_kudo.png">
                     <img class="house S_grade" onclick="select(this);" src="checking/img/S_skins/house1.PNG">
                     <img class="house A_grade" onclick="select(this);" src="checking/img/S_skins/house2.PNG">
                     <img class="house A_grade" onclick="select(this);" src="checking/img/S_skins/house3.PNG">
@@ -160,7 +164,7 @@
                     <img class="skin S_grade reaper" onclick="select(this);" src="checking/img/S_skins/golden_tentacle.PNG">
                     <img class="skin S_grade reaper Call_abyss" onclick="select(this);" src="checking/img/S_skins/saan_host.PNG">
                     <img class="skin S_grade reaper" onclick="select(this);" src="checking/img/S_skins/myeongbu_boatman.PNG">
-                    <img class="skin S_grade reaper" onclick="select(this);" src="checking/img/S_skins/party_count.PNG">
+                    <img class="skin S_grade reaper halloween" onclick="select(this);" src="checking/img/S_skins/party_count.PNG">
                     <img class="skin S_grade feaster" onclick="select(this);" src="checking/img/S_skins/god_crown.PNG">
                     <img class="skin S_grade feaster" onclick="select(this);" src="checking/img/S_skins/necromancy.PNG">
                     <img class="skin S_grade wu_chang" onclick="select(this);" src="checking/img/S_skins/singwon.PNG">
@@ -208,6 +212,7 @@
                     <img class="skin S_grade seer" onclick="select(this);" src="checking/img/S_skins/night_owl.PNG">
                     <img class="skin S_grade seer" onclick="select(this);" src="checking/img/S_skins/unbreakable_belief.PNG">
                     <img class="skin S_grade embalmer" onclick="select(this);" src="checking/img/S_skins/exorcist.PNG">
+                    <img class="skin S_grade embalmer halloween" onclick="select(this);" src="checking/img/S_skins/pheonix.PNG">
                     <img class="skin S_grade prospector" onclick="select(this);" src="checking/img/S_skins/spirit_guide.PNG">
                     <img class="skin S_grade prospector Danganronpa" onclick="select(this);" src="checking/img/S_skins/hinata.PNG">
                     <img class="skin S_grade wildling" onclick="select(this);" src="checking/img/S_skins/hero.PNG">
@@ -332,6 +337,7 @@
                     <img class="skin A_grade lawyer" onclick="select(this);" src="checking/img/A_skins/clock_rabbit.PNG">
                     <img class="skin A_grade lawyer" onclick="select(this);" src="checking/img/A_skins/lancelot.PNG">
                     <img class="skin A_grade lawyer Deathnote" onclick="select(this);" src="checking/img/A_skins/rito.PNG">
+                    <img class="skin A_grade lawyer conan" onclick="select(this);" src="checking/img/A_skins/kogoro_mori.PNG">
                     <img class="skin A_grade thief halloween" onclick="select(this);" src="checking/img/A_skins/scarecrow_thief.PNG">
                     <img class="skin A_grade thief" onclick="select(this);" src="checking/img/A_skins/boss.PNG">
                     <img class="skin A_grade thief Call_abyss" onclick="select(this);" src="checking/img/A_skins/pirate_guard.PNG">
@@ -367,6 +373,7 @@
                     <img class="skin A_grade forward Persona5" onclick="select(this);" src="checking/img/A_skins/ryuji.PNG">
                     <img class="skin A_grade forward Persona5" onclick="select(this);" src="checking/img/A_skins/skull.PNG">
                     <img class="skin A_grade forward PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/don.PNG">
+                    <img class="skin A_grade forward conan" onclick="select(this);" src="checking/img/A_skins/heiji_hattori.PNG">
                     <img class="skin A_grade cowboy" onclick="select(this);" src="checking/img/A_skins/yongsa.PNG">
                     <img class="skin A_grade cowboy" onclick="select(this);" src="checking/img/A_skins/yeoknal.PNG">
                     <img class="skin A_grade cowboy Call_abyss" onclick="select(this);" src="checking/img/A_skins/gyopyeon.PNG">
@@ -430,6 +437,7 @@
                     <img class="skin A_grade coordinator Danganronpa" onclick="select(this);" src="checking/img/A_skins/kirigiri.PNG">
                     <img class="skin A_grade coordinator" onclick="select(this);" src="checking/img/A_skins/true_judge.PNG">
                     <img class="skin A_grade coordinator" onclick="select(this);" src="checking/img/A_skins/susanna.PNG">
+                    <img class="skin A_grade coordinator conan" onclick="select(this);" src="checking/img/A_skins/ran_mori.PNG">
                     <img class="skin A_grade mechanic" onclick="select(this);" src="checking/img/A_skins/lauphing.PNG">
                     <img class="skin A_grade mechanic Persona5" onclick="select(this);" src="checking/img/A_skins/futaba.PNG">
                     <img class="skin A_grade mechanic Persona5" onclick="select(this);" src="checking/img/A_skins/oracle.PNG">
@@ -456,6 +464,7 @@
                     <img class="skin A_grade perfumer Call_abyss" onclick="select(this);" src="checking/img/A_skins/simo.PNG">
                     <img class="skin A_grade perfumer logic_path" onclick="select(this);" src="checking/img/A_skins/pisinbu.PNG">
                     <img class="skin A_grade perfumer deduction_star" onclick="select(this);" src="checking/img/A_skins/red_shoes.PNG">
+                    <img class="skin A_grade perfumer conan" onclick="select(this);" src="checking/img/A_skins/shiho_miyano.PNG">
                     <img class="skin A_grade dancer logic_path" onclick="select(this);" src="checking/img/A_skins/sanscrite.PNG">
                     <img class="skin A_grade dancer Persona5" onclick="select(this);" src="checking/img/A_skins/takamaki.PNG">
                     <img class="skin A_grade dancer Persona5" onclick="select(this);" src="checking/img/A_skins/panther.PNG">
@@ -573,10 +582,6 @@
                         <img class="skin B_grade breaking_wheel" onclick="select(this);" src="checking/img/B_skins/teamwork.PNG">
                         <img class="skin B_grade philip" onclick="select(this);" src="checking/img/B_skins/eternal_love.PNG">
                 </div>
-                
-                
-                
-                
                 <div class="B_skin_female_hunter">
                         <img class="skin B_grade soul_weaver" onclick="select(this);" src="checking/img/B_skins/starry_prophet.PNG">
                         <img class="skin B_grade soul_weaver" onclick="select(this);" src="checking/img/B_skins/grimy.PNG">
@@ -680,6 +685,7 @@
                         <img class="skin B_grade mercenary" onclick="select(this);" src="checking/img/B_skins/sharkbite.PNG">
                         <img class="skin B_grade mercenary" onclick="select(this);" src="checking/img/B_skins/sandwolf.PNG">
                         <img class="skin B_grade mercenary" onclick="select(this);" src="checking/img/B_skins/straight_punch.PNG">
+                        <img class="skin B_grade mercenary IvoryTower" onclick="select(this);" src="checking/img/B_skins/black_sheep.PNG">
                         <img class="skin B_grade forward" onclick="select(this);" src="checking/img/B_skins/blackthorn.PNG">
                         <img class="skin B_grade forward" onclick="select(this);" src="checking/img/B_skins/champion.PNG">
                         <img class="skin B_grade forward" onclick="select(this);" src="checking/img/B_skins/colorful_lights.PNG">
@@ -1269,6 +1275,7 @@
                     <img class="acce A_grade seer" onclick="select(this);" src="checking/img/A_acces/A_acce_seer.PNG">
                     <img class="acce A_grade seer" onclick="select(this);" src="checking/img/A_acces/A_acce_seer2.PNG">
                     <img class="acce A_grade embalmer" onclick="select(this);" src="checking/img/A_acces/A_acce_embalmer.PNG">
+                    <img class="acce A_grade embalmer halloween" onclick="select(this);" src="checking/img/A_acces/A_acce_embalmer2.PNG">
                     <img class="acce A_grade prospector" onclick="select(this);" src="checking/img/A_acces/A_acce_prospector.PNG">
                     <img class="acce A_grade prospector" onclick="select(this);" src="checking/img/A_acces/A_acce_prospector2.PNG">
                     <img class="acce A_grade wildling" onclick="select(this);" src="checking/img/A_acces/A_acce_wildling.PNG">
@@ -1367,7 +1374,7 @@
                     <img class="acce B_grade explorer" onclick="select(this);" src="checking/img/B_acces/B_acce_explorer4.PNG">
                     <img class="acce B_grade mercenary" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary.PNG">
                     <img class="acce B_grade mercenary" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary2.PNG">
-                    <!--<img class="acce B_grade mercenary conan" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary3.PNG">-->
+                    <img class="acce B_grade mercenary conan" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary3.PNG">
                     <img class="acce B_grade coordinator" onclick="select(this);" src="checking/img/B_acces/B_acce_coordinator.PNG">
                     <img class="acce B_grade coordinator" onclick="select(this);" src="checking/img/B_acces/B_acce_coordinator2.PNG">
                     <img class="acce B_grade coordinator Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_coordinator3.PNG">
@@ -1386,7 +1393,7 @@
                     <img class="acce B_grade priestess logic_path" onclick="select(this);" src="checking/img/B_acces/B_acce_priestess.PNG">
                     <img class="acce B_grade priestess" onclick="select(this);" src="checking/img/B_acces/B_acce_priestess2.PNG">
                     <img class="acce B_grade priestess halloween" onclick="select(this);" src="checking/img/B_acces/B_acce_priestess3.PNG">
-                    <!--<img class="acce B_grade perfumer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer.PNG">-->
+                    <img class="acce B_grade perfumer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer.PNG">
                     <img class="acce B_grade perfumer" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer2.PNG">
                     <img class="acce B_grade perfumer Call_abyss" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer3.PNG">
                     <img class="acce B_grade cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy.PNG">
@@ -1402,12 +1409,12 @@
                     <img class="acce B_grade dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer5.PNG">
                     <img class="acce B_grade dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer6.PNG">
                     <img class="acce B_grade dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer7.PNG">
-                    <!--<img class="acce B_grade seer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_seer.PNG">-->
+                    <img class="acce B_grade seer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_seer.PNG">
                     <img class="acce B_grade seer" onclick="select(this);" src="checking/img/B_acces/B_acce_seer2.PNG">
                     <img class="acce B_grade seer" onclick="select(this);" src="checking/img/B_acces/B_acce_seer3.PNG">
                     <img class="acce B_grade embalmer Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer.PNG">
                     <img class="acce B_grade embalmer" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer2.PNG">
-                    <!--<img class="acce B_grade embalmer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer3.PNG">-->
+                    <img class="acce B_grade embalmer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer3.PNG">
                     <img class="acce B_grade embalmer PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer4.PNG">
                     <img class="acce B_grade embalmer" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer5.PNG">
                     <img class="acce B_grade embalmer" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer6.PNG">
@@ -1422,7 +1429,7 @@
                     <img class="acce B_grade acrobat" onclick="select(this);" src="checking/img/B_acces/B_acce_acrobat3.PNG">
                     <img class="acce B_grade officer Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_officer.PNG">
                     <img class="acce B_grade officer" onclick="select(this);" src="checking/img/B_acces/B_acce_officer2.PNG">
-                    <!--<img class="acce B_grade barmaid conan" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid.PNG">-->
+                    <img class="acce B_grade barmaid conan" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid.PNG">
                     <img class="acce B_grade barmaid" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid2.PNG">
                     <img class="acce B_grade barmaid" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid3.PNG">
                     <img class="acce B_grade postman" onclick="select(this);" src="checking/img/B_acces/B_acce_postman.PNG">
