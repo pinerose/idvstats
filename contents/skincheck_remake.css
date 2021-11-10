@@ -152,20 +152,20 @@ body{
 
         /* 페이지 1 카테고리 */
 
-        div#kind_selector, div#grade_selector{
+        div#kind_selector{
             height: 14rem;
             justify-content: center;
         }
 
-            #kind_selector h2, #grade_selector h2{
+            #kind_selector h2{
                 width: 90%;
                 height: 6rem;
                 text-align: left;
                 line-height: 6rem;
             }
 
-            #kind_selector li, #grade_selector li{
-                width: 19%;
+            #kind_selector li{
+                width: 15%;
                 height: 6rem;
                 margin: 0 auto;
                 text-align: center;
@@ -176,11 +176,10 @@ body{
         /* 페이지 2 카테고리 */
 
         div#category_selector{
-            display: none;
             height: 14rem;
             justify-content: center;
         }
-        div#survivor_selector, div#hunter_selector, div#event_selector{
+        div#kind_selector, div#survivor_selector, div#hunter_selector, div#event_selector{
             display: none;
         }
 
@@ -221,17 +220,10 @@ body{
             }
 
         /* 페이지 공통 */
-        #kind_selector h2, #category_selector h2{
-            width: 60%;
-        }
 
-        #kind_selector button, #category_selector button{
-            width: 30%;
-            font-size: 2.5rem;
-            font-family: 'Noto Serif KR';
-        }
-
-        #command_button{
+        #selector #command_button{
+            display: none;
+            align-items: flex-end;
             height: 6rem;
             padding: 0.5rem 0;
         }
@@ -262,7 +254,7 @@ body{
         height: 10rem;
     }
 
-    div img.acce{
+    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce{
         height: 7rem;
     }
 
