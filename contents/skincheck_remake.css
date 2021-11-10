@@ -261,7 +261,7 @@ body{
         height: 7rem;
     }
 
-    img.B_grade, img.C_grade{
+    img.B_skin, img.C_skin, img.B_acce, img.C_acce, img.B_emote, img.C_emote, img.B_motion, img.C_motion, img.C_graffiti, img.D_graffiti{
         display: none;
     }
 
