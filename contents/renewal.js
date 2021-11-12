@@ -402,7 +402,7 @@ function goto_next_info(){
             document.querySelector('h3').innerText = "ver 21.11.10 업데이트 내역";
             document.querySelector('#goto_next_info').innerText = "안내사항";
             document.querySelector('.loading_information').innerText = 
-            "분류기준이 8가지에서 6가지로 간소화되었으며,\n 파랑등급 이하 스킨은 분류기준에 포함되지 않습니다.\n\n 단, 캐릭터별 / 이벤트별 스킨체크표에서는 \n 모든 등급의 스킨과 악세가 정상적으로 출력됩니다. "
+            "분류기준이 8가지에서 6가지로 간소화되었으며,\n 파랑등급 이하 스킨은 분류기준에 포함되지 않습니다.\n\n 단, 캐릭터별 / 이벤트별 스킨체크표에서는 \n 모든 등급의 스킨과 악세가 정상적으로 출력됩니다. \n\n 의사와 변호사의 감표가 추가되었습니다.\n "
             present_info = 2;
             break;
         case 2:
