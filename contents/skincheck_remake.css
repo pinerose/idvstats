@@ -257,7 +257,7 @@ body{
         height: 10rem;
     }
 
-    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce{
+    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce, img.B_emote, img.C_emote, img.B_motion, img.C_motion, img.C_graffiti, img.D_graffiti{
         height: 7rem;
     }
 
