@@ -358,6 +358,24 @@ function show_selected(){
             for (let x of document.querySelectorAll('img.C_acce')){
                 x.style.display = 'none';
             }
+            for (let x of document.querySelectorAll('img.B_emote')){
+                x.style.display = 'none';
+            }
+            for (let x of document.querySelectorAll('img.C_emote')){
+                x.style.display = 'none';
+            }
+            for (let x of document.querySelectorAll('img.B_motion')){
+                x.style.display = 'none';
+            }
+            for (let x of document.querySelectorAll('img.C_motion')){
+                x.style.display = 'none';
+            }
+            for (let x of document.querySelectorAll('img.C_graffiti')){
+                x.style.display = 'none';
+            }
+            for (let x of document.querySelectorAll('img.D_graffiti')){
+                x.style.display = 'none';
+            }
             show_selected_counter = 0;
             break;
         }
