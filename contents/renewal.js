@@ -44,7 +44,7 @@ let survivor = ['doctor', 'lawyer', 'thief', 'gardener', 'magician', 'explorer',
 let survivor_counter = new Array(survivor.length);
 survivor_counter.fill(0);
 
-let hunter = ['hell_ember', 'joker', 'game_keeper', 'reaper', 'soul_weaver', 'geisha', 'feaster', 'wu_chang', 'photographer', 'mad_eye', 'dream_witch', 'axe_boy', 'evil_raptilian', 'mary', 'guard_26', 'disciple', 'violinist', 'sculptor', 'undead', 'breaking_wheel', 'naiad', 'philip'];
+let hunter = ['hell_ember', 'joker', 'game_keeper', 'reaper', 'soul_weaver', 'geisha', 'feaster', 'wu_chang', 'photographer', 'mad_eye', 'dream_witch', 'axe_boy', 'evil_raptilian', 'mary', 'guard_26', 'disciple', 'violinist', 'sculptor', 'undead', 'breaking_wheel', 'naiad', 'philip', 'nightmare'];
 let hunter_counter = new Array(hunter.length);
 hunter_counter.fill(0);
 
