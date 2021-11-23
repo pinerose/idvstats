@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>스킨 체크표 - idvstats</title>
+        <link rel="stylesheet" type="text/css" href="../reset.css">
+        <link rel="stylesheet" type="text/css" href="collector.css">
+        <script src="collector.js"></script>
+    </head>
+    <body onload="onloaded_table();">
+        <div id="loading_screen">
+            <h3>주의사항</h3>
+            <p class="loading_information">
+                브라우저의 캐시를 삭제하지 않는 것을 권장합니다.<br><br>
+                처음 시작시 또는 업데이트 이후 처음 접속시 <br>
+                Wifi를 통한 접속을 권장합니다.<br>
+                (사이트 크기 50MB 이상)<br><br>
+                버그 제보는 이메일로 부탁드립니다.<br>
+                erurang1004@gmail.com<br>
+            </p>
+            <button id="screen_exit_button" onclick="exit_screen();">그만 보기</button>
+            <footer>스킨체크표 로딩중...</footer>
+            <button id="goto_next_info" onclick="goto_next_info();">업뎃 내역</button>
+        </div>
+        <div id="wrap">
+            <div id="contents_title">
+                <span onclick="show_menu();" id="left_icon">메뉴</span>
+                <h2 onclick="hide_menubar()">idvstats</h2>
+                <span onclick="show_selector();" id="right_icon">추가기능</span>
+            </div>
+            <nav id="contents_nav">
+                <li><a href="">캐릭터 정보</a></li>
+                <li><a href="">캐릭터 티어</a></li>
+                <li><a href="">스킨 체크표</a></li>
+                <li><a href="">캐릭터 스탯</a></li>
+                <li><a href="">제작중...</a></li>
+            </nav>
+            <div id="selector">
+                <div id="settings">
+                    <button onclick="switch_bgcolor();">배경색 바꾸기</button>
+                    <button onclick="show_selected();">선택스킨 표시</button>
+                </div>
+                <div id="category_selector">
+                    <h2>분류기준 선택</h2>
+                    <li id="category_kind" onclick="category_kind_function('kind');">등급별</li>
+                    <li id="category_survivor" onclick="category_kind_function('survivor');">생존자</li>
+                    <li id="category_hunter" onclick="category_kind_function('hunter');">감시자</li>
+                    <li id="category_event" onclick="category_kind_function('event');">이벤트</li>
+                </div>
+                <div id="kind_selector">
+                    <li id="kind_all" onclick="kind_function('kind_all');">전부</li>
+                    <li id="S_skin" onclick="kind_function('S_skin');">황스</li>
+                    <li id="A_skin" onclick="kind_function('A_skin');">보스</li>
+                    <li id="S_acce" onclick="kind_function('S_acce');">황악</li>
+                    <li id="A_acce" onclick="kind_function('A_acce');">보악</li>
+                    <li id="others" onclick="kind_function('others');">기타</li>
+                </div>
+                <div id="survivor_selector">
+                    <li id="survivor_doctor" onclick="category_select_function('doctor');">의사</li>
+                    <li id="survivor_lawyer" onclick="category_select_function('lawyer');">변호사</li>
+                    <li id="survivor_thief" onclick="category_select_function('thief');">도둑</li>
+                    <li id="survivor_gardener" onclick="category_select_function('gardener');">정원사</li>
+                    <li id="survivor_magician" onclick="category_select_function('magician');">마술사</li>
+                    <li id="survivor_explorer" onclick="category_select_function('explorer');">모험가</li>
+                    <li id="survivor_mercenary" onclick="category_select_function('mercenary');">용병</li>
+                    <li id="survivor_coordinator" onclick="category_select_function('coordinator');">공군</li>
+                    <li id="survivor_mechanic" onclick="category_select_function('mechanic');">기계공</li>
+                    <li id="survivor_forward" onclick="category_select_function('forward');">포워드</li>
+                    <li id="survivor_mindeye" onclick="category_select_function('mindeye');">맹인</li>
+                    <li id="survivor_priestess" onclick="category_select_function('priestess');">샤먼</li>
+                    <li id="survivor_perfumer" onclick="category_select_function('perfumer');">조향사</li>
+                    <li id="survivor_cowboy" onclick="category_select_function('cowboy');">카보</li>
+                    <li id="survivor_dancer" onclick="category_select_function('dancer');">무희</li>
+                    <li id="survivor_seer" onclick="category_select_function('seer');">선지자</li>
+                    <li id="survivor_embalmer" onclick="category_select_function('embalmer');">납관사</li>
+                    <li id="survivor_prospector" onclick="category_select_function('prospector');">탐사원</li>
+                    <li id="survivor_enchantress" onclick="category_select_function('enchantress');">주술사</li>
+                    <li id="survivor_wildling" onclick="category_select_function('wildling');">야만인</li>
+                    <li id="survivor_acrobat" onclick="category_select_function('acrobat');">곡예사</li>
+                    <li id="survivor_officer" onclick="category_select_function('officer');">항해사</li>
+                    <li id="survivor_barmaid" onclick="category_select_function('barmaid');">바텐더</li>
+                    <li id="survivor_postman" onclick="category_select_function('postman');">우배부</li>
+                    <li id="survivor_graveyard" onclick="category_select_function('graveyard');">묘지기</li>
+                    <li id="survivor_prisoner" onclick="category_select_function('prisoner');">죄수</li>
+                    <li id="survivor_entomologist" onclick="category_select_function('entomologist');">곤학</li>
+                    <li id="survivor_painter" onclick="category_select_function('painter');">화가</li>
+                    <li id="survivor_batter" onclick="category_select_function('batter');">타자</li>
+                    <li id="survivor_merchant" onclick="category_select_function('merchant');">장상</li>
+                    <li id="survivor_psychologist" onclick="category_select_function('psychologist');">심학</li>
+                    <li id="survivor_patient" onclick="category_select_function('patient');">환자</li>
+                    <li id="survivor_novelist" onclick="category_select_function('novelist');">소설가</li>
+                    <li id="survivor_memory" onclick="category_select_function('memory');">소녀</li>
+                    <li id="survivor_unlucky" onclick="category_select_function('unlucky');">불운아</li>
+                </div>
+                <div id="hunter_selector">
+                    <li class="hunter" id="hunter_hell_ember" onclick="category_select_function('hell_ember');">공장장</li>
+                    <li class="hunter" id="hunter_joker" onclick="category_select_function('joker');">조커</li>
+                    <li class="hunter" id="hunter_game_keeper" onclick="category_select_function('game_keeper');">노루</li>
+                    <li class="hunter" id="hunter_reaper" onclick="category_select_function('reaper');">리퍼</li>
+                    <li class="hunter" id="hunter_soul_weaver" onclick="category_select_function('soul_weaver');">거미</li>
+                    <li class="hunter" id="hunter_geisha" onclick="category_select_function('geisha');">미치코</li>
+                    <li class="hunter" id="hunter_feaster" onclick="category_select_function('feaster');">하스터</li>
+                    <li class="hunter" id="hunter_wu_chang" onclick="category_select_function('wu_chang');">우산</li>
+                    <li class="hunter" id="hunter_photographer" onclick="category_select_function('photographer');">요셉</li>
+                    <li class="hunter" id="hunter_mad_eye" onclick="category_select_function('mad_eye');">발크</li>
+                    <li class="hunter" id="hunter_dream_witch" onclick="category_select_function('dream_witch');">꿈마</li>
+                    <li class="hunter" id="hunter_axe_boy" onclick="category_select_function('axe_boy');">울보</li>
+                    <li class="hunter" id="hunter_evil_raptilian" onclick="category_select_function('evil_raptilian');">루키노</li>
+                    <li class="hunter" id="hunter_mary" onclick="category_select_function('mary');">마리</li>
+                    <li class="hunter" id="hunter_guard_26" onclick="category_select_function('guard_26');">봉봉</li>
+                    <li class="hunter" id="hunter_disciple" onclick="category_select_function('disciple');">사도</li>
+                    <li class="hunter" id="hunter_violinist" onclick="category_select_function('violinist');">안돈희</li>
+                    <li class="hunter" id="hunter_sculptor" onclick="category_select_function('sculptor');">조각가</li>
+                    <li class="hunter" id="hunter_undead" onclick="category_select_function('undead');">박사</li>
+                    <li class="hunter" id="hunter_breaking_wheel" onclick="category_select_function('breaking_wheel');">바퀴</li>
+                    <li class="hunter" id="hunter_naiad" onclick="category_select_function('naiad');">해녀</li>
+                    <li class="hunter" id="hunter_philip" onclick="category_select_function('philip');">밀랍</li>
+                    <li class="hunter" id="hunter_nightmare" onclick="category_select_function('nightmare');">악몽</li>
+                </div>
+                <div id="event_selector">
+                    <li id="event_Call_abyss" onclick="category_select_function('Call_abyss');">심연</li>
+                    <li id="event_Itou_zyunzi" onclick="category_select_function('Itou_zyunzi');">이토준지</li>
+                    <li id="event_Scissorhands" onclick="category_select_function('Scissorhands');">가위손</li>
+                    <li id="event_Danganronpa" onclick="category_select_function('Danganronpa');">단간론파</li>
+                    <li id="event_PromisedNeverLands" onclick="category_select_function('PromisedNeverLands');">약네랜</li>
+                    <li id="event_Persona5" onclick="category_select_function('Persona5');">페소5</li>
+                    <li id="event_Deathnote" onclick="category_select_function('Deathnote');">데스노트</li>
+                    <li id="event_Once" onclick="category_select_function('Once');">회귀</li>
+                    <li id="event_IvoryTower" onclick="category_select_function('IvoryTower');">상아탑</li>
+                    <li id="event_halloween" onclick="category_select_function('halloween');">할로윈</li>
+                    <li id="event_logic_path" onclick="category_select_function('logic_path');">추길</li>
+                    <li id="event_deduction_star" onclick="category_select_function('deduction_star');">연역스킨</li>
+                    <li id="event_conan" onclick="category_select_function('conan');">코난</li>
+                </div>
+                <div id="command_button">
+                    <button onclick="checking('choose');">전부 체크</button>
+                    <button onclick="checking('unchoose');">전부 해제</button>
+                    <button onclick="display();">모두 표시</button>
+                </div>
+            </div>
+            <div id="skin_checking">
+                <div id="others">
+                    <img class="others" onclick="select(this);" src="checking/img/S_skins/akdang_maeryeok.png">
+                    <img class="others conan" onclick="select(this);" src="checking/img/S_skins/conan_edogawa.PNG">
+                    <img class="others conan" onclick="select(this);" src="checking/img/S_skins/shinichi_kudo.PNG">
+                    <img class="others house" onclick="select(this);" src="checking/img/S_skins/house1.PNG">
+                    <img class="others house" onclick="select(this);" src="checking/img/S_skins/house2.PNG">
+                    <img class="others house" onclick="select(this);" src="checking/img/S_skins/house3.PNG">
+                    <img class="others house" onclick="select(this);" src="checking/img/S_skins/house4.PNG">
+                    <img class="others house" onclick="select(this);" src="checking/img/S_skins/house5.PNG">
+                </div>
+                <div class="S_skin_male_hunter">
+                    <img class="S_skin hell_ember Call_abyss" onclick="select(this);" src="checking/img/S_skins/golden_cracket.png">
+                    <img class="S_skin joker" onclick="select(this);" src="checking/img/S_skins/joker_king.PNG">
+                    <img class="S_skin joker Call_abyss" onclick="select(this);" src="checking/img/S_skins/isegye_traveler.PNG">
+                    <img class="S_skin joker" onclick="select(this);" src="checking/img/S_skins/beautiful_smile.PNG">
+                    <img class="S_skin game_keeper" onclick="select(this);" src="checking/img/S_skins/golden_smith.PNG">
+                    <img class="S_skin game_keeper Call_abyss" onclick="select(this);" src="checking/img/S_skins/flame_dog.PNG">
+                    <img class="S_skin reaper" onclick="select(this);" src="checking/img/S_skins/golden_tentacle.PNG">
+                    <img class="S_skin reaper Call_abyss" onclick="select(this);" src="checking/img/S_skins/saan_host.PNG">
+                    <img class="S_skin reaper" onclick="select(this);" src="checking/img/S_skins/myeongbu_boatman.PNG">
+                    <img class="S_skin reaper halloween" onclick="select(this);" src="checking/img/S_skins/party_count.PNG">
+                    <img class="S_skin soul_weaver" onclick="select(this);" src="checking/img/S_skins/golden_candle.PNG">
+                    <img class="S_skin soul_weaver" onclick="select(this);" src="checking/img/S_skins/flower_ritual.PNG">
+                    <img class="S_skin geisha" onclick="select(this);" src="checking/img/S_skins/sinbu.PNG">
+                    <img class="S_skin geisha" onclick="select(this);" src="checking/img/S_skins/siromuku.PNG">
+                    <img class="S_skin geisha" onclick="select(this);" src="checking/img/S_skins/sipsamnang.PNG">
+                    <img class="S_skin feaster" onclick="select(this);" src="checking/img/S_skins/god_crown.PNG">
+                    <img class="S_skin feaster" onclick="select(this);" src="checking/img/S_skins/necromancy.PNG">
+                    <img class="S_skin wu_chang" onclick="select(this);" src="checking/img/S_skins/singwon.PNG">
+                    <img class="S_skin wu_chang" onclick="select(this);" src="checking/img/S_skins/adeuk_baram.PNG">
+                    <img class="S_skin wu_chang" onclick="select(this);" src="checking/img/S_skins/frost.PNG">
+                    <img class="S_skin photographer" onclick="select(this);" src="checking/img/S_skins/azrael.PNG">
+                    <img class="S_skin photographer" onclick="select(this);" src="checking/img/S_skins/judge.PNG">
+                    <img class="S_skin mad_eye" onclick="select(this);" src="checking/img/S_skins/burning_anger.PNG">
+                    <img class="S_skin dream_witch" onclick="select(this);" src="checking/img/S_skins/uzet.PNG">
+                    <img class="S_skin dream_witch Itou_zyunzi" onclick="select(this);" src="checking/img/S_skins/tomie.PNG">
+                    <img class="S_skin axe_boy" onclick="select(this);" src="checking/img/S_skins/myders_hand.PNG">
+                    <img class="S_skin axe_boy" onclick="select(this);" src="checking/img/S_skins/jeondangpo.PNG">
+                    <img class="S_skin evil_raptilian" onclick="select(this);" src="checking/img/S_skins/fractal.PNG">
+                    <img class="S_skin evil_raptilian Deathnote" onclick="select(this);" src="checking/img/S_skins/ryuke.PNG">
+                    <img class="S_skin mary" onclick="select(this);" src="checking/img/S_skins/blood_party.PNG">
+                    <img class="S_skin mary" onclick="select(this);" src="checking/img/S_skins/madame_bella.PNG">
+                    <img class="S_skin mary PromisedNeverLands" onclick="select(this);" src="checking/img/S_skins/isabella.PNG">
+                    <img class="S_skin guard_26" onclick="select(this);" src="checking/img/S_skins/march_rabbit.PNG">
+                    <img class="S_skin guard_26 Danganronpa" onclick="select(this);" src="checking/img/S_skins/monokuma.PNG">
+                    <img class="S_skin disciple" onclick="select(this);" src="checking/img/S_skins/white_trupple.PNG">
+                    <img class="S_skin violinist" onclick="select(this);" src="checking/img/S_skins/hell_music.PNG">
+                    <img class="S_skin violinist" onclick="select(this);" src="checking/img/S_skins/moon_knight.PNG">
+                    <img class="S_skin sculptor" onclick="select(this);" src="checking/img/S_skins/checkmate.PNG">
+                    <img class="S_skin sculptor" onclick="select(this);" src="checking/img/S_skins/night_devil.PNG">
+                    <img class="S_skin undead" onclick="select(this);" src="checking/img/S_skins/conquer.PNG">
+                    <img class="S_skin breaking_wheel" onclick="select(this);" src="checking/img/S_skins/three_face.PNG">
+                    <img class="S_skin naiad" onclick="select(this);" src="checking/img/S_skins/silent_spear.PNG">
+                    <img class="S_skin philip" onclick="select(this)" src="checking/img/S_skins/fury.PNG">
+                    <img class="S_skin nightmare" onclick="select(this);" src="checking/img/S_skins/abyss.PNG">
+                </div>
+                <div class="S_skin_female_hunter">
+                </div>
+                    <!--생존자 황스-->
+                <div class="S_skin_male_survivor">
+                    <img class="S_skin doctor" onclick="select(this);" src="checking/img/S_skins/firefly.PNG">
+                    <img class="S_skin doctor" onclick="select(this);" src="checking/img/S_skins/revive_flame.PNG">
+                    <img class="S_skin thief" onclick="select(this);" src="checking/img/S_skins/spring_dance.PNG">
+                    <img class="S_skin gardener" onclick="select(this);" src="checking/img/S_skins/ghost_princess.PNG">
+                    <img class="S_skin gardener" onclick="select(this);" src="checking/img/S_skins/unluck_bird.PNG">
+                    <img class="S_skin magician" onclick="select(this);" src="checking/img/S_skins/treasure_hunter.PNG">
+                    <img class="S_skin mercenary" onclick="select(this);" src="checking/img/S_skins/cheshire_cat.PNG">
+                    <img class="S_skin mercenary" onclick="select(this);" src="checking/img/S_skins/red_clothes.PNG">
+                    <img class="S_skin coordinator" onclick="select(this);" src="checking/img/S_skins/snow_dance.PNG">
+                    <img class="S_skin coordinator" onclick="select(this);" src="checking/img/S_skins/nidhorg.PNG">
+                    <img class="S_skin mechanic" onclick="select(this);" src="checking/img/S_skins/red_hat.PNG">
+                    <img class="S_skin mechanic" onclick="select(this);" src="checking/img/S_skins/amaranthine_flower.PNG">
+                    <img class="S_skin forward" onclick="select(this);" src="checking/img/S_skins/train.PNG">
+                    <img class="S_skin mindeye" onclick="select(this);" src="checking/img/S_skins/golden_cake.PNG">
+                    <img class="S_skin mindeye" onclick="select(this);" src="checking/img/S_skins/dark_cake.PNG">
+                    <img class="S_skin mindeye" onclick="select(this);" src="checking/img/S_skins/architect.PNG">
+                    <img class="S_skin priestess" onclick="select(this);" src="checking/img/S_skins/tomorrow_light.PNG">
+                    <img class="S_skin priestess" onclick="select(this);" src="checking/img/S_skins/guide.PNG">
+                    <img class="S_skin priestess" onclick="select(this);" src="checking/img/S_skins/morgan_le_fay.PNG">
+                    <img class="S_skin perfumer" onclick="select(this);" src="checking/img/S_skins/madame_coral.PNG">
+                    <img class="S_skin perfumer" onclick="select(this);" src="checking/img/S_skins/tonight_or_never.PNG">
+                    <img class="S_skin cowboy" onclick="select(this);" src="checking/img/S_skins/king_tailor.PNG">
+                    <img class="S_skin dancer" onclick="select(this);" src="checking/img/S_skins/trainer.PNG">
+                    <img class="S_skin dancer" onclick="select(this);" src="checking/img/S_skins/valkyrie.PNG">
+                    <img class="S_skin dancer" onclick="select(this);" src="checking/img/S_skins/cloto.PNG">
+                    <img class="S_skin seer" onclick="select(this);" src="checking/img/S_skins/night_owl.PNG">
+                    <img class="S_skin seer" onclick="select(this);" src="checking/img/S_skins/unbreakable_belief.PNG">
+                    <img class="S_skin embalmer" onclick="select(this);" src="checking/img/S_skins/exorcist.PNG">
+                    <img class="S_skin embalmer halloween" onclick="select(this);" src="checking/img/S_skins/pheonix.PNG">
+                    <img class="S_skin prospector" onclick="select(this);" src="checking/img/S_skins/spirit_guide.PNG">
+                    <img class="S_skin prospector Danganronpa" onclick="select(this);" src="checking/img/S_skins/hinata.PNG">
+                    <img class="S_skin enchantress" onclick="select(this);" src="checking/img/S_skins/fate.PNG">
+                    <img class="S_skin enchantress" onclick="select(this);" src="checking/img/S_skins/strange_magician.PNG">
+                    <img class="S_skin wildling" onclick="select(this);" src="checking/img/S_skins/hero.PNG">
+                    <img class="S_skin acrobat" onclick="select(this);" src="checking/img/S_skins/swift.PNG">
+                    <img class="S_skin acrobat Persona5" onclick="select(this);" src="checking/img/S_skins/ren.PNG">
+                    <img class="S_skin acrobat Persona5" onclick="select(this);" src="checking/img/S_skins/joker.PNG">
+                    <img class="S_skin officer" onclick="select(this);" src="checking/img/S_skins/captain_hook.PNG">
+                    <img class="S_skin officer Persona5" onclick="select(this);" src="checking/img/S_skins/goro.PNG">
+                    <img class="S_skin officer Persona5" onclick="select(this);" src="checking/img/S_skins/crow.PNG">
+                    <img class="S_skin barmaid" onclick="select(this);" src="checking/img/S_skins/judgment_alcohol.PNG">
+                    <img class="S_skin postman" onclick="select(this);" src="checking/img/S_skins/poong.PNG">
+                    <img class="S_skin graveyard" onclick="select(this);" src="checking/img/S_skins/sunset_desert.PNG">
+                    <img class="S_skin prisoner" onclick="select(this);" src="checking/img/S_skins/viper.PNG">
+                    <img class="S_skin entomologist" onclick="select(this);" src="checking/img/S_skins/sophia.PNG">
+                    <img class="S_skin entomologist PromisedNeverLands" onclick="select(this);" src="checking/img/S_skins/mujika.PNG" alt="S18-1 entomologist S skin">
+                    <img class="S_skin painter" onclick="select(this);" src="checking/img/S_skins/golden_ratio.PNG">
+                    <img class="S_skin painter" onclick="select(this);" src="checking/img/S_skins/narcissism.PNG">
+                    <img class="S_skin batter" onclick="select(this);" src="checking/img/S_skins/lava_cake.PNG">
+                    <img class="S_skin merchant" onclick="select(this);" src="checking/img/S_skins/light_wing.PNG">
+                    <img class="S_skin patient" onclick="select(this);" src="checking/img/S_skins/punished_man.PNG">
+                    <img class="S_skin psychologist" onclick="select(this);" src="checking/img/S_skins/heron_wing.PNG">
+                    <img class="S_skin memory" onclick="select(this);" src="checking/img/S_skins/source_evil.PNG">
+                </div>
+                <div class="A_skin_male_hunter">
+                    <img class="A_skin hell_ember" onclick="select(this);" src="checking/img/A_skins/king_arthur.PNG">
+                    <img class="A_skin hell_ember" onclick="select(this);" src="checking/img/A_skins/eternal_king.PNG">
+                    <img class="A_skin hell_ember halloween" onclick="select(this);" src="checking/img/A_skins/aladin.PNG">
+                    <img class="A_skin hell_ember" onclick="select(this);" src="checking/img/A_skins/tamed.PNG">
+                    <img class="A_skin hell_ember Call_abyss" onclick="select(this);" src="checking/img/A_skins/captain_cracken.PNG">
+                    <img class="A_skin hell_ember" onclick="select(this);" src="checking/img/A_skins/undying.PNG">
+                    <img class="A_skin joker" onclick="select(this);" src="checking/img/A_skins/scarecrow.PNG">
+                    <img class="A_skin joker" onclick="select(this);" src="checking/img/A_skins/grill.PNG">
+                    <img class="A_skin joker logic_path" onclick="select(this);" src="checking/img/A_skins/wood_template.PNG">
+                    <img class="A_skin game_keeper" onclick="select(this);" src="checking/img/A_skins/steam_punk.PNG">
+                    <img class="A_skin game_keeper" onclick="select(this);" src="checking/img/A_skins/forest_guardian.PNG">
+                    <img class="A_skin game_keeper" onclick="select(this);" src="checking/img/A_skins/anubis.PNG">
+                    <img class="A_skin game_keeper logic_path" onclick="select(this);" src="checking/img/A_skins/ceryneia_injury.PNG">
+                    <img class="A_skin reaper" onclick="select(this);" src="checking/img/A_skins/white_tentacle.PNG">
+                    <img class="A_skin reaper" onclick="select(this);" src="checking/img/A_skins/green_tentacle.PNG">
+                    <img class="A_skin reaper deduction_star" onclick="select(this);" src="checking/img/A_skins/sbengali.PNG">
+                    <img class="A_skin reaper Scissorhands" onclick="select(this);" src="checking/img/A_skins/edward.PNG">
+                    <img class="A_skin reaper Scissorhands" onclick="select(this);" src="checking/img/A_skins/gate_crasher.PNG">
+                    <img class="A_skin reaper logic_path" onclick="select(this);" src="checking/img/A_skins/forest_knight.PNG">
+                    <img class="A_skin reaper Once" onclick="select(this);" src="checking/img/A_skins/good_child.PNG">
+                    <img class="A_skin reaper PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/sonju.PNG" alt="S18-1 reaper A skin">
+                    <img class="A_skin soul_weaver" onclick="select(this);" src="checking/img/A_skins/candle.PNG">
+                    <img class="A_skin soul_weaver" onclick="select(this);" src="checking/img/A_skins/sil_guardian.PNG">
+                    <img class="A_skin soul_weaver" onclick="select(this);" src="checking/img/A_skins/long_leg.PNG">
+                    <img class="A_skin soul_weaver logic_path" onclick="select(this);" src="checking/img/A_skins/time_hunter.PNG">
+                    <img class="A_skin soul_weaver" onclick="select(this);" src="checking/img/A_skins/reveal_mind.PNG">
+                    <img class="A_skin geisha" onclick="select(this);" src="checking/img/A_skins/green_gongjak.PNG">
+                    <img class="A_skin geisha" onclick="select(this);" src="checking/img/A_skins/white_gongjak.PNG">
+                    <img class="A_skin geisha" onclick="select(this);" src="checking/img/A_skins/purple_gongjak.PNG">
+                    <img class="A_skin geisha" onclick="select(this);" src="checking/img/A_skins/durumi.PNG">
+                    <img class="A_skin geisha" onclick="select(this);" src="checking/img/A_skins/blood_fan.PNG">
+                    <img class="A_skin geisha deduction_star" onclick="select(this);" src="checking/img/A_skins/rashomong.PNG">
+                    <img class="A_skin geisha" onclick="select(this);" src="checking/img/A_skins/rain_shamon.PNG">
+                    <img class="A_skin feaster" onclick="select(this);" src="checking/img/A_skins/poseidon.PNG">
+                    <img class="A_skin feaster" onclick="select(this);" src="checking/img/A_skins/cannibal.PNG">
+                    <img class="A_skin feaster logic_path" onclick="select(this);" src="checking/img/A_skins/stars.PNG">
+                    <img class="A_skin feaster" onclick="select(this);" src="checking/img/A_skins/parasitic_face.PNG">
+                    <img class="A_skin wu_chang Itou_zyunzi" onclick="select(this);" src="checking/img/A_skins/street_guy.PNG">
+                    <img class="A_skin wu_chang" onclick="select(this);" src="checking/img/A_skins/requiem.PNG">
+                    <img class="A_skin wu_chang deduction_star" onclick="select(this);" src="checking/img/A_skins/flower_tear.PNG">
+                    <img class="A_skin wu_chang" onclick="select(this);" src="checking/img/A_skins/flying_guillotine.PNG">
+                    <img class="A_skin wu_chang" onclick="select(this);" src="checking/img/A_skins/sun_moon.PNG">
+                    <img class="A_skin photographer" onclick="select(this);" src="checking/img/A_skins/under_moon.PNG">
+                    <img class="A_skin photographer" onclick="select(this);" src="checking/img/A_skins/apolon.PNG">
+                    <img class="A_skin photographer" onclick="select(this);" src="checking/img/A_skins/blood_sword.PNG">
+                    <img class="A_skin photographer" onclick="select(this);" src="checking/img/A_skins/en_ligne.PNG">
+                    <img class="A_skin photographer" onclick="select(this);" src="checking/img/A_skins/D.M.PNG" alt="3rd anniversary joseph A skin">
+                    <img class="A_skin photographer PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/peter_retri.PNG" alt="S18-1 joseph A skin">
+                    <img class="A_skin mad_eye" onclick="select(this);" src="checking/img/A_skins/imprisoned_director.PNG">
+                    <img class="A_skin mad_eye" onclick="select(this);" src="checking/img/A_skins/miser.PNG">
+                    <img class="A_skin dream_witch Itou_zyunzi" onclick="select(this);" src="checking/img/A_skins/painted_girls.PNG">
+                    <img class="A_skin dream_witch" onclick="select(this);" src="checking/img/A_skins/coatle.PNG">
+                    <img class="A_skin dream_witch" onclick="select(this);" src="checking/img/A_skins/false_judge.PNG">
+                    <img class="A_skin axe_boy" onclick="select(this);" src="checking/img/A_skins/time_boy.PNG">
+                    <img class="A_skin axe_boy" onclick="select(this);" src="checking/img/A_skins/crying.PNG">
+                    <img class="A_skin axe_boy" onclick="select(this);" src="checking/img/A_skins/ivan.PNG">
+                    <img class="A_skin evil_raptilian logic_path" onclick="select(this);" src="checking/img/A_skins/dream_ninja.PNG">
+                    <img class="A_skin evil_raptilian" onclick="select(this);" src="checking/img/A_skins/osseous_pipe.PNG">
+                    <img class="A_skin evil_raptilian" onclick="select(this);" src="checking/img/A_skins/horrendous.PNG">
+                    <img class="A_skin mary" onclick="select(this);" src="checking/img/A_skins/last_dance.PNG">
+                    <img class="A_skin mary deduction_star" onclick="select(this);" src="checking/img/A_skins/scarlet.PNG">
+                    <img class="A_skin guard_26" onclick="select(this);" src="checking/img/A_skins/western_boss.PNG">
+                    <img class="A_skin guard_26 logic_path" onclick="select(this);" src="checking/img/A_skins/mister_egg.PNG">
+                    <img class="A_skin disciple" onclick="select(this);" src="checking/img/A_skins/emerald_queen.PNG">
+                    <img class="A_skin disciple" onclick="select(this);" src="checking/img/A_skins/vice_principle.PNG">
+                    <img class="A_skin violinist" onclick="select(this);" src="checking/img/A_skins/uroboros.PNG">
+                    <img class="A_skin sculptor" onclick="select(this);" src="checking/img/A_skins/maria.PNG">
+                    <img class="A_skin undead PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/zazie.PNG" alt="S18-1 undead A skin">
+                </div>
+                <div class="A_skin_male_survivor">
+                    <img class="A_skin unlucky" onclick="select(this);" src="checking/img/A_skins/made_lucky.PNG">
+                    <img class="A_skin unlucky Itou_zyunzi" onclick="select(this);" src="checking/img/A_skins/soichi.PNG">
+                    <img class="A_skin unlucky Danganronpa" onclick="select(this);" src="checking/img/A_skins/naegi.PNG">
+                    <img class="A_skin doctor" onclick="select(this);" src="checking/img/A_skins/angel.PNG">
+                    <img class="A_skin doctor" onclick="select(this);" src="checking/img/A_skins/seraph.PNG">
+                    <img class="A_skin doctor" onclick="select(this);" src="checking/img/A_skins/yakcho.PNG">
+                    <img class="A_skin doctor" onclick="select(this);" src="checking/img/A_skins/yesterday.PNG">
+                    <img class="A_skin doctor Call_abyss" onclick="select(this);" src="checking/img/A_skins/pirate_doctor.PNG">
+                    <img class="A_skin doctor deduction_star" onclick="select(this);" src="checking/img/A_skins/yellow_rain.PNG">
+                    <img class="A_skin doctor Danganronpa" onclick="select(this);" src="checking/img/A_skins/mikang.PNG">
+                    <img class="A_skin doctor logic_path" onclick="select(this);" src="checking/img/A_skins/sunshine.PNG">
+                    <img class="A_skin lawyer Call_abyss" onclick="select(this);" src="checking/img/A_skins/pirate_officer.PNG">
+                    <img class="A_skin lawyer" onclick="select(this);" src="checking/img/A_skins/clock_rabbit.PNG">
+                    <img class="A_skin lawyer" onclick="select(this);" src="checking/img/A_skins/lancelot.PNG">
+                    <img class="A_skin lawyer Deathnote" onclick="select(this);" src="checking/img/A_skins/rito.PNG">
+                    <img class="A_skin lawyer conan" onclick="select(this);" src="checking/img/A_skins/kogoro_mori.PNG">
+                    <img class="A_skin thief halloween" onclick="select(this);" src="checking/img/A_skins/scarecrow_thief.PNG">
+                    <img class="A_skin thief" onclick="select(this);" src="checking/img/A_skins/boss.PNG">
+                    <img class="A_skin thief Call_abyss" onclick="select(this);" src="checking/img/A_skins/pirate_guard.PNG">
+                    <img class="A_skin thief" onclick="select(this);" src="checking/img/A_skins/messenger.PNG">
+                    <img class="A_skin gardener deduction_star" onclick="select(this);" src="checking/img/A_skins/dreamed.PNG">
+                    <img class="A_skin gardener" onclick="select(this);" src="checking/img/A_skins/nachal.PNG">
+                    <img class="A_skin gardener Call_abyss" onclick="select(this);" src="checking/img/A_skins/pirate_jangin.PNG">
+                    <img class="A_skin gardener" onclick="select(this);" src="checking/img/A_skins/detective_gardener.PNG">
+                    <img class="A_skin gardener Persona5" onclick="select(this);" src="checking/img/A_skins/haru.PNG">
+                    <img class="A_skin gardener Persona5" onclick="select(this);" src="checking/img/A_skins/noir.PNG">
+                    <img class="A_skin gardener PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/emma.PNG">
+                    <!--<img class="A_skin gardener logic_path" onclick="select(this);" src="checking/img/A_skin/wind_post.PNG">-->
+                    <img class="A_skin magician logic_path" onclick="select(this);" src="checking/img/A_skins/platinum_aladin.PNG">
+                    <img class="A_skin magician" onclick="select(this);" src="checking/img/A_skins/blue_aladin.PNG">
+                    <img class="A_skin magician" onclick="select(this);" src="checking/img/A_skins/merlin.PNG">
+                    <img class="A_skin magician halloween" onclick="select(this);" src="checking/img/A_skins/mask_gentlaman.PNG">
+                    <img class="A_skin magician Call_abyss" onclick="select(this);" src="checking/img/A_skins/optical_mirror.PNG">
+                    <img class="A_skin magician" onclick="select(this);" src="checking/img/A_skins/white_suyeom.PNG">
+                    <img class="A_skin magician" onclick="select(this);" src="checking/img/A_skins/literal_professor.PNG">
+                    <img class="A_skin explorer" onclick="select(this);" src="checking/img/A_skins/geobugi.PNG">
+                    <img class="A_skin explorer" onclick="select(this);" src="checking/img/A_skins/gogohak.PNG">
+                    <img class="A_skin explorer logic_path" onclick="select(this);" src="checking/img/A_skins/inventor.PNG">
+                    <img class="A_skin explorer" onclick="select(this);" src="checking/img/A_skins/ikarus.PNG">
+                    <img class="A_skin explorer" onclick="select(this);" src="checking/img/A_skins/alice.PNG">
+                    <img class="A_skin explorer" onclick="select(this);" src="checking/img/A_skins/treasure_hunter.PNG">
+                    <img class="A_skin mercenary" onclick="select(this);" src="checking/img/A_skins/infected.PNG">
+                    <img class="A_skin mercenary" onclick="select(this);" src="checking/img/A_skins/parasite.PNG">
+                    <img class="A_skin mercenary" onclick="select(this);" src="checking/img/A_skins/white_dancer.PNG">
+                    <img class="A_skin mercenary" onclick="select(this);" src="checking/img/A_skins/spring_hand.PNG">
+                    <img class="A_skin mercenary Call_abyss" onclick="select(this);" src="checking/img/A_skins/steam_guy.PNG">
+                    <img class="A_skin mercenary logic_path" onclick="select(this);" src="checking/img/A_skins/cursed_parao.PNG">
+                    <img class="A_skin mercenary" onclick="select(this);" src="checking/img/A_skins/mission.PNG">
+                    <img class="A_skin mercenary" onclick="select(this);" src="checking/img/A_skins/detective.PNG">
+                    <img class="A_skin mercenary Danganronpa" onclick="select(this);" src="checking/img/A_skins/komaeda.PNG">
+                    <img class="A_skin mercenary deduction_star" onclick="select(this);" src="checking/img/A_skins/colonel_dacks.PNG">
+                    <img class="A_skin coordinator" onclick="select(this);" src="checking/img/A_skins/black_swan.PNG">
+                    <img class="A_skin coordinator deduction_star" onclick="select(this);" src="checking/img/A_skins/party_miryeon.PNG">
+                    <img class="A_skin coordinator" onclick="select(this);" src="checking/img/A_skins/hoego.PNG">
+                    <img class="A_skin coordinator Call_abyss" onclick="select(this);" src="checking/img/A_skins/pirate_gunner.PNG">
+                    <img class="A_skin coordinator Persona5" onclick="select(this);" src="checking/img/A_skins/makoto.PNG">
+                    <img class="A_skin coordinator Persona5" onclick="select(this);" src="checking/img/A_skins/queen.PNG">
+                    <img class="A_skin coordinator Danganronpa" onclick="select(this);" src="checking/img/A_skins/kirigiri.PNG">
+                    <img class="A_skin coordinator" onclick="select(this);" src="checking/img/A_skins/true_judge.PNG">
+                    <img class="A_skin coordinator" onclick="select(this);" src="checking/img/A_skins/susanna.PNG">
+                    <img class="A_skin coordinator conan" onclick="select(this);" src="checking/img/A_skins/ran_mori.PNG">
+                    <img class="A_skin mechanic" onclick="select(this);" src="checking/img/A_skins/lauphing.PNG">
+                    <img class="A_skin mechanic Persona5" onclick="select(this);" src="checking/img/A_skins/futaba.PNG">
+                    <img class="A_skin mechanic Persona5" onclick="select(this);" src="checking/img/A_skins/oracle.PNG">
+                    <img class="A_skin mechanic Call_abyss" onclick="select(this);" src="checking/img/A_skins/doller.PNG">
+                    <img class="A_skin mechanic logic_path" onclick="select(this);" src="checking/img/A_skins/candy_girl.PNG">
+                    <img class="A_skin mechanic" onclick="select(this);" src="checking/img/A_skins/re_swim.PNG">
+                    <img class="A_skin mechanic Danganronpa" onclick="select(this);" src="checking/img/A_skins/nanami.PNG">
+                    <img class="A_skin mechanic Deathnote" onclick="select(this);" src="checking/img/A_skins/amane.PNG">
+                    <img class="A_skin forward" onclick="select(this);" src="checking/img/A_skins/hermes.PNG">
+                    <img class="A_skin forward" onclick="select(this);" src="checking/img/A_skins/deulso.PNG">
+                    <img class="A_skin forward logic_path" onclick="select(this);" src="checking/img/A_skins/black_rabbit.PNG">
+                    <img class="A_skin forward" onclick="select(this);" src="checking/img/A_skins/blue_rabbit.PNG">
+                    <img class="A_skin forward halloween" onclick="select(this);" src="checking/img/A_skins/black_nose.PNG">
+                    <img class="A_skin forward Persona5" onclick="select(this);" src="checking/img/A_skins/ryuji.PNG">
+                    <img class="A_skin forward Persona5" onclick="select(this);" src="checking/img/A_skins/skull.PNG">
+                    <img class="A_skin forward PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/don.PNG">
+                    <img class="A_skin forward conan" onclick="select(this);" src="checking/img/A_skins/heiji_hattori.PNG">
+                    <img class="A_skin mindeye" onclick="select(this);" src="checking/img/A_skins/desert_cake.PNG">
+                    <img class="A_skin mindeye" onclick="select(this);" src="checking/img/A_skins/haisi.PNG">
+                    <img class="A_skin mindeye Call_abyss" onclick="select(this);" src="checking/img/A_skins/eumpa.PNG">
+                    <img class="A_skin mindeye" onclick="select(this);" src="checking/img/A_skins/dream_girl.PNG">
+                    <img class="A_skin mindeye" onclick="select(this);" src="checking/img/A_skins/seogi.PNG">
+                    <img class="A_skin mindeye PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/gilda.PNG">
+                    <img class="A_skin priestess" onclick="select(this);" src="checking/img/A_skins/singwang.PNG">
+                    <img class="A_skin priestess" onclick="select(this);" src="checking/img/A_skins/kkumsa.PNG">
+                    <img class="A_skin priestess" onclick="select(this);" src="checking/img/A_skins/bulun.PNG">
+                    <img class="A_skin priestess deduction_star" onclick="select(this);" src="checking/img/A_skins/samara.PNG">
+                    <img class="A_skin priestess Call_abyss" onclick="select(this);" src="checking/img/A_skins/reflect_mirror.PNG">
+                    <img class="A_skin priestess" onclick="select(this);" src="checking/img/A_skins/sunryeja.PNG">
+                    <img class="A_skin priestess logic_path" onclick="select(this);" src="checking/img/A_skins/carmen.PNG" alt="S18 priestess deduction path skin">
+                    <img class="A_skin perfumer" onclick="select(this);" src="checking/img/A_skins/jangnabi.PNG">
+                    <img class="A_skin perfumer" onclick="select(this);" src="checking/img/A_skins/chimae.PNG">
+                    <img class="A_skin perfumer Call_abyss" onclick="select(this);" src="checking/img/A_skins/simo.PNG">
+                    <img class="A_skin perfumer logic_path" onclick="select(this);" src="checking/img/A_skins/pisinbu.PNG">
+                    <img class="A_skin perfumer deduction_star" onclick="select(this);" src="checking/img/A_skins/red_shoes.PNG">
+                    <img class="A_skin perfumer conan" onclick="select(this);" src="checking/img/A_skins/shiho_miyano.PNG">
+                    <img class="A_skin cowboy" onclick="select(this);" src="checking/img/A_skins/yongsa.PNG">
+                    <img class="A_skin cowboy" onclick="select(this);" src="checking/img/A_skins/yeoknal.PNG">
+                    <img class="A_skin cowboy Call_abyss" onclick="select(this);" src="checking/img/A_skins/gyopyeon.PNG">
+                    <img class="A_skin cowboy" onclick="select(this);" src="checking/img/A_skins/candleman.PNG">
+                    <img class="A_skin dancer logic_path" onclick="select(this);" src="checking/img/A_skins/sanscrite.PNG">
+                    <img class="A_skin dancer Persona5" onclick="select(this);" src="checking/img/A_skins/takamaki.PNG">
+                    <img class="A_skin dancer Persona5" onclick="select(this);" src="checking/img/A_skins/panther.PNG">
+                    <img class="A_skin dancer Scissorhands" onclick="select(this);" src="checking/img/A_skins/kim.PNG">
+                    <img class="A_skin dancer Call_abyss" onclick="select(this);" src="checking/img/A_skins/evil_flower.PNG">
+                    <img class="A_skin dancer halloween" onclick="select(this);" src="checking/img/A_skins/moonblessed.PNG">
+                    <img class="A_skin seer" onclick="select(this);" src="checking/img/A_skins/dalwi.PNG">
+                    <img class="A_skin seer halloween" onclick="select(this);" src="checking/img/A_skins/yeokjeon.PNG">
+                    <img class="A_skin seer Call_abyss" onclick="select(this);" src="checking/img/A_skins/observer.PNG">
+                    <img class="A_skin seer deduction_star" onclick="select(this);" src="checking/img/A_skins/dokhaeng.PNG">
+                    <img class="A_skin seer logic_path" onclick="select(this);" src="checking/img/A_skins/final_honor.PNG">
+                    <img class="A_skin embalmer Persona5" onclick="select(this);" src="checking/img/A_skins/yusuke.PNG">
+                    <img class="A_skin embalmer Persona5" onclick="select(this);" src="checking/img/A_skins/fox.PNG">
+                    <img class="A_skin embalmer Call_abyss" onclick="select(this);" src="checking/img/A_skins/unmyeong.PNG">
+                    <img class="A_skin embalmer deduction_star" onclick="select(this);" src="checking/img/A_skins/hamlet.PNG">
+                    <img class="A_skin embalmer PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/norman.PNG">
+                    <img class="A_skin prospector" onclick="select(this);" src="checking/img/A_skins/dudeoji.PNG">
+                    <img class="A_skin prospector" onclick="select(this);" src="checking/img/A_skins/jakseol.PNG">
+                    <img class="A_skin prospector" onclick="select(this);" src="checking/img/A_skins/ronald.PNG">
+                    <img class="A_skin prospector Call_abyss" onclick="select(this);" src="checking/img/A_skins/road_rider.PNG">
+                    <img class="A_skin enchantress" onclick="select(this);" src="checking/img/A_skins/silencing.PNG">
+                    <img class="A_skin enchantress" onclick="select(this);" src="checking/img/A_skins/guide.PNG">
+                    <img class="A_skin enchantress" onclick="select(this);" src="checking/img/A_skins/nightmare.PNG">
+                    <img class="A_skin wildling" onclick="select(this);" src="checking/img/A_skins/gwangdae.PNG">
+                    <img class="A_skin wildling" onclick="select(this);" src="checking/img/A_skins/snow_hunter.PNG">
+                    <img class="A_skin wildling call_abyss" onclick="select(this);" src="checking/img/A_skins/peet_crew.PNG">
+                    <img class="A_skin acrobat" onclick="select(this);" src="checking/img/A_skins/kakao.PNG">
+                    <img class="A_skin acrobat" onclick="select(this);" src="checking/img/A_skins/ace.PNG">
+                    <img class="A_skin acrobat Call_abyss" onclick="select(this);" src="checking/img/A_skins/tire.PNG">
+                    <img class="A_skin officer" onclick="select(this);" src="checking/img/A_skins/bajil.PNG">
+                    <img class="A_skin officer Once" onclick="select(this);" src="checking/img/A_skins/sailing_date.PNG">
+                    <img class="A_skin barmaid" onclick="select(this);" src="checking/img/A_skins/blackrose.PNG">
+                    <img class="A_skin barmaid Danganronpa" onclick="select(this);" src="checking/img/A_skins/enosima.PNG">
+                    <img class="A_skin barmaid Call_abyss" onclick="select(this);" src="checking/img/A_skins/accelerator.PNG">
+                    <img class="A_skin barmaid" onclick="select(this);" src="checking/img/A_skins/soprano.PNG">
+                    <img class="A_skin postman" onclick="select(this);" src="checking/img/A_skins/piano.PNG">
+                    <img class="A_skin postman" onclick="select(this);" src="checking/img/A_skins/wraith.PNG">
+                    <img class="A_skin postman" onclick="select(this);" src="checking/img/A_skins/prince.PNG">
+                    <img class="A_skin graveyard" onclick="select(this);" src="checking/img/A_skins/train_conductor.PNG">
+                    <img class="A_skin graveyard" onclick="select(this);" src="checking/img/A_skins/cheeze.PNG">
+                    <img class="A_skin graveyard Once" onclick="select(this);" src="checking/img/A_skins/myobi.PNG">
+                    <img class="A_skin prisoner" onclick="select(this);" src="checking/img/A_skins/electric.PNG">
+                    <img class="A_skin prisoner PromisedNeverLands" onclick="select(this);" src="checking/img/A_skins/lay.PNG">
+                    <img class="A_skin prisoner Deathnote" onclick="select(this);" src="checking/img/A_skins/the_L.PNG">
+                    <img class="A_skin entomologist" onclick="select(this);" src="checking/img/A_skins/black_witch.PNG">
+                    <img class="A_skin painter" onclick="select(this);" src="checking/img/A_skins/escaper.PNG">
+                    <img class="A_skin batter" onclick="select(this);" src="checking/img/A_skins/seditious_binding.PNG">
+                    <img class="A_skin merchant" onclick="select(this);" src="checking/img/A_skins/hidden.PNG">
+                </div>
+                <div class="B_skin_male_hunter">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/mr_puppet.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/moon_face_hell_ember.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/perception.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/craftsman.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/lasso.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/silence.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/welder.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/head_chef.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/leonidas.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/excutioner.PNG">
+                    <img class="B_skin hell_ember" onclick="select(this);" src="checking/img/B_skins/santaclaus.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/prisoner_joker.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/mister_pink.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/singer.PNG">
+                    <img class="B_skin joker Call_abyss" onclick="select(this);" src="checking/img/B_skins/iron_hat_commander.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/archiver.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/mummy.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/dark_xmas.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/forbidden_forest_guard.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/forbidden_area_guard.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/romani.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/smile.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/medium_rare.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/train_driver.PNG">
+                    <img class="B_skin joker" onclick="select(this);" src="checking/img/B_skins/noyce.PNG">
+                    <img class="B_skin game_keeper" onclick="select(this);" src="checking/img/B_skins/crimson.PNG">
+                    <img class="B_skin game_keeper" onclick="select(this);" src="checking/img/B_skins/phantom.PNG">
+                    <img class="B_skin game_keeper" onclick="select(this);" src="checking/img/B_skins/suffering_dear.PNG">
+                    <img class="B_skin game_keeper" onclick="select(this);" src="checking/img/B_skins/cherry_pattern.PNG">
+                    <img class="B_skin game_keeper" onclick="select(this);" src="checking/img/B_skins/hunt.PNG">
+                    <img class="B_skin game_keeper" onclick="select(this);" src="checking/img/B_skins/village_guard.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/barber.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/baker.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/blackjack.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/fog_osprey.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/red_osprey.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/manta_ray_mate.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/stern_mate.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/sunflower.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/razor_claw.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/lost_soul.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/golden_scissors.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/fine_arts_teaching_assistant.PNG">
+                    <img class="B_skin reaper" onclick="select(this);" src="checking/img/B_skins/servant.PNG">
+                    <img class="B_skin soul_weaver" onclick="select(this);" src="checking/img/B_skins/starry_prophet.PNG">
+                    <img class="B_skin soul_weaver" onclick="select(this);" src="checking/img/B_skins/grimy.PNG">
+                    <img class="B_skin soul_weaver" onclick="select(this);" src="checking/img/B_skins/operating_table.PNG">
+                    <img class="B_skin soul_weaver" onclick="select(this);" src="checking/img/B_skins/inverted_blade.PNG">
+                    <img class="B_skin soul_weaver" onclick="select(this);" src="checking/img/B_skins/crab_spider.PNG">
+                    <img class="B_skin soul_weaver" onclick="select(this);" src="checking/img/B_skins/cursed_tears.PNG">
+                    <img class="B_skin soul_weaver Call_abyss" onclick="select(this);" src="checking/img/B_skins/pricking.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/autumn_reed.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/begonia.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/colorful_lights.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/hanabi.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/koi.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/man_dream_geisha.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/myoga.PNG">
+                    <img class="B_skin geisha Call_abyss" onclick="select(this);" src="checking/img/B_skins/porcelain_doll.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/shadow.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/silver_carp.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/solitude.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/peace_mind.PNG">
+                    <img class="B_skin geisha" onclick="select(this);" src="checking/img/B_skins/wintersweet.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/ancient_soul.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/carnival.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/chef.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/ghost_blue_helmsman.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/glutton.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/nian.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/oar_abyss.PNG">
+                    <img class="B_skin feaster" onclick="select(this);" src="checking/img/B_skins/wandering_spirit.PNG">
+                    <img class="B_skin feaster halloween" onclick="select(this);" src="checking/img/B_skins/grand_oracle.PNG">
+                    <img class="B_skin wu_chang" onclick="select(this);" src="checking/img/B_skins/incomplete.PNG">
+                    <img class="B_skin wu_chang" onclick="select(this);" src="checking/img/B_skins/spiked_guards.PNG">
+                    <img class="B_skin wu_chang" onclick="select(this);" src="checking/img/B_skins/waterless_stream.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/ambassador.PNG">
+                    <img class="B_skin photographer Call_abyss" onclick="select(this);" src="checking/img/B_skins/auctioneer.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/count.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/enigma.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/hypnotist.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/iris.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/lies.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/macbeth.PNG">
+                    <img class="B_skin photographer" onclick="select(this);" src="checking/img/B_skins/client.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/bound.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/caterpillar.PNG">
+                    <img class="B_skin mad_eye halloween" onclick="select(this);" src="checking/img/B_skins/castle_butler.PNG">
+                    <img class="B_skin mad_eye Call_abyss" onclick="select(this);" src="checking/img/B_skins/dismantler.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/hidden_artisan.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/toothless_lion.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/valerian.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/shock.PNG">
+                    <img class="B_skin mad_eye" onclick="select(this);" src="checking/img/B_skins/reveler.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/broadcaster.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/incarnation.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/moon_servant.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/siren.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/revolutionist.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/heat_wave.PNG">
+                    <img class="B_skin dream_witch" onclick="select(this);" src="checking/img/B_skins/vine.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/freak.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/death_eurya.PNG">
+                    <img class="B_skin axe_boy Call_abyss" onclick="select(this);" src="checking/img/B_skins/hysterical_fans.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/marshmallow.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/mighty_boy.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/pam.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/pumpkin_lantern.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/spookcrow.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/venom_fangs.PNG">
+                    <img class="B_skin axe_boy" onclick="select(this);" src="checking/img/B_skins/sleep_talking.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/baron.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/bill.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/experimental_subject.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/japalure.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/red_scales.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/mutation.PNG">
+                    <img class="B_skin evil_raptilian" onclick="select(this);" src="checking/img/B_skins/stonemason.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/henbane_dimples.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/abandoned_dream.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/accused_duchess.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/fiery_diva.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/mirror_lady.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/heart_queen.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/roaster.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/rouge.PNG">
+                    <img class="B_skin mary" onclick="select(this);" src="checking/img/B_skins/pipe_dream.PNG">
+                    <img class="B_skin guard_26" onclick="select(this);" src="checking/img/B_skins/card_soldier.PNG">
+                    <img class="B_skin guard_26" onclick="select(this);" src="checking/img/B_skins/champagne_bucket.PNG">
+                    <img class="B_skin guard_26" onclick="select(this);" src="checking/img/B_skins/court6_commissioner.PNG">
+                    <img class="B_skin guard_26" onclick="select(this);" src="checking/img/B_skins/fortunes_favor.PNG">
+                    <img class="B_skin guard_26" onclick="select(this);" src="checking/img/B_skins/jukebox.PNG">
+                    <img class="B_skin guard_26" onclick="select(this);" src="checking/img/B_skins/tin_man.PNG">
+                    <img class="B_skin disciple" onclick="select(this);" src="checking/img/B_skins/coward.PNG">
+                    <img class="B_skin disciple" onclick="select(this);" src="checking/img/B_skins/absinthe.PNG">
+                    <img class="B_skin disciple" onclick="select(this);" src="checking/img/B_skins/dominator.PNG">
+                    <img class="B_skin disciple" onclick="select(this);" src="checking/img/B_skins/philofelist.PNG">
+                    <img class="B_skin disciple" onclick="select(this);" src="checking/img/B_skins/refrigerator.PNG">
+                    <img class="B_skin violinist" onclick="select(this);" src="checking/img/B_skins/sigil_abyss.PNG">
+                    <img class="B_skin violinist" onclick="select(this);" src="checking/img/B_skins/sound_life_death.PNG">
+                    <img class="B_skin sculptor" onclick="select(this);" src="checking/img/B_skins/pawn.PNG">
+                    <img class="B_skin sculptor" onclick="select(this);" src="checking/img/B_skins/court3_commissioner.PNG">
+                    <img class="B_skin sculptor Call_abyss" onclick="select(this);" src="checking/img/B_skins/wheelchair_racer.PNG">
+                    <img class="B_skin sculptor" onclick="select(this);" src="checking/img/B_skins/hebe.PNG">
+                    <img class="B_skin sculptor" onclick="select(this);" src="checking/img/B_skins/salted_sand.PNG">
+                    <img class="B_skin sculptor" onclick="select(this);" src="checking/img/B_skins/flight_ideas.PNG">
+                    <img class="B_skin breaking_wheel" onclick="select(this);" src="checking/img/B_skins/teamwork.PNG">
+                    <img class="B_skin naiad" onclick="select(this);" src="checking/img/B_skins/reef_songstress.PNG">
+                    <img class="B_skin philip" onclick="select(this);" src="checking/img/B_skins/eternal_love.PNG">
+                </div>
+                <div class="B_skin_male_survivor">
+                    <img class="B_skin unlucky" onclick="select(this);" src="checking/img/B_skins/foreign_athenian.PNG">
+                    <img class="B_skin unlucky" onclick="select(this);" src="checking/img/B_skins/moon_face_unlucky.PNG">
+                    <img class="B_skin unlucky" onclick="select(this);" src="checking/img/B_skins/final.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/ostrich.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/anemonefish.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/antidote.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/banquet_maid.PNG">
+                    <img class="B_skin doctor Call_abyss" onclick="select(this);" src="checking/img/B_skins/chemist.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/clownfish.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/events_past.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/frostless_cold.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/jade_dew.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/leopard_dot.PNG">
+                    <img class="B_skin doctor IvoryTower" onclick="select(this);" src="checking/img/B_skins/model_student.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/protector.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/rebirth.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/shaman.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/somber_morning.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/sorrow.PNG">
+                    <img class="B_skin doctor" onclick="select(this);" src="checking/img/B_skins/xmas_ensemble.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/bartender.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/critical_move.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/distiller.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/dreamlike_frog.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/gnome.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/goblin.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/lost_sailor.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/record_keeper.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/reporter.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/rusty_penpoint.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/sauce.PNG">
+                    <img class="B_skin lawyer" onclick="select(this);" src="checking/img/B_skins/silver_steed.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/bluebeard.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/coin.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/colorless_tattoo.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/lacquerer.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/painter.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/rhythmless_tune.PNG">
+                    <img class="B_skin thief Call_abyss" onclick="select(this);" src="checking/img/B_skins/schemer.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/scout.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/signalman.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/squire.PNG">
+                    <img class="B_skin thief" onclick="select(this);" src="checking/img/B_skins/superficial.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/commander.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/cowgirl.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/darjeeling.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/florist.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/flower_girl.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/grail_maid.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/herbalist.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/lollipop.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/nature_lover.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/soul_forest.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/toiling_maid.PNG">
+                    <img class="B_skin gardener" onclick="select(this);" src="checking/img/B_skins/xmas_ensemble_gardener.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/xmas_elf.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/cocklebur.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/distinguish.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/joyless_dance.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/master_illusions.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/party_host.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/silvery_tech.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/snowless_peak.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/mad_hatter.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/wedding_host.PNG">
+                    <img class="B_skin magician" onclick="select(this);" src="checking/img/B_skins/azure_ceremony.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/zebra_shadow.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/museum_shelf.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/lost.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/moonlight_traveler.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/mulberry_leaf.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/researcher.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/spiritless_conductor.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/strider.PNG">
+                    <img class="B_skin explorer" onclick="select(this);" src="checking/img/B_skins/voyage.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/blacktip.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/cloak.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/hound.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/hummingbird.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/miburo_recruit.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/sharkbite.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/sandwolf.PNG">
+                    <img class="B_skin mercenary" onclick="select(this);" src="checking/img/B_skins/straight_punch.PNG">
+                    <img class="B_skin mercenary IvoryTower" onclick="select(this);" src="checking/img/B_skins/black_sheep.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/camouflage.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/cavalry.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/compartment_maid.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/desperado.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/disguise.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/event_host.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/ferrier_souls.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/glory.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/lantsang.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/navy.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/sabbath_angel.PNG">
+                    <img class="B_skin coordinator logic_path" onclick="select(this);" src="checking/img/B_skins/server.PNG">
+                    <img class="B_skin coordinator" onclick="select(this);" src="checking/img/B_skins/talia.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/apprentice.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/artisan.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/bear_girl.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/bounty_hunter.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/dark_forest_hunter.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/gothic.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/harley_rider.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/labyrinth_leader.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/wrench.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/nitre.PNG">
+                    <img class="B_skin mechanic Call_abyss" onclick="select(this);" src="checking/img/B_skins/ship_builder.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/smarty_pants.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/tomb_guide.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/tuning.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/velvet_puzzle.PNG">
+                    <img class="B_skin mechanic" onclick="select(this);" src="checking/img/B_skins/scene_four.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/blackthorn.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/champion.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/colorful_mushroom.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/deep_sea_turtle.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/fireman.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/kind_mushroom.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/knight.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/lava_tortoise.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/lucky_youngster.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/mummy_pioneer.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/rash_youngster.PNG">
+                    <img class="B_skin forward" onclick="select(this);" src="checking/img/B_skins/bound_forward.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/clio.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/foreign_athenian_mindeye.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/good_old_times.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/last_vacation.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/patient.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/shaman_apprentice.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/sorcery_apprentice.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/spring_outing.PNG">
+                    <img class="B_skin mindeye" onclick="select(this);" src="checking/img/B_skins/worshipper.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/garment_forsaken.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/call_wild.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/citizens_athen.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/court5_commissioner.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/emerald_antelope.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/encore.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/fur_coat.PNG">
+                    <img class="B_skin priestess halloween" onclick="select(this);" src="checking/img/B_skins/guiding_spirit.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/key_hell.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/leaping_gazell.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/peacock_dance.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/puer.PNG">
+                    <img class="B_skin priestess logic_path" onclick="select(this);" src="checking/img/B_skins/scylla.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/siren_priestess.PNG">
+                    <img class="B_skin priestess" onclick="select(this);" src="checking/img/B_skins/starry_night.PNG">
+                    <img class="B_skin priestess Call_abyss" onclick="select(this);" src="checking/img/B_skins/teleoperator.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/agave.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/conundrum.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/dahlia.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/dantsing.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/dill.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/elegant_giraffe.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/fragrance_queen.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/ladys_companion.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/manners.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/maple_red.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/melancholy.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/moon_maiden.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/pharmacist.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/potion_master.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/yearning.PNG">
+                    <img class="B_skin perfumer IvoryTower" onclick="select(this);" src="checking/img/B_skins/regal_maiden.PNG">
+                    <img class="B_skin perfumer" onclick="select(this);" src="checking/img/B_skins/confabulation.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/bodiless_soul.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/collector.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/faithful_servant.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/frosty_white.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/horseshoe.PNG">
+                    <img class="B_skin cowboy Call_abyss" onclick="select(this);" src="checking/img/B_skins/iron_hat_sheriff.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/soulless_body.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/vibrant_saddle.PNG">
+                    <img class="B_skin cowboy" onclick="select(this);" src="checking/img/B_skins/wandering_musketeer.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/affection.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/ballerina.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/beneficiary.PNG">
+                    <img class="B_skin dancer halloween" onclick="select(this);" src="checking/img/B_skins/cheeky_devil.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/court7_commissioner.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/gymnast.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/icecream.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/man_dream_dancer.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/oil_painting.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/music_score.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/pervasive_fracrance.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/safflower.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/tiger_butterfly.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/western_infatuation.PNG">
+                    <img class="B_skin dancer" onclick="select(this);" src="checking/img/B_skins/spotlight_effect.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/bailiff.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/binder.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/citizens_athen_seer.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/future_sight.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/judge.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/lifted.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/longing_tiger.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/new_yearprophecy.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/nightfire.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/scarlet_finch.PNG">
+                    <img class="B_skin seer" onclick="select(this);" src="checking/img/B_skins/shepherd.PNG">
+                    <img class="B_skin embalmer Call_abyss" onclick="select(this);" src="checking/img/B_skins/banker.PNG">
+                    <img class="B_skin embalmer" onclick="select(this);" src="checking/img/B_skins/banquet_butler.PNG">
+                    <img class="B_skin embalmer" onclick="select(this);" src="checking/img/B_skins/call_bell.PNG">
+                    <img class="B_skin embalmer" onclick="select(this);" src="checking/img/B_skins/man_dream_embalmer.PNG">
+                    <img class="B_skin embalmer" onclick="select(this);" src="checking/img/B_skins/music_master.PNG">
+                    <img class="B_skin embalmer" onclick="select(this);" src="checking/img/B_skins/rorschach_physician.PNG">
+                    <img class="B_skin embalmer" onclick="select(this);" src="checking/img/B_skins/honored_guest.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/helm_accusation.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/gold_digger.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/jarhead.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/magic_item_keeper.PNG">
+                    <img class="B_skin prospector Call_abyss" onclick="select(this);" src="checking/img/B_skins/patchwork.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/wanderer.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/wild_pitch.PNG">
+                    <img class="B_skin prospector" onclick="select(this);" src="checking/img/B_skins/tune.PNG">
+                    <img class="B_skin enchantress" onclick="select(this);" src="checking/img/B_skins/cleanse.PNG">
+                    <img class="B_skin enchantress" onclick="select(this);" src="checking/img/B_skins/fading.PNG">
+                    <img class="B_skin enchantress" onclick="select(this);" src="checking/img/B_skins/man_dream_enchantress.PNG">
+                    <img class="B_skin enchantress" onclick="select(this);" src="checking/img/B_skins/poison_berry.PNG">
+                    <img class="B_skin enchantress" onclick="select(this);" src="checking/img/B_skins/skillful_lady.PNG">
+                    <img class="B_skin enchantress" onclick="select(this);" src="checking/img/B_skins/servant_enchantress.PNG">
+                    <img class="B_skin wildling Call_abyss" onclick="select(this);" src="checking/img/B_skins/bodyguard.PNG">
+                    <img class="B_skin wildling" onclick="select(this);" src="checking/img/B_skins/conquerer.PNG">
+                    <img class="B_skin wildling" onclick="select(this);" src="checking/img/B_skins/fish_soup_feast.PNG">
+                    <img class="B_skin wildling" onclick="select(this);" src="checking/img/B_skins/knave_hearts.PNG">
+                    <img class="B_skin wildling" onclick="select(this);" src="checking/img/B_skins/hysteria.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/bohea.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/emerald_city_coachman.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/fools_heart.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/good_lad.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/jamboree.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/pomegranate.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/puppet.PNG">
+                    <img class="B_skin acrobat" onclick="select(this);" src="checking/img/B_skins/sparrow.PNG">
+                    <img class="B_skin officer" onclick="select(this);" src="checking/img/B_skins/bobolinnk.PNG">
+                    <img class="B_skin officer" onclick="select(this);" src="checking/img/B_skins/doubt.PNG">
+                    <img class="B_skin officer" onclick="select(this);" src="checking/img/B_skins/lost_sailor_officer.PNG">
+                    <img class="B_skin officer" onclick="select(this);" src="checking/img/B_skins/quickstep.PNG">
+                    <img class="B_skin officer" onclick="select(this);" src="checking/img/B_skins/night_patroll.PNG">
+                    <img class="B_skin barmaid" onclick="select(this);" src="checking/img/B_skins/bar_wine.PNG">
+                    <img class="B_skin barmaid" onclick="select(this);" src="checking/img/B_skins/flavorful_spirits.PNG">
+                    <img class="B_skin barmaid" onclick="select(this);" src="checking/img/B_skins/phonograph.PNG">
+                    <img class="B_skin barmaid" onclick="select(this);" src="checking/img/B_skins/strong_mix.PNG">
+                    <img class="B_skin barmaid" onclick="select(this);" src="checking/img/B_skins/sulfuric_acid.PNG">
+                    <img class="B_skin barmaid" onclick="select(this);" src="checking/img/B_skins/swallowtail_butterfly.PNG">
+                    <img class="B_skin postman" onclick="select(this);" src="checking/img/B_skins/herald.PNG">
+                    <img class="B_skin postman" onclick="select(this);" src="checking/img/B_skins/jingle_bells.PNG">
+                    <img class="B_skin postman" onclick="select(this);" src="checking/img/B_skins/wizard_oz.PNG">
+                    <img class="B_skin postman Call_abyss" onclick="select(this);" src="checking/img/B_skins/paper_boy.PNG">
+                    <img class="B_skin postman" onclick="select(this);" src="checking/img/B_skins/roll_call.PNG">
+                    <img class="B_skin postman" onclick="select(this);" src="checking/img/B_skins/sheriff.PNG">
+                    <img class="B_skin graveyard" onclick="select(this);" src="checking/img/B_skins/ancient_ballad.PNG">
+                    <img class="B_skin graveyard" onclick="select(this);" src="checking/img/B_skins/choir_boy.PNG">
+                    <img class="B_skin graveyard" onclick="select(this);" src="checking/img/B_skins/silent_boatman.PNG">
+                    <img class="B_skin graveyard" onclick="select(this);" src="checking/img/B_skins/fear.PNG">
+                    <img class="B_skin prisoner" onclick="select(this);" src="checking/img/B_skins/hermit_crab.PNG">
+                    <img class="B_skin prisoner" onclick="select(this);" src="checking/img/B_skins/boidae.PNG">
+                    <img class="B_skin prisoner" onclick="select(this);" src="checking/img/B_skins/month_bound.PNG">
+                    <img class="B_skin prisoner Call_abyss" onclick="select(this);" src="checking/img/B_skins/racing_mechanic.PNG">
+                    <img class="B_skin prisoner" onclick="select(this);" src="checking/img/B_skins/merce.PNG">
+                    <img class="B_skin prisoner" onclick="select(this);" src="checking/img/B_skins/silver_shell.PNG">
+                    <img class="B_skin entomologist" onclick="select(this);" src="checking/img/B_skins/ambassador_entomologist.PNG">
+                    <img class="B_skin entomologist" onclick="select(this);" src="checking/img/B_skins/rebel.PNG">
+                    <img class="B_skin painter" onclick="select(this);" src="checking/img/B_skins/antique_appraiser.PNG">
+                    <img class="B_skin painter" onclick="select(this);" src="checking/img/B_skins/palette.PNG">
+                    <img class="B_skin painter" onclick="select(this);" src="checking/img/B_skins/wanderer_painter.PNG">
+                    <img class="B_skin batter" onclick="select(this);" src="checking/img/B_skins/donut.PNG">
+                    <img class="B_skin merchant" onclick="select(this);" src="checking/img/B_skins/sommelier.PNG">
+                    <img class="B_skin patient" onclick="select(this);" src="checking/img/B_skins/blind_devotion.PNG">
+                    <img class="B_skin psychologist" onclick="select(this);" src="checking/img/B_skins/discipline.PNG">
+                    <img class="B_skin novelist" onclick="select(this);" src="checking/img/B_skins/evil_thoughts.PNG">
+                    <img class="B_skin memory" onclick="select(this);" src="checking/img/B_skins/pandora.PNG">
+                </div>
+                <div class="C_skin_male_hunter">
+                    <img class="C_skin hell_ember" onclick="select(this);" src="checking/img/C_skins/original_hell_ember.PNG">
+                    <img class="C_skin hell_ember" onclick="select(this);" src="checking/img/C_skins/worn_clothes_hell_ember.PNG">
+                    <img class="C_skin hell_ember" onclick="select(this);" src="checking/img/C_skins/black.PNG">
+                    <img class="C_skin hell_ember" onclick="select(this);" src="checking/img/C_skins/blue.PNG">
+                    <img class="C_skin hell_ember" onclick="select(this);" src="checking/img/C_skins/orange.PNG">
+                    <img class="C_skin hell_ember" onclick="select(this);" src="checking/img/C_skins/purple.PNG">
+                    <img class="C_skin joker" onclick="select(this);" src="checking/img/C_skins/original_joker.PNG">
+                    <img class="C_skin joker" onclick="select(this);" src="checking/img/C_skins/worn_clothes_joker.PNG">
+                    <img class="C_skin joker" onclick="select(this);" src="checking/img/C_skins/blue_freak.PNG">
+                    <img class="C_skin joker" onclick="select(this);" src="checking/img/C_skins/green_hat.PNG">
+                    <img class="C_skin joker" onclick="select(this);" src="checking/img/C_skins/purple_eggplant.PNG">
+                    <img class="C_skin joker" onclick="select(this);" src="checking/img/C_skins/red_face.PNG">
+                    <img class="C_skin game_keeper" onclick="select(this);" src="checking/img/C_skins/original_game_keeper.PNG">
+                    <img class="C_skin game_keeper" onclick="select(this);" src="checking/img/C_skins/worn_clothes_game_keeper.PNG">
+                    <img class="C_skin game_keeper" onclick="select(this);" src="checking/img/C_skins/bauhinia.PNG">
+                    <img class="C_skin game_keeper" onclick="select(this);" src="checking/img/C_skins/ice_blue.PNG">
+                    <img class="C_skin game_keeper" onclick="select(this);" src="checking/img/C_skins/white_wax.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/original_reaper.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/worn_clothes_reaper.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/black_baron.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/brass_knight.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/coffee_knight.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/leaf_knight.PNG">
+                    <img class="C_skin reaper" onclick="select(this);" src="checking/img/C_skins/rose_knight.PNG">
+                    <img class="C_skin soul_weaver" onclick="select(this);" src="checking/img/C_skins/original_soul_weaver.PNG">
+                    <img class="C_skin soul_weaver" onclick="select(this);" src="checking/img/C_skins/worn_clothes_soul_weaver.PNG">
+                    <img class="C_skin soul_weaver" onclick="select(this);" src="checking/img/C_skins/camouflage.PNG">
+                    <img class="C_skin soul_weaver" onclick="select(this);" src="checking/img/C_skins/cyan_weave.PNG">
+                    <img class="C_skin soul_weaver" onclick="select(this);" src="checking/img/C_skins/golden_scarlet.PNG">
+                    <img class="C_skin soul_weaver" onclick="select(this);" src="checking/img/C_skins/rose_satin.PNG">
+                    <img class="C_skin geisha" onclick="select(this);" src="checking/img/C_skins/original_geisha.PNG">
+                    <img class="C_skin geisha" onclick="select(this);" src="checking/img/C_skins/worn_clothes_geisha.PNG">
+                    <img class="C_skin geisha" onclick="select(this);" src="checking/img/C_skins/cyan.PNG">
+                    <img class="C_skin geisha logic_path" onclick="select(this);" src="checking/img/C_skins/pink.PNG">
+                    <img class="C_skin geisha" onclick="select(this);" src="checking/img/C_skins/purple_geisha.PNG">
+                    <img class="C_skin geisha" onclick="select(this);" src="checking/img/C_skins/yellow.PNG">
+                    <img class="C_skin feaster" onclick="select(this);" src="checking/img/C_skins/original_feaster.PNG">
+                    <img class="C_skin feaster" onclick="select(this);" src="checking/img/C_skins/worn_clothes_feaster.PNG">
+                    <img class="C_skin feaster logic_path" onclick="select(this);" src="checking/img/C_skins/dead_wood.PNG">
+                    <img class="C_skin feaster" onclick="select(this);" src="checking/img/C_skins/moss.PNG">
+                    <img class="C_skin feaster" onclick="select(this);" src="checking/img/C_skins/night_violet.PNG">
+                    <img class="C_skin wu_chang" onclick="select(this);" src="checking/img/C_skins/original_wu_chang.PNG">
+                    <img class="C_skin wu_chang" onclick="select(this);" src="checking/img/C_skins/worn_clothes_wu_chang.PNG">
+                    <img class="C_skin wu_chang logic_path" onclick="select(this);" src="checking/img/C_skins/purple_pavilion.PNG">
+                    <img class="C_skin wu_chang logic_path" onclick="select(this);" src="checking/img/C_skins/sunset.PNG">
+                    <img class="C_skin wu_chang logic_path" onclick="select(this);" src="checking/img/C_skins/twin_lakes.PNG">
+                    <img class="C_skin photographer" onclick="select(this);" src="checking/img/C_skins/original_photographer.PNG">
+                    <img class="C_skin photographer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_photographer.PNG">
+                    <img class="C_skin photographer logic_path" onclick="select(this);" src="checking/img/C_skins/bloody_shadow.PNG">
+                    <img class="C_skin photographer logic_path" onclick="select(this);" src="checking/img/C_skins/shadow_pond.PNG">
+                    <img class="C_skin photographer" onclick="select(this);" src="checking/img/C_skins/sunset_photographer.PNG">
+                    <img class="C_skin mad_eye" onclick="select(this);" src="checking/img/C_skins/original_mad_eye.PNG">
+                    <img class="C_skin mad_eye" onclick="select(this);" src="checking/img/C_skins/worn_clothes_mad_eye.PNG">
+                    <img class="C_skin mad_eye" onclick="select(this);" src="checking/img/C_skins/bronze.PNG">
+                    <img class="C_skin mad_eye logic_path" onclick="select(this);" src="checking/img/C_skins/chalchite.PNG">
+                    <img class="C_skin mad_eye logic_path" onclick="select(this);" src="checking/img/C_skins/hematite.PNG">
+                    <img class="C_skin dream_witch" onclick="select(this);" src="checking/img/C_skins/original_dream_witch.PNG">
+                    <img class="C_skin dream_witch" onclick="select(this);" src="checking/img/C_skins/worn_clothes_dream_witch.PNG">
+                    <img class="C_skin axe_boy" onclick="select(this);" src="checking/img/C_skins/original_axe_boy.PNG">
+                    <img class="C_skin axe_boy" onclick="select(this);" src="checking/img/C_skins/worn_clothes_axe_boy.PNG">
+                    <img class="C_skin axe_boy logic_path" onclick="select(this);" src="checking/img/C_skins/black_coal.PNG">
+                    <img class="C_skin axe_boy logic_path" onclick="select(this);" src="checking/img/C_skins/crimson_axe.PNG">
+                    <img class="C_skin axe_boy" onclick="select(this);" src="checking/img/C_skins/white_sugar.PNG">
+                    <img class="C_skin evil_raptilian" onclick="select(this);" src="checking/img/C_skins/original_evil_raptilian.PNG">
+                    <img class="C_skin evil_raptilian" onclick="select(this);" src="checking/img/C_skins/worn_clothes_evil_raptilian.PNG">
+                    <img class="C_skin evil_raptilian logic_path" onclick="select(this);" src="checking/img/C_skins/blue_alum.PNG">
+                    <img class="C_skin evil_raptilian" onclick="select(this);" src="checking/img/C_skins/purple_aconite.PNG">
+                    <img class="C_skin evil_raptilian" onclick="select(this);" src="checking/img/C_skins/red_algae.PNG">
+                    <img class="C_skin mary" onclick="select(this);" src="checking/img/C_skins/original_mary.PNG">
+                    <img class="C_skin mary" onclick="select(this);" src="checking/img/C_skins/worn_clothes_mary.PNG">
+                    <img class="C_skin mary" onclick="select(this);" src="checking/img/C_skins/banquet_gray.PNG">
+                    <img class="C_skin mary logic_path" onclick="select(this);" src="checking/img/C_skins/dull_green.PNG">
+                    <img class="C_skin mary" onclick="select(this);" src="checking/img/C_skins/sunset_yellow.PNG">
+                    <img class="C_skin guard_26" onclick="select(this);" src="checking/img/C_skins/original_guard_26.PNG">
+                    <img class="C_skin guard_26" onclick="select(this);" src="checking/img/C_skins/worn_clothes_guard_26.PNG">
+                    <img class="C_skin guard_26 logic_path" onclick="select(this);" src="checking/img/C_skins/killer_copper.PNG">
+                    <img class="C_skin guard_26" onclick="select(this);" src="checking/img/C_skins/purple_metal.PNG">
+                    <img class="C_skin guard_26" onclick="select(this);" src="checking/img/C_skins/turquoise_blue.PNG">
+                    <img class="C_skin disciple" onclick="select(this);" src="checking/img/C_skins/original_disciple.PNG">
+                    <img class="C_skin disciple" onclick="select(this);" src="checking/img/C_skins/worn_clothes_disciple.PNG">
+                    <img class="C_skin disciple" onclick="select(this);" src="checking/img/C_skins/blood_moon_red.PNG">
+                    <img class="C_skin disciple logic_path" onclick="select(this);" src="checking/img/C_skins/nightmare_blue.PNG">
+                    <img class="C_skin disciple" onclick="select(this);" src="checking/img/C_skins/wilderness_white.PNG">
+                    <img class="C_skin violinist" onclick="select(this);" src="checking/img/C_skins/original_violinist.PNG">
+                    <img class="C_skin violinist" onclick="select(this);" src="checking/img/C_skins/worn_clothes_violinist.PNG">
+                    <img class="C_skin violinist logic_path" onclick="select(this);" src="checking/img/C_skins/autumn_breeze.PNG">
+                    <img class="C_skin violinist" onclick="select(this);" src="checking/img/C_skins/golden_blues.PNG">
+                    <img class="C_skin violinist logic_path" onclick="select(this);" src="checking/img/C_skins/voice_greenery.PNG">
+                    <img class="C_skin sculptor" onclick="select(this);" src="checking/img/C_skins/original_sculptor.PNG">
+                    <img class="C_skin sculptor" onclick="select(this);" src="checking/img/C_skins/worn_clothes_sculptor.PNG">
+                    <img class="C_skin sculptor" onclick="select(this);" src="checking/img/C_skins/sanguine.PNG">
+                    <img class="C_skin undead" onclick="select(this);" src="checking/img/C_skins/original_undead.PNG">
+                    <img class="C_skin undead" onclick="select(this);" src="checking/img/C_skins/worn_clothes_undead.PNG">
+                    <img class="C_skin breaking_wheel" onclick="select(this);" src="checking/img/C_skins/original_breaking_wheel.PNG">
+                    <img class="C_skin breaking_wheel" onclick="select(this);" src="checking/img/C_skins/worn_clothes_breaking_wheel.PNG">
+                    <img class="C_skin naiad" onclick="select(this);" src="checking/img/C_skins/original_naiad.PNG">
+                    <img class="C_skin naiad" onclick="select(this);" src="checking/img/C_skins/worn_clothes_naiad.PNG">
+                    <img class="C_skin philip" onclick="select(this);" src="checking/img/C_skins/original_philip.PNG">
+                    <img class="C_skin philip" onclick="select(this);" src="checking/img/C_skins/worn_clothes_philip.PNG">
+                    <img class="C_skin nightmare" onclick="select(this);" src="checking/img/C_skins/original_nightmare.PNG">
+                    <!--
+                    <img class="C_skin " onclick="select(this);" src="checking/img/C_skins/">
+                    -->
+                </div>
+                <div class="C_skin_survivor">
+                    <img class="C_skin unlucky" onclick="select(this);" src="checking/img/C_skins/original_unlucky.PNG">
+                    <img class="C_skin unlucky" onclick="select(this);" src="checking/img/C_skins/brown.PNG">
+                    <img class="C_skin unlucky" onclick="select(this);" src="checking/img/C_skins/mellow_yellow.PNG">
+                    <img class="C_skin unlucky" onclick="select(this);" src="checking/img/C_skins/plain_gray.PNG">
+                    <img class="C_skin unlucky" onclick="select(this);" src="checking/img/C_skins/reserved_green.PNG">
+                    <img class="C_skin doctor" onclick="select(this);" src="checking/img/C_skins/original_doctor.PNG">
+                    <img class="C_skin doctor" onclick="select(this);" src="checking/img/C_skins/worn_clothes_doctor.PNG">
+                    <img class="C_skin doctor" onclick="select(this);" src="checking/img/C_skins/dark_side_doctor.PNG">
+                    <img class="C_skin doctor" onclick="select(this);" src="checking/img/C_skins/bordeaux_red.PNG">
+                    <img class="C_skin doctor" onclick="select(this);" src="checking/img/C_skins/calm_yellow.PNG">
+                    <img class="C_skin doctor logic_path" onclick="select(this);" src="checking/img/C_skins/elegant_white.PNG">
+                    <img class="C_skin doctor" onclick="select(this);" src="checking/img/C_skins/quiet_blue.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/original_lawyer.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_lawyer.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/dark_side_lawyer.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/coral_red.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/matcha_green.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/sakura_pink.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/sapphire_blue.PNG">
+                    <img class="C_skin lawyer" onclick="select(this);" src="checking/img/C_skins/space_black.PNG">
+                    <img class="C_skin thief" onclick="select(this);" src="checking/img/C_skins/original_thief.PNG">
+                    <img class="C_skin thief" onclick="select(this);" src="checking/img/C_skins/worn_clothes_thief.PNG">
+                    <img class="C_skin thief" onclick="select(this);" src="checking/img/C_skins/dark_side_thief.PNG">
+                    <img class="C_skin thief" onclick="select(this);" src="checking/img/C_skins/amethyst.PNG">
+                    <img class="C_skin thief" onclick="select(this);" src="checking/img/C_skins/celestine.PNG">
+                    <img class="C_skin thief" onclick="select(this);" src="checking/img/C_skins/green_jade.PNG">
+                    <img class="C_skin gardener" onclick="select(this);" src="checking/img/C_skins/original_gardener.PNG">
+                    <img class="C_skin gardener" onclick="select(this);" src="checking/img/C_skins/worn_clothes_gardener.PNG">
+                    <img class="C_skin gardener" onclick="select(this);" src="checking/img/C_skins/dark_side_gardener.PNG">
+                    <img class="C_skin gardener logic_path" onclick="select(this);" src="checking/img/C_skins/autumn.PNG">
+                    <img class="C_skin gardener" onclick="select(this);" src="checking/img/C_skins/peach_pink.PNG">
+                    <img class="C_skin gardener" onclick="select(this);" src="checking/img/C_skins/strawberry.PNG">
+                    <img class="C_skin gardener" onclick="select(this);" src="checking/img/C_skins/violet.PNG">
+                    <img class="C_skin magician" onclick="select(this);" src="checking/img/C_skins/original_magician.PNG">
+                    <img class="C_skin magician" onclick="select(this);" src="checking/img/C_skins/worn_clothes_magician.PNG">
+                    <img class="C_skin magician" onclick="select(this);" src="checking/img/C_skins/dark_side_magician.PNG">
+                    <img class="C_skin magician logic_path" onclick="select(this);" src="checking/img/C_skins/charming_purple.PNG">
+                    <img class="C_skin magician" onclick="select(this);" src="checking/img/C_skins/olive_branch.PNG">
+                    <img class="C_skin magician" onclick="select(this);" src="checking/img/C_skins/red_coat.PNG">
+                    <img class="C_skin magician" onclick="select(this);" src="checking/img/C_skins/wine.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/original_explorer.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_explorer.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/apricot_yellow.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/autumn_orange.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/pinky_memory.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/turquoise.PNG">
+                    <img class="C_skin explorer" onclick="select(this);" src="checking/img/C_skins/verdant_green.PNG">
+                    <img class="C_skin mercenary" onclick="select(this);" src="checking/img/C_skins/original_mercenary.PNG">
+                    <img class="C_skin mercenary" onclick="select(this);" src="checking/img/C_skins/worn_clothes_mercenary.PNG">
+                    <img class="C_skin mercenary" onclick="select(this);" src="checking/img/C_skins/gloom.PNG">
+                    <img class="C_skin mercenary" onclick="select(this);" src="checking/img/C_skins/flame.PNG">
+                    <img class="C_skin mercenary" onclick="select(this);" src="checking/img/C_skins/stealth.PNG">
+                    <img class="C_skin coordinator" onclick="select(this);" src="checking/img/C_skins/original_coordinator.PNG">
+                    <img class="C_skin coordinator" onclick="select(this);" src="checking/img/C_skins/worn_clothes_coordinator.PNG">
+                    <img class="C_skin coordinator" onclick="select(this);" src="checking/img/C_skins/classic_gray.PNG">
+                    <img class="C_skin coordinator" onclick="select(this);" src="checking/img/C_skins/emerald.PNG">
+                    <img class="C_skin coordinator" onclick="select(this);" src="checking/img/C_skins/ivory_white.PNG">
+                    <img class="C_skin coordinator" onclick="select(this);" src="checking/img/C_skins/ocean.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/original_mechanic.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/worn_clothes_mechanic.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/cute_pink.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/focus_white.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/ink_black.PNG">
+                    <img class="C_skin mechanic logic_path" onclick="select(this);" src="checking/img/C_skins/meditation_blue.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/passion_red.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/smart_yellow.PNG">
+                    <img class="C_skin mechanic" onclick="select(this);" src="checking/img/C_skins/stylish_violet.PNG">
+                    <img class="C_skin forward" onclick="select(this);" src="checking/img/C_skins/original_forward.PNG">
+                    <img class="C_skin forward" onclick="select(this);" src="checking/img/C_skins/worn_clothes_forward.PNG">
+                    <img class="C_skin forward" onclick="select(this);" src="checking/img/C_skins/dark_side_forward.PNG">
+                    <img class="C_skin forward" onclick="select(this);" src="checking/img/C_skins/power_red.PNG">
+                    <img class="C_skin forward" onclick="select(this);" src="checking/img/C_skins/space_blue.PNG">
+                    <img class="C_skin forward" onclick="select(this);" src="checking/img/C_skins/vital_green.PNG">
+                    <img class="C_skin mindeye" onclick="select(this);" src="checking/img/C_skins/original_mind_eye.PNG">
+                    <img class="C_skin mindeye" onclick="select(this);" src="checking/img/C_skins/worn_clothes_mind_eye.PNG">
+                    <img class="C_skin mindeye" onclick="select(this);" src="checking/img/C_skins/autumn_green.PNG">
+                    <img class="C_skin mindeye" onclick="select(this);" src="checking/img/C_skins/peaceful_green.PNG">
+                    <img class="C_skin mindeye" onclick="select(this);" src="checking/img/C_skins/pinkish_white.PNG">
+                    <img class="C_skin mindeye logic_path" onclick="select(this);" src="checking/img/C_skins/schoolyard_red.PNG">
+                    <img class="C_skin mindeye" onclick="select(this);" src="checking/img/C_skins/winter_blue.PNG">
+                    <img class="C_skin priestess" onclick="select(this);" src="checking/img/C_skins/original_priestess.PNG">
+                    <img class="C_skin priestess" onclick="select(this);" src="checking/img/C_skins/worn_clothes_priestess.PNG">
+                    <img class="C_skin priestess" onclick="select(this);" src="checking/img/C_skins/mystic_green.PNG">
+                    <img class="C_skin priestess" onclick="select(this);" src="checking/img/C_skins/peach_pink_priestess.PNG">
+                    <img class="C_skin perfumer" onclick="select(this);" src="checking/img/C_skins/original_perfumer.PNG">
+                    <img class="C_skin perfumer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_perfumer.PNG">
+                    <img class="C_skin perfumer" onclick="select(this);" src="checking/img/C_skins/fragrant_powder.PNG">
+                    <img class="C_skin perfumer logic_path" onclick="select(this);" src="checking/img/C_skins/ivy.PNG">
+                    <img class="C_skin perfumer logic_path" onclick="select(this);" src="checking/img/C_skins/wild_bluebell.PNG">
+                    <img class="C_skin cowboy" onclick="select(this);" src="checking/img/C_skins/original_cowboy.PNG">
+                    <img class="C_skin cowboy" onclick="select(this);" src="checking/img/C_skins/worn_clothes_cowboy.PNG">
+                    <img class="C_skin cowboy" onclick="select(this);" src="checking/img/C_skins/autumn_yellow_cowboy.PNG">
+                    <img class="C_skin cowboy logic_path" onclick="select(this);" src="checking/img/C_skins/purple_ink.PNG">
+                    <img class="C_skin cowboy" onclick="select(this);" src="checking/img/C_skins/sky_blue.PNG">
+                    <img class="C_skin dancer" onclick="select(this);" src="checking/img/C_skins/original_dancer.PNG">
+                    <img class="C_skin dancer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_dancer.PNG">
+                    <img class="C_skin dancer logic_path" onclick="select(this);" src="checking/img/C_skins/blues.PNG">
+                    <img class="C_skin dancer" onclick="select(this);" src="checking/img/C_skins/jadeite_dance.PNG">
+                    <img class="C_skin dancer" onclick="select(this);" src="checking/img/C_skins/purple_tune.PNG">
+                    <img class="C_skin seer" onclick="select(this);" src="checking/img/C_skins/original_seer.PNG">
+                    <img class="C_skin seer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_seer.PNG">
+                    <img class="C_skin seer logic_path" onclick="select(this);" src="checking/img/C_skins/divine_light.PNG">
+                    <img class="C_skin seer logic_path" onclick="select(this);" src="checking/img/C_skins/matte_yellow.PNG">
+                    <img class="C_skin seer logic_path" onclick="select(this);" src="checking/img/C_skins/twilight_red.PNG">
+                    <img class="C_skin embalmer" onclick="select(this);" src="checking/img/C_skins/original_embalmer.PNG">
+                    <img class="C_skin embalmer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_embalmer.PNG">
+                    <img class="C_skin embalmer" onclick="select(this);" src="checking/img/C_skins/bloody_garment.PNG">
+                    <img class="C_skin embalmer" onclick="select(this);" src="checking/img/C_skins/casual_yellow.PNG">
+                    <img class="C_skin embalmer logic_path" onclick="select(this);" src="checking/img/C_skins/solemn_white.PNG">
+                    <img class="C_skin prospector" onclick="select(this);" src="checking/img/C_skins/original_prospector.PNG">
+                    <img class="C_skin prospector" onclick="select(this);" src="checking/img/C_skins/worn_clothes_prospector.PNG">
+                    <img class="C_skin prospector logic_path" onclick="select(this);" src="checking/img/C_skins/cordierite.PNG">
+                    <img class="C_skin prospector" onclick="select(this);" src="checking/img/C_skins/brownstone.PNG">
+                    <img class="C_skin prospector logic_path" onclick="select(this);" src="checking/img/C_skins/stalactite.PNG">
+                    <img class="C_skin enchantress" onclick="select(this);" src="checking/img/C_skins/original_enchantress.PNG">
+                    <img class="C_skin enchantress" onclick="select(this);" src="checking/img/C_skins/worn_clothes_enchantress.PNG">
+                    <img class="C_skin enchantress" onclick="select(this);" src="checking/img/C_skins/blazing_sun.PNG">
+                    <img class="C_skin enchantress" onclick="select(this);" src="checking/img/C_skins/blue_jellyfish.PNG">
+                    <img class="C_skin enchantress logic_path" onclick="select(this);" src="checking/img/C_skins/violet_butterfly.PNG">
+                    <img class="C_skin wildling" onclick="select(this);" src="checking/img/C_skins/original_wildling.PNG">
+                    <img class="C_skin wildling" onclick="select(this);" src="checking/img/C_skins/worn_clothes_wildling.PNG">
+                    <img class="C_skin wildling" onclick="select(this);" src="checking/img/C_skins/green_apple.PNG">
+                    <img class="C_skin wildling logic_path" onclick="select(this);" src="checking/img/C_skins/outdoorsy.PNG">
+                    <img class="C_skin wildling" onclick="select(this);" src="checking/img/C_skins/red_maple_leaf.PNG">
+                    <img class="C_skin acrobat" onclick="select(this);" src="checking/img/C_skins/original_acrobat.PNG">
+                    <img class="C_skin acrobat" onclick="select(this);" src="checking/img/C_skins/worn_clothes_acrobat.PNG">
+                    <img class="C_skin acrobat logic_path" onclick="select(this);" src="checking/img/C_skins/jester.PNG">
+                    <img class="C_skin acrobat" onclick="select(this);" src="checking/img/C_skins/lilac.PNG">
+                    <img class="C_skin acrobat" onclick="select(this);" src="checking/img/C_skins/scarlet.PNG">
+                    <img class="C_skin officer" onclick="select(this);" src="checking/img/C_skins/original_officer.PNG">
+                    <img class="C_skin officer" onclick="select(this);" src="checking/img/C_skins/worn_clothes_officer.PNG">
+                    <img class="C_skin officer logic_path" onclick="select(this);" src="checking/img/C_skins/ocean_blue.PNG">
+                    <img class="C_skin officer" onclick="select(this);" src="checking/img/C_skins/white_sail.PNG">
+                    <img class="C_skin officer" onclick="select(this);" src="checking/img/C_skins/black_mast.PNG">
+                    <img class="C_skin barmaid" onclick="select(this);" src="checking/img/C_skins/original_barmaid.PNG">
+                    <img class="C_skin barmaid" onclick="select(this);" src="checking/img/C_skins/worn_clothes_barmaid.PNG">
+                    <img class="C_skin barmaid" onclick="select(this);" src="checking/img/C_skins/barley_wine.PNG">
+                    <img class="C_skin barmaid" onclick="select(this);" src="checking/img/C_skins/blue_curacao.PNG">
+                    <img class="C_skin barmaid logic_path" onclick="select(this);" src="checking/img/C_skins/irish_cream.PNG">
+                    <img class="C_skin postman" onclick="select(this);" src="checking/img/C_skins/original_postman.PNG">
+                    <img class="C_skin postman" onclick="select(this);" src="checking/img/C_skins/worn_clothes_postman.PNG">
+                    <img class="C_skin postman" onclick="select(this);" src="checking/img/C_skins/grace_pink.PNG">
+                    <img class="C_skin postman" onclick="select(this);" src="checking/img/C_skins/grave_blue.PNG">
+                    <img class="C_skin postman logic_path" onclick="select(this);" src="checking/img/C_skins/retro_green.PNG">
+                    <img class="C_skin graveyard" onclick="select(this);" src="checking/img/C_skins/original_graveyard.PNG">
+                    <img class="C_skin graveyard" onclick="select(this);" src="checking/img/C_skins/worn_clothes_graveyard.PNG">
+                    <img class="C_skin graveyard logic_path" onclick="select(this);" src="checking/img/C_skins/azure_rain.PNG">
+                    <img class="C_skin graveyard" onclick="select(this);" src="checking/img/C_skins/red_sand.PNG">
+                    <img class="C_skin graveyard" onclick="select(this);" src="checking/img/C_skins/yellow_mud.PNG">
+                    <img class="C_skin prisoner" onclick="select(this);" src="checking/img/C_skins/original_prisoner.PNG">
+                    <img class="C_skin prisoner" onclick="select(this);" src="checking/img/C_skins/worn_clothes_prisoner.PNG">
+                    <img class="C_skin prisoner logic_path" onclick="select(this);" src="checking/img/C_skins/gray_coating.PNG">
+                    <img class="C_skin prisoner" onclick="select(this);" src="checking/img/C_skins/moldy_bread.PNG">
+                    <img class="C_skin prisoner" onclick="select(this);" src="checking/img/C_skins/yellow_wall.PNG">
+                    <img class="C_skin entomologist" onclick="select(this);" src="checking/img/C_skins/original_entomologist.PNG">
+                    <img class="C_skin entomologist" onclick="select(this);" src="checking/img/C_skins/worn_clothes_entomologist.PNG">
+                    <img class="C_skin entomologist" onclick="select(this);" src="checking/img/C_skins/lycaenidae.PNG">
+                    <img class="C_skin entomologist" onclick="select(this);" src="checking/img/C_skins/orange_oakleaf.PNG">
+                    <img class="C_skin entomologist logic_path" onclick="select(this);" src="checking/img/C_skins/spangle_butterfly.PNG">
+                    <img class="C_skin painter" onclick="select(this);" src="checking/img/C_skins/original_painter.PNG">
+                    <img class="C_skin painter" onclick="select(this);" src="checking/img/C_skins/worn_clothes_painter.PNG">
+                    <img class="C_skin painter" onclick="select(this);" src="checking/img/C_skins/blue_paint.PNG">
+                    <img class="C_skin painter logic_path" onclick="select(this);" src="checking/img/C_skins/brown_paint.PNG">
+                    <img class="C_skin painter" onclick="select(this);" src="checking/img/C_skins/green_paint.PNG">
+                    <img class="C_skin batter" onclick="select(this);" src="checking/img/C_skins/original_batter.PNG">
+                    <img class="C_skin batter" onclick="select(this);" src="checking/img/C_skins/worn_clothes_batter.PNG">
+                    <img class="C_skin batter logic_path" onclick="select(this);" src="checking/img/C_skins/barbeque.PNG">
+                    <img class="C_skin merchant" onclick="select(this);" src="checking/img/C_skins/original_merchant.PNG">
+                    <img class="C_skin merchant" onclick="select(this);" src="checking/img/C_skins/worn_clothes_merchant.PNG">
+                    <img class="C_skin patient" onclick="select(this);" src="checking/img/C_skins/original_patient.PNG">
+                    <img class="C_skin patient" onclick="select(this);" src="checking/img/C_skins/worn_clothes_patient.PNG">
+                    <img class="C_skin psychologist" onclick="select(this);" src="checking/img/C_skins/original_psychologist.PNG">
+                    <img class="C_skin psychologist" onclick="select(this);" src="checking/img/C_skins/worn_clothes_psychologist.PNG">
+                    <img class="C_skin novelist" onclick="select(this);" src="checking/img/C_skins/original_novelist.PNG">
+                    <img class="C_skin memory" onclick="select(this);" src="checking/img/C_skins/original_memory.PNG">
+                    <!--
+                        <img class="C_skin " onclick="select(this);" src="checking/img/C_skins/">
+                    -->
+                </div>
+                <div class="S_acce_survivor acce">
+                    <img class="S_acce doctor" onclick="select(this);" src="checking/img/S_acces/S_acce_doctor.PNG">
+                    <img class="S_acce gardener joker" onclick="select(this);" src="checking/img/S_acces/S_acce_gardener.PNG">
+                    <img class="S_acce gardener" onclick="select(this);" src="checking/img/S_acces/S_acce_gardener2.PNG">
+                    <img class="S_acce magician" onclick="select(this);" src="checking/img/S_acces/S_acce_magician.PNG">
+                    <img class="S_acce mercenary" onclick="select(this);" src="checking/img/S_acces/S_acce_mercenary.PNG">
+                    <img class="S_acce mercenary" onclick="select(this);" src="checking/img/S_acces/S_acce_mercenary2.PNG">
+                    <img class="S_acce coordinator" onclick="select(this);" src="checking/img/S_acces/S_acce_coordinator.PNG">
+                    <img class="S_acce mechanic" onclick="select(this);" src="checking/img/S_acces/S_acce_mechanic.PNG">
+                    <img class="S_acce mechanic" onclick="select(this);" src="checking/img/S_acces/S_acce_mechanic2.PNG">
+                    <img class="S_acce mechanic Danganronpa" onclick="select(this);" src="checking/img/S_acces/S_acce_mechanic3.PNG">
+                    <img class="S_acce mechanic Deathnote" onclick="select(this);" src="checking/img/S_acces/S_acce_mechanic4.PNG">
+                    <img class="S_acce priestess" onclick="select(this);" src="checking/img/S_acces/S_acce_priestess.PNG">
+                    <img class="S_acce perfumer" onclick="select(this);" src="checking/img/S_acces/S_acce_perfumer.PNG">
+                    <img class="S_acce perfumer" onclick="select(this);" src="checking/img/S_acces/S_acce_perfumer2.PNG">
+                    <img class="S_acce dancer" onclick="select(this);" src="checking/img/S_acces/S_acce_dancer.PNG">
+                    <img class="S_acce seer" onclick="select(this);" src="checking/img/S_acces/S_acce_seer.PNG">
+                    <img class="S_acce embalmer" onclick="select(this);" src="checking/img/S_acces/S_acce_embalmer.PNG">
+                    <img class="S_acce enchantress" onclick="select(this);" src="checking/img/S_acces/S_acce_enchantress.PNG">
+                    <img class="S_acce postman" onclick="select(this);" src="checking/img/S_acces/S_acce_postman.PNG">
+                    <img class="S_acce painter" onclick="select(this);" src="checking/img/S_acces/S_acce_painter.PNG">
+                </div>
+                <div class="S_acce_hunter acce">
+                    <img class="S_acce hell_ember" onclick="select(this);" src="checking/img/S_acces/S_acce_hell_ember.PNG">
+                    <img class="S_acce reaper" onclick="select(this);" src="checking/img/S_acces/S_acce_reaper.PNG">
+                    <img class="S_acce soul_weaver" onclick="select(this);" src="checking/img/S_acces/S_acce_soul_weaver.PNG">
+                    <img class="S_acce geisha" onclick="select(this);" src="checking/img/S_acces/S_acce_geisha.PNG">
+                    <img class="S_acce feaster" onclick="select(this);" src="checking/img/S_acces/S_acce_feaster.PNG">
+                    <img class="S_acce photographer" onclick="select(this);" src="checking/img/S_acces/S_acce_photographer.PNG">
+                    <img class="S_acce photographer" onclick="select(this);" src="checking/img/S_acces/S_acce_photographer2.png">
+                    <img class="S_acce axe_boy" onclick="select(this);" src="checking/img/S_acces/S_acce_axe_boy.PNG">
+                    <img class="S_acce mary" onclick="select(this);" src="checking/img/S_acces/S_acce_mary.PNG">
+                    <img class="S_acce guard_26 Danganronpa" onclick="select(this);" src="checking/img/S_acces/SS_acce_guard_26.PNG">
+                    <img class="S_acce guard_26 Danganronpa" onclick="select(this);" src="checking/img/S_acces/S_acce_guard_26.PNG">
+                    <img class="S_acce guard_26" onclick="select(this);" src="checking/img/S_acces/S_acce_guard_26_2.PNG">
+                    <img class="S_acce disciple" onclick="select(this);" src="checking/img/S_acces/S_acce_disciple.PNG">
+                    <img class="S_acce sculptor" onclick="select(this);" src="checking/img/S_acces/S_acce_sculptor.PNG">
+                </div>
+                <div class="A_acce_survivor acce">
+                    <img class="A_acce" onclick="select(this);" src="checking/img/A_acces/hahoetal.PNG">
+                    <img class="A_acce unlucky" onclick="select(this);" src="checking/img/A_acces/A_acce_unlucky.PNG">
+                    <img class="A_acce doctor" onclick="select(this);" src="checking/img/A_acces/A_acce_doctor.PNG">
+                    <img class="A_acce doctor" onclick="select(this);" src="checking/img/A_acces/A_acce_doctor2.PNG">
+                    <img class="A_acce doctor Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_doctor3.PNG">
+                    <img class="A_acce doctor" onclick="select(this);" src="checking/img/A_acces/A_acce_doctor4.PNG">
+                    <img class="A_acce lawyer Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_lawyer.PNG">
+                    <img class="A_acce lawyer" onclick="select(this);" src="checking/img/A_acces/A_acce_lawyer2.PNG">
+                    <img class="A_acce thief" onclick="select(this);" src="checking/img/A_acces/A_acce_thief.PNG">
+                    <img class="A_acce thief" onclick="select(this);" src="checking/img/A_acces/A_acce_thief2.PNG">
+                    <img class="A_acce thief" onclick="select(this);" src="checking/img/A_acces/A_acce_thief3.PNG">
+                    <img class="A_acce thief" onclick="select(this);" src="checking/img/A_acces/A_acce_thief4.PNG">
+                    <img class="A_acce gardener" onclick="select(this);" src="checking/img/A_acces/A_acce_gardener.PNG">
+                    <img class="A_acce gardener Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_gardener2.PNG">
+                    <img class="A_acce gardener" onclick="select(this);" src="checking/img/A_acces/A_acce_gardener3.PNG">
+                    <img class="A_acce magician" onclick="select(this);" src="checking/img/A_acces/A_acce_magician.PNG">
+                    <img class="A_acce explorer" onclick="select(this);" src="checking/img/A_acces/A_acce_explorer.PNG">
+                    <img class="A_acce mercenary" onclick="select(this);" src="checking/img/A_acces/A_acce_mercenary.PNG">
+                    <img class="A_acce coordinator" onclick="select(this);" src="checking/img/A_acces/A_acce_coordinator.PNG">
+                    <img class="A_acce coordinator" onclick="select(this);" src="checking/img/A_acces/A_acce_coordinator2.PNG">
+                    <img class="A_acce coordinator" onclick="select(this);" src="checking/img/A_acces/A_acce_coordinator3.PNG">
+                    <img class="A_acce mechanic" onclick="select(this);" src="checking/img/A_acces/A_acce_mechanic.PNG">
+                    <img class="A_acce mechanic Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_mechanic2.PNG">
+                    <img class="A_acce mechanic" onclick="select(this);" src="checking/img/A_acces/A_acce_mechanic3.PNG">
+                    <img class="A_acce forward" onclick="select(this);" src="checking/img/A_acces/A_acce_forward.PNG">
+                    <img class="A_acce forward" onclick="select(this);" src="checking/img/A_acces/A_acce_forward2.PNG">
+                    <img class="A_acce forward" onclick="select(this);" src="checking/img/A_acces/A_acce_forward3.PNG">
+                    <img class="A_acce mindeye" onclick="select(this);" src="checking/img/A_acces/A_acce_mindeye.PNG">
+                    <img class="A_acce mindeye Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_mindeye2.PNG">
+                    <img class="A_acce mindeye" onclick="select(this);" src="checking/img/A_acces/A_acce_mindeye3.PNG">
+                    <img class="A_acce mindeye" onclick="select(this);" src="checking/img/A_acces/A_acce_mindeye4.PNG">
+                    <img class="A_acce priestess" onclick="select(this);" src="checking/img/A_acces/A_acce_priestess.PNG">
+                    <img class="A_acce priestess" onclick="select(this);" src="checking/img/A_acces/A_acce_priestess2.PNG">
+                    <img class="A_acce perfumer" onclick="select(this);" src="checking/img/A_acces/A_acce_perfumer.PNG">
+                    <img class="A_acce perfumer Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_perfumer2.PNG">
+                    <img class="A_acce cowboy" onclick="select(this);" src="checking/img/A_acces/A_acce_cowboy.PNG">
+                    <img class="A_acce cowboy Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_cowboy2.PNG">
+                    <img class="A_acce dancer" onclick="select(this);" src="checking/img/A_acces/A_acce_dancer.PNG">
+                    <img class="A_acce dancer" onclick="select(this);" src="checking/img/A_acces/A_acce_dancer2.PNG">
+                    <img class="A_acce seer" onclick="select(this);" src="checking/img/A_acces/A_acce_seer.PNG">
+                    <img class="A_acce seer" onclick="select(this);" src="checking/img/A_acces/A_acce_seer2.PNG">
+                    <img class="A_acce embalmer" onclick="select(this);" src="checking/img/A_acces/A_acce_embalmer.PNG">
+                    <img class="A_acce embalmer halloween" onclick="select(this);" src="checking/img/A_acces/A_acce_embalmer2.PNG">
+                    <img class="A_acce prospector" onclick="select(this);" src="checking/img/A_acces/A_acce_prospector.PNG">
+                    <img class="A_acce prospector" onclick="select(this);" src="checking/img/A_acces/A_acce_prospector2.PNG">
+                    <img class="A_acce wildling" onclick="select(this);" src="checking/img/A_acces/A_acce_wildling.PNG">
+                    <img class="A_acce wildling" onclick="select(this);" src="checking/img/A_acces/A_acce_wildling2.PNG">
+                    <img class="A_acce acrobat" onclick="select(this);" src="checking/img/A_acces/A_acce_acrobat.PNG">
+                    <img class="A_acce acrobat" onclick="select(this);" src="checking/img/A_acces/A_acce_acrobat2.PNG">
+                    <img class="A_acce officer" onclick="select(this);" src="checking/img/A_acces/A_acce_officer.PNG">
+                    <img class="A_acce barmaid" onclick="select(this);" src="checking/img/A_acces/A_acce_barmaid.PNG">
+                    <img class="A_acce graveyard" onclick="select(this);" src="checking/img/A_acces/A_acce_graveyard.PNG">
+                    <img class="A_acce prisoner" onclick="select(this);" src="checking/img/A_acces/A_acce_prisoner.PNG">
+                    <img class="A_acce entomologist" onclick="select(this);" src="checking/img/A_acces/A_acce_entomologist.PNG">
+                    <img class="A_acce merchant" onclick="select(this);" src="checking/img/A_acces/A_acce_merchant.PNG">
+                    <img class="A_acce patient" onclick="select(this);" src="checking/img/A_acces/A_acce_patient.PNG">
+                </div>
+                <div class="A_acce_hunter acce">
+                    <img class="A_acce hell_ember" onclick="select(this);" src="checking/img/A_acces/A_acce_hell_ember.PNG">
+                    <img class="A_acce joker" onclick="select(this);" src="checking/img/A_acces/A_acce_joker.PNG">
+                    <img class="A_acce joker" onclick="select(this);" src="checking/img/A_acces/A_acce_joker2.PNG">
+                    <img class="A_acce joker" onclick="select(this);" src="checking/img/A_acces/A_acce_joker3.PNG">
+                    <img class="A_acce game_keeper" onclick="select(this);" src="checking/img/A_acces/A_acce_game_keeper.PNG">
+                    <img class="A_acce game_keeper Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_game_keeper2.PNG">
+                    <img class="A_acce reaper" onclick="select(this);" src="checking/img/A_acces/A_acce_reaper.PNG">
+                    <img class="A_acce reaper" onclick="select(this);" src="checking/img/A_acces/A_acce_reaper2.PNG">
+                    <img class="A_acce reaper" onclick="select(this);" src="checking/img/A_acces/A_acce_reaper3.PNG">
+                    <img class="A_acce reaper" onclick="select(this);" src="checking/img/A_acces/A_acce_reaper4.PNG">
+                    <img class="A_acce soul_weaver" onclick="select(this);" src="checking/img/A_acces/A_acce_soul_weaver.PNG">
+                    <img class="A_acce geisha" onclick="select(this);" src="checking/img/A_acces/A_acce_geisha.PNG">
+                    <img class="A_acce geisha" onclick="select(this);" src="checking/img/A_acces/A_acce_geisha2.PNG">
+                    <img class="A_acce geisha" onclick="select(this);" src="checking/img/A_acces/A_acce_geisha3.PNG">
+                    <img class="A_acce feaster" onclick="select(this);" src="checking/img/A_acces/A_acce_feaster.PNG">
+                    <img class="A_acce feaster" onclick="select(this);" src="checking/img/A_acces/A_acce_feaster2.PNG">
+                    <img class="A_acce wu_chang" onclick="select(this);" src="checking/img/A_acces/A_acce_wu_chang.PNG">
+                    <img class="A_acce wu_chang" onclick="select(this);" src="checking/img/A_acces/A_acce_wu_chang2.PNG">
+                    <img class="A_acce wu_chang" onclick="select(this);" src="checking/img/A_acces/A_acce_wu_chang3.PNG">
+                    <img class="A_acce wu_chang" onclick="select(this);" src="checking/img/A_acces/A_acce_wu_chang4.PNG">
+                    <img class="A_acce photographer" onclick="select(this);" src="checking/img/A_acces/A_acce_photographer.PNG">
+                    <img class="A_acce photographer" onclick="select(this);" src="checking/img/A_acces/A_acce_photographer2.PNG">
+                    <img class="A_acce mad_eye" onclick="select(this);" src="checking/img/A_acces/A_acce_mad_eye.PNG">
+                    <img class="A_acce mad_eye" onclick="select(this);" src="checking/img/A_acces/A_acce_mad_eye2.PNG">
+                    <img class="A_acce dream_witch Call_abyss" onclick="select(this);" src="checking/img/A_acces/A_acce_dream_witch.PNG">
+                    <img class="A_acce axe_boy" onclick="select(this);" src="checking/img/A_acces/A_acce_axe_boy.PNG">
+                    <img class="A_acce axe_boy" onclick="select(this);" src="checking/img/A_acces/A_acce_axe_boy2.PNG">
+                    <img class="A_acce evil_raptilian" onclick="select(this);" src="checking/img/A_acces/A_acce_evil_raptilian.PNG">
+                    <img class="A_acce evil_raptilian" onclick="select(this);" src="checking/img/A_acces/A_acce_evil_raptilian2.PNG">
+                    <img class="A_acce mary" onclick="select(this);" src="checking/img/A_acces/A_acce_mary.PNG">
+                    <img class="A_acce guard_26 Danganronpa" onclick="select(this)" src="checking/img/A_acces/A_acce_guard_26.PNG">
+                    <img class="A_acce disciple" onclick="select(this);" src="checking/img/A_acces/A_acce_disciple.PNG">
+                    <img class="A_acce violinist" onclick="select(this);" src="checking/img/A_acces/A_acce_violinist.PNG">
+                    <img class="A_acce violinist" onclick="select(this);" src="checking/img/A_acces/A_acce_violinist2.PNG">
+                    <img class="A_acce undead" onclick="select(this);" src="checking/img/A_acces/A_acce_undead.PNG">
+                </div>
+                <div class="B_acce_survivor acce">
+                    <img class="B_acce halloween" onclick="select(this);" src="checking/img/B_acces/servant_samhain.PNG">
+                    <img class="B_acce nth_anniversary" onclick="select(this);" src="checking/img/B_acces/anniversary_cake.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/confident_detective.PNG">
+                    <img class="B_acce deduction_star" onclick="select(this);" src="checking/img/B_acces/casablanca.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/festive_bouquet.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/gemini.PNG">
+                    <img class="B_acce PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/little_barney.PNG">
+                    <img class="B_acce PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/quiver.PNG">
+                    <img class="B_acce PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/token.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/little_red_fish.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/lotus_lamp.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/milk_carton.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/smiley_face_windmill.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/sports_trophy.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/spring_festival_lantern.PNG">
+                    <img class="B_acce Itou_zyunzi" onclick="select(this);" src="checking/img/B_acces/straw_eyeball.PNG">
+                    <img class="B_acce unlucky" onclick="select(this);" src="checking/img/B_acces/B_acce_unlucky.PNG">
+                    <img class="B_acce unlucky Call_abyss" onclick="select(this);" src="checking/img/B_acces/B_acce_unlucky2.PNG">
+                    <img class="B_acce unlucky Itou_zyunzi" onclick="select(this);" src="checking/img/B_acces/B_acce_unlucky3.PNG">
+                    <img class="B_acce unlucky" onclick="select(this);" src="checking/img/B_acces/B_acce_unlucky4.PNG">
+                    <img class="B_acce doctor" onclick="select(this);" src="checking/img/B_acces/B_acce_doctor.PNG">
+                    <img class="B_acce doctor" onclick="select(this);" src="checking/img/B_acces/B_acce_doctor2.PNG">
+                    <img class="B_acce doctor logic_path" onclick="select(this);" src="checking/img/B_acces/B_acce_doctor3.PNG">
+                    <img class="B_acce lawyer prisoner Deathnote" onclick="select(this);" src="checking/img/B_acces/B_acce_lawyer.PNG">
+                    <img class="B_acce lawyer" onclick="select(this);" src="checking/img/B_acces/B_acce_lawyer2.PNG">
+                    <img class="B_acce lawyer prisoner Deathnote" onclick="select(this);" src="checking/img/B_acces/B_acce_lawyer3.PNG">
+                    <img class="B_acce thief" onclick="select(this);" src="checking/img/B_acces/B_acce_thief.PNG">
+                    <img class="B_acce thief" onclick="select(this);" src="checking/img/B_acces/B_acce_thief2.PNG">
+                    <img class="B_acce thief" onclick="select(this);" src="checking/img/B_acces/B_acce_thief3.PNG">
+                    <img class="B_acce thief halloween" onclick="select(this);" src="checking/img/B_acces/B_acce_thief4.PNG">
+                    <img class="B_acce gardener PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/B_acce_gardener.PNG">
+                    <img class="B_acce gardener" onclick="select(this);" src="checking/img/B_acces/B_acce_gardener2.PNG">
+                    <img class="B_acce gardener" onclick="select(this);" src="checking/img/B_acces/B_acce_gardener3.PNG">
+                    <img class="B_acce gardener" onclick="select(this);" src="checking/img/B_acces/B_acce_gardener4.PNG">
+                    <img class="B_acce gardener Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_gardener5.PNG">
+                    <img class="B_acce gardener" onclick="select(this);" src="checking/img/B_acces/B_acce_gardener6.PNG">
+                    <img class="B_acce magician" onclick="select(this);" src="checking/img/B_acces/B_acce_magician.PNG">
+                    <img class="B_acce magician" onclick="select(this);" src="checking/img/B_acces/B_acce_magician2.PNG">
+                    <img class="B_acce magician" onclick="select(this);" src="checking/img/B_acces/B_acce_magician3.PNG">
+                    <img class="B_acce magician" onclick="select(this);" src="checking/img/B_acces/B_acce_magician4.PNG">
+                    <img class="B_acce explorer" onclick="select(this);" src="checking/img/B_acces/B_acce_explorer.PNG">
+                    <img class="B_acce explorer" onclick="select(this);" src="checking/img/B_acces/B_acce_explorer2.PNG">
+                    <img class="B_acce explorer" onclick="select(this);" src="checking/img/B_acces/B_acce_explorer3.PNG">
+                    <img class="B_acce explorer" onclick="select(this);" src="checking/img/B_acces/B_acce_explorer4.PNG">
+                    <img class="B_acce mercenary" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary.PNG">
+                    <img class="B_acce mercenary" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary2.PNG">
+                    <img class="B_acce mercenary conan" onclick="select(this);" src="checking/img/B_acces/B_acce_mercenary3.PNG">
+                    <img class="B_acce coordinator" onclick="select(this);" src="checking/img/B_acces/B_acce_coordinator.PNG">
+                    <img class="B_acce coordinator" onclick="select(this);" src="checking/img/B_acces/B_acce_coordinator2.PNG">
+                    <img class="B_acce coordinator Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_coordinator3.PNG">
+                    <img class="B_acce mechanic" onclick="select(this);" src="checking/img/B_acces/B_acce_mechanic.PNG">
+                    <img class="B_acce mechanic Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_mechanic2.PNG">
+                    <img class="B_acce mechanic" onclick="select(this);" src="checking/img/B_acces/B_acce_mechanic3.PNG">
+                    <img class="B_acce mechanic" onclick="select(this);" src="checking/img/B_acces/B_acce_mechanic4.PNG">
+                    <img class="B_acce mechanic Deathnote" onclick="select(this);" src="checking/img/B_acces/B_acce_mechanic5.PNG">
+                    <img class="B_acce forward halloween" onclick="select(this);" src="checking/img/B_acces/B_acce_forward.PNG">
+                    <img class="B_acce forward Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_forward2.PNG">
+                    <img class="B_acce forward" onclick="select(this);" src="checking/img/B_acces/B_acce_forward3.PNG">
+                    <img class="B_acce forward" onclick="select(this);" src="checking/img/B_acces/B_acce_forward4.PNG">
+                    <img class="B_acce mindeye" onclick="select(this);" src="checking/img/B_acces/B_acce_mindeye.PNG">
+                    <img class="B_acce mindeye" onclick="select(this);" src="checking/img/B_acces/B_acce_mindeye2.PNG">
+                    <img class="B_acce mindeye" onclick="select(this);" src="checking/img/B_acces/B_acce_mindeye3.PNG">
+                    <img class="B_acce priestess logic_path" onclick="select(this);" src="checking/img/B_acces/B_acce_priestess.PNG">
+                    <img class="B_acce priestess" onclick="select(this);" src="checking/img/B_acces/B_acce_priestess2.PNG">
+                    <img class="B_acce priestess halloween" onclick="select(this);" src="checking/img/B_acces/B_acce_priestess3.PNG">
+                    <img class="B_acce perfumer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer.PNG">
+                    <img class="B_acce perfumer" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer2.PNG">
+                    <img class="B_acce perfumer Call_abyss" onclick="select(this);" src="checking/img/B_acces/B_acce_perfumer3.PNG">
+                    <img class="B_acce cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy.PNG">
+                    <img class="B_acce cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy2.PNG">
+                    <img class="B_acce cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy3.PNG">
+                    <img class="B_acce cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy4.PNG">
+                    <img class="B_acce cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy5.PNG">
+                    <img class="B_acce cowboy" onclick="select(this);" src="checking/img/B_acces/B_acce_cowboy6.PNG">
+                    <img class="B_acce dancer halloween" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer.PNG">
+                    <img class="B_acce dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer2.PNG">
+                    <img class="B_acce dancer Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer3.PNG">
+                    <img class="B_acce dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer4.PNG">
+                    <img class="B_acce dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer5.PNG">
+                    <img class="B_acce dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer6.PNG">
+                    <img class="B_acce dancer" onclick="select(this);" src="checking/img/B_acces/B_acce_dancer7.PNG">
+                    <img class="B_acce seer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_seer.PNG">
+                    <img class="B_acce seer" onclick="select(this);" src="checking/img/B_acces/B_acce_seer2.PNG">
+                    <img class="B_acce seer" onclick="select(this);" src="checking/img/B_acces/B_acce_seer3.PNG">
+                    <img class="B_acce embalmer Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer.PNG">
+                    <img class="B_acce embalmer" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer2.PNG">
+                    <img class="B_acce embalmer conan" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer3.PNG">
+                    <img class="B_acce embalmer PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer4.PNG">
+                    <img class="B_acce embalmer" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer5.PNG">
+                    <img class="B_acce embalmer" onclick="select(this);" src="checking/img/B_acces/B_acce_embalmer6.PNG">
+                    <img class="B_acce prospector" onclick="select(this);" src="checking/img/B_acces/B_acce_prospector.PNG">
+                    <img class="B_acce prospector" onclick="select(this);" src="checking/img/B_acces/B_acce_prospector2.PNG">
+                    <img class="B_acce enchantress" onclick="select(this);" src="checking/img/B_acces/B_acce_enchantress.PNG">
+                    <img class="B_acce enchantress" onclick="select(this);" src="checking/img/B_acces/B_acce_enchantress2.PNG">
+                    <img class="B_acce wildling" onclick="select(this);" src="checking/img/B_acces/B_acce_wildling.PNG">
+                    <img class="B_acce wildling" onclick="select(this);" src="checking/img/B_acces/B_acce_wildling2.PNG">
+                    <img class="B_acce acrobat Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_acrobat.PNG">
+                    <img class="B_acce acrobat" onclick="select(this);" src="checking/img/B_acces/B_acce_acrobat2.PNG">
+                    <img class="B_acce acrobat" onclick="select(this);" src="checking/img/B_acces/B_acce_acrobat3.PNG">
+                    <img class="B_acce officer Persona5" onclick="select(this);" src="checking/img/B_acces/B_acce_officer.PNG">
+                    <img class="B_acce officer" onclick="select(this);" src="checking/img/B_acces/B_acce_officer2.PNG">
+                    <img class="B_acce barmaid conan" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid.PNG">
+                    <img class="B_acce barmaid" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid2.PNG">
+                    <img class="B_acce barmaid" onclick="select(this);" src="checking/img/B_acces/B_acce_barmaid3.PNG">
+                    <img class="B_acce postman" onclick="select(this);" src="checking/img/B_acces/B_acce_postman.PNG">
+                    <img class="B_acce graveyard" onclick="select(this);" src="checking/img/B_acces/B_acce_graveyard.PNG">
+                    <img class="B_acce prisoner PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/B_acce_prisoner.PNG">
+                    <img class="B_acce prisoner Deathnote" onclick="select(this);" src="checking/img/B_acces/B_acce_prisoner2.PNG">
+                    <img class="B_acce entomologist" onclick="select(this);" src="checking/img/B_acces/B_acce_entomologist.PNG">
+                    <img class="B_acce painter" onclick="select(this);" src="checking/img/B_acces/B_acce_painter.PNG">
+                    <img class="B_acce batter" onclick="select(this);" src="checking/img/B_acces/B_acce_batter.PNG">
+                </div>
+                <div class="B_acce_hunter acce">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/desperate_prayer.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/lost_girl.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/moon_rabbit_effigy.PNG">
+                    <img class="B_acce " onclick="select(this);" src="checking/img/B_acces/villian_charm.PNG">
+                    <img class="B_acce PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/mask.PNG">
+                    <img class="B_acce PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/bell.PNG">
+                    <img class="B_acce hell_ember" onclick="select(this);" src="checking/img/B_acces/B_acce_hell_ember.PNG">
+                    <img class="B_acce hell_ember Call_abyss" onclick="select(this);" src="checking/img/B_acces/B_acce_hell_ember2.PNG">
+                    <img class="B_acce joker" onclick="select(this);" src="checking/img/B_acces/B_acce_joker.PNG">
+                    <img class="B_acce joker" onclick="select(this);" src="checking/img/B_acces/B_acce_joker2.PNG">
+                    <img class="B_acce joker logic_path" onclick="select(this);" src="checking/img/B_acces/B_acce_joker3.PNG">
+                    <img class="B_acce joker" onclick="select(this);" src="checking/img/B_acces/B_acce_joker4.PNG">
+                    <img class="B_acce joker" onclick="select(this);" src="checking/img/B_acces/B_acce_joker5.PNG">
+                    <img class="B_acce game_keeper" onclick="select(this);" src="checking/img/B_acces/B_acce_game_keeper.PNG">
+                    <img class="B_acce game_keeper" onclick="select(this);" src="checking/img/B_acces/B_acce_game_keeper2.PNG">
+                    <img class="B_acce reaper" onclick="select(this);" src="checking/img/B_acces/B_acce_reaper.PNG">
+                    <img class="B_acce reaper Scissorhands" onclick="select(this);" src="checking/img/B_acces/B_acce_reaper2.PNG">
+                    <img class="B_acce reaper" onclick="select(this);" src="checking/img/B_acces/B_acce_reaper3.PNG">
+                    <img class="B_acce soul_weaver" onclick="select(this);" src="checking/img/B_acces/B_acce_soul_weaver.PNG">
+                    <img class="B_acce soul_weaver" onclick="select(this);" src="checking/img/B_acces/B_acce_soul_weaver2.PNG">
+                    <img class="B_acce geisha" onclick="select(this);" src="checking/img/B_acces/B_acce_geisha.PNG">
+                    <img class="B_acce geisha Call_abyss" onclick="select(this);" src="checking/img/B_acces/B_acce_geisha2.PNG">
+                    <img class="B_acce geisha" onclick="select(this);" src="checking/img/B_acces/B_acce_geisha3.PNG">
+                    <img class="B_acce feaster" onclick="select(this);" src="checking/img/B_acces/B_acce_feaster.PNG">
+                    <img class="B_acce feaster" onclick="select(this);" src="checking/img/B_acces/B_acce_feaster2.PNG">
+                    <img class="B_acce feaster" onclick="select(this);" src="checking/img/B_acces/B_acce_feaster3.PNG">
+                    <img class="B_acce wu_chang" onclick="select(this);" src="checking/img/B_acces/B_acce_wu_chang.PNG">
+                    <img class="B_acce wu_chang" onclick="select(this);" src="checking/img/B_acces/B_acce_wu_chang2.PNG">
+                    <img class="B_acce wu_chang" onclick="select(this);" src="checking/img/B_acces/B_acce_wu_chang3.PNG">
+                    <img class="B_acce photographer" onclick="select(this);" src="checking/img/B_acces/B_acce_photographer.PNG">
+                    <img class="B_acce photographer" onclick="select(this);" src="checking/img/B_acces/B_acce_photographer2.PNG">
+                    <img class="B_acce mad_eye" onclick="select(this);" src="checking/img/B_acces/B_acce_mad_eye.PNG">
+                    <img class="B_acce mad_eye" onclick="select(this);" src="checking/img/B_acces/B_acce_mad_eye2.PNG">
+                    <img class="B_acce dream_witch" onclick="select(this);" src="checking/img/B_acces/B_acce_dream_witch.PNG">
+                    <img class="B_acce dream_witch" onclick="select(this);" src="checking/img/B_acces/B_acce_dream_witch2.PNG">
+                    <img class="B_acce axe_boy" onclick="select(this);" src="checking/img/B_acces/B_acce_axe_boy.PNG">
+                    <img class="B_acce axe_boy" onclick="select(this);" src="checking/img/B_acces/B_acce_axe_boy2.PNG">
+                    <img class="B_acce evil_raptilian Deathnote" onclick="select(this);" src="checking/img/B_acces/B_acce_evil_raptilian.PNG">
+                    <img class="B_acce evil_raptilian" onclick="select(this);" src="checking/img/B_acces/B_acce_evil_raptilian2.PNG">
+                    <img class="B_acce evil_raptilian" onclick="select(this);" src="checking/img/B_acces/B_acce_evil_raptilian3.PNG">
+                    <img class="B_acce mary" onclick="select(this);" src="checking/img/B_acces/B_acce_mary.PNG">
+                    <img class="B_acce mary halloween" onclick="select(this);" src="checking/img/B_acces/B_acce_mary2.PNG">
+                    <img class="B_acce mary PromisedNeverLands" onclick="select(this);" src="checking/img/B_acces/B_acce_mary3.PNG">
+                    <img class="B_acce guard_26 Danganronpa" onclick="select(this);" src="checking/img/B_acces/B_acce_guard_26.PNG">
+                    <img class="B_acce guard_26" onclick="select(this);" src="checking/img/B_acces/B_acce_guard_26_2.PNG">
+                    <img class="B_acce disciple" onclick="select(this);" src="checking/img/B_acces/B_acce_disciple.PNG">
+                    <img class="B_acce sculptor" onclick="select(this);" src="checking/img/B_acces/B_acce_sculptor.PNG">
+                </div>
+                <div class="C_grade acce">
+                    <img class="C_acce" onclick="select(this);" src="checking/img/C_acces/bizarro_detective.PNG">
+                    <img class="C_acce" onclick="select(this);" src="checking/img/C_acces/expert_detective.PNG">
+                </div>
+                <div class="B_grade emote">
+                    <img class="B_emote doctor" onclick="select(this);" src="checking/img/B_emotes/doctor_dance.PNG">
+                    <img class="B_emote doctor" onclick="select(this);" src="checking/img/B_emotes/doctor_mourn.PNG">
+                    <img class="B_emote doctor" onclick="select(this);" src="checking/img/B_emotes/doctor_ultimate_liedown.PNG">
+                    <img class="B_emote lawyer" onclick="select(this);" src="checking/img/B_emotes/lawyer_dance.PNG">
+                    <img class="B_emote lawyer" onclick="select(this);" src="checking/img/B_emotes/lawyer_stretching.PNG">
+                    <img class="B_emote thief" onclick="select(this);" src="checking/img/B_emotes/thief_dance.PNG">
+                    <img class="B_emote gardener" onclick="select(this);" src="checking/img/B_emotes/gardener_dance.PNG">
+                    <img class="B_emote gardener" onclick="select(this);" src="checking/img/B_emotes/gardener_mourn.PNG">
+                    <img class="B_emote gardener" onclick="select(this);" src="checking/img/B_emotes/gardener_reflect.PNG">
+                    <img class="B_emote gardener" onclick="select(this);" src="checking/img/B_emotes/gardener_reminisce.PNG">
+                    <img class="B_emote magician" onclick="select(this);" src="checking/img/B_emotes/magician_dance.PNG">
+                    <img class="B_emote magician" onclick="select(this);" src="checking/img/B_emotes/magician_snowball.PNG">
+                    <img class="B_emote explorer" onclick="select(this);" src="checking/img/B_emotes/explorer_dance.PNG">
+                    <img class="B_emote mercenary" onclick="select(this);" src="checking/img/B_emotes/mercenary_boxing.PNG">
+                    <img class="B_emote mercenary" onclick="select(this);" src="checking/img/B_emotes/mercenary_dance.PNG">
+                    <img class="B_emote mercenary" onclick="select(this);" src="checking/img/B_emotes/mercenary_snowball.PNG">
+                    <img class="B_emote mercenary" onclick="select(this);" src="checking/img/B_emotes/mercenary_ultimate_laugh.PNG">
+                    <img class="B_emote coordinator" onclick="select(this);" src="checking/img/B_emotes/coordinator_dance.PNG">
+                    <img class="B_emote coordinator" onclick="select(this);" src="checking/img/B_emotes/coordinator_reflect.PNG">
+                    <img class="B_emote coordinator" onclick="select(this);" src="checking/img/B_emotes/coordinator_ultimate_liedown.PNG">
+                    <img class="B_emote mechanic" onclick="select(this);" src="checking/img/B_emotes/mechanic_dance.PNG">
+                    <img class="B_emote mechanic" onclick="select(this);" src="checking/img/B_emotes/mechanic_reflect.PNG">
+                    <img class="B_emote mechanic" onclick="select(this);" src="checking/img/B_emotes/mechanic_reminisce.PNG">
+                    <img class="B_emote mechanic" onclick="select(this);" src="checking/img/B_emotes/mechanic_ultimate_exhausted.PNG">
+                    <img class="B_emote forward" onclick="select(this);" src="checking/img/B_emotes/forward_alerted.PNG">
+                    <img class="B_emote forward" onclick="select(this);" src="checking/img/B_emotes/forward_dance.PNG">
+                    <img class="B_emote mindeye" onclick="select(this);" src="checking/img/B_emotes/mindeye_dance.PNG">
+                    <img class="B_emote mindeye" onclick="select(this);" src="checking/img/B_emotes/mindeye_snowball.PNG">
+                    <img class="B_emote priestess" onclick="select(this);" src="checking/img/B_emotes/priestess_dance.PNG">
+                    <img class="B_emote priestess" onclick="select(this);" src="checking/img/B_emotes/priestess_mourn.PNG">
+                    <img class="B_emote perfumer" onclick="select(this);" src="checking/img/B_emotes/perfumer_dance.PNG">
+                    <img class="B_emote perfumer" onclick="select(this);" src="checking/img/B_emotes/perfumer_farewell.PNG">
+                    <img class="B_emote perfumer" onclick="select(this);" src="checking/img/B_emotes/perfumer_snowball.PNG">
+                    <img class="B_emote perfumer" onclick="select(this);" src="checking/img/B_emotes/perfumer_vigilant.PNG">
+                    <img class="B_emote cowboy" onclick="select(this);" src="checking/img/B_emotes/cowboy_dance.PNG">
+                    <img class="B_emote cowboy" onclick="select(this);" src="checking/img/B_emotes/cowboy_resonance.PNG">
+                    <img class="B_emote dancer" onclick="select(this);" src="checking/img/B_emotes/dancer_dance.PNG">
+                    <img class="B_emote seer" onclick="select(this);" src="checking/img/B_emotes/seer_dance.PNG">
+                    <img class="B_emote seer" onclick="select(this);" src="checking/img/B_emotes/seer_mourn.PNG">
+                    <!--<img class="B_emote seer" onclick="select(this);" src="checking/img/B_emotes/seer_bow.PNG">-->
+                    <img class="B_emote embalmer" onclick="select(this);" src="checking/img/B_emotes/embalmer_dance.PNG">
+                    <img class="B_emote emblamer" onclick="select(this);" src="checking/img/B_emotes/embalmer_lantern.PNG">
+                    <!--<img class="B_emote emblamer" onclick="select(this);" src="checking/img/B_emotes/embalmer_reason.PNG">-->
+                    <img class="B_emote emblamer" onclick="select(this);" src="checking/img/B_emotes/embalmer_reflect.PNG">
+                    <img class="B_emote prospector" onclick="select(this);" src="checking/img/B_emotes/prospector_dance.PNG">
+                    <img class="B_emote prospector" onclick="select(this);" src="checking/img/B_emotes/prospector_request.PNG">
+                    <img class="B_emote prospector" onclick="select(this);" src="checking/img/B_emotes/prospector_ultimate_advance.PNG">
+                    <img class="B_emote enchantress" onclick="select(this);" src="checking/img/B_emotes/enchantress_dance.PNG">
+                    <img class="B_emote enchantress" onclick="select(this);" src="checking/img/B_emotes/enchantress_resonance.PNG">
+                    <img class="B_emote wildling" onclick="select(this);" src="checking/img/B_emotes/wildling_dance.PNG">
+                    <img class="B_emote wildling" onclick="select(this);" src="checking/img/B_emotes/wildling_soothe.PNG">
+                    <img class="B_emote acrobat" onclick="select(this);" src="checking/img/B_emotes/acrobat_dance.PNG">
+                    <img class="B_emote acrobat" onclick="select(this);" src="checking/img/B_emotes/acrobat_exclaim.PNG">
+                    <img class="B_emote acrobat" onclick="select(this);" src="checking/img/B_emotes/acrobat_present.PNG">
+                    <img class="B_emote acrobat" onclick="select(this);" src="checking/img/B_emotes/acrobat_reflect.PNG">
+                    <img class="B_emote acrobat" onclick="select(this);" src="checking/img/B_emotes/acrobat_serve.PNG">
+                    <img class="B_emote " onclick="select(this);" src="checking/img/B_emotes/">
+                </div>
+                <div class="C_grade emote">
+                    <img class="C_emote doctor" onclick="select(this);" src="checking/img/C_emotes/doctor_cheer.PNG">
+                    <img class="C_emote doctor" onclick="select(this);" src="checking/img/C_emotes/doctor_liedown.PNG">
+                    <img class="C_emote doctor" onclick="select(this);" src="checking/img/C_emotes/doctor_provoke.PNG">
+                    <img class="C_emote doctor" onclick="select(this);" src="checking/img/C_emotes/doctor_shame.PNG">
+                    <img class="C_emote doctor" onclick="select(this);" src="checking/img/C_emotes/doctor_shout.PNG">
+                    <img class="C_emote lawyer" onclick="select(this);" src="checking/img/C_emotes/lawyer_cheer.PNG">
+                    <img class="C_emote lawyer" onclick="select(this);" src="checking/img/C_emotes/lawyer_shame.PNG">
+                    <img class="C_emote lawyer" onclick="select(this);" src="checking/img/C_emotes/lawyer_shout.PNG">
+                    <img class="C_emote thief" onclick="select(this);" src="checking/img/C_emotes/thief_cheer.PNG">
+                    <img class="C_emote thief" onclick="select(this);" src="checking/img/C_emotes/thief_hugme.PNG">
+                    <img class="C_emote thief" onclick="select(this);" src="checking/img/C_emotes/thief_liedown.PNG">
+                    <img class="C_emote thief" onclick="select(this);" src="checking/img/C_emotes/thief_provoke.PNG">
+                    <img class="C_emote thief" onclick="select(this);" src="checking/img/C_emotes/thief_shame.PNG">
+                    <img class="C_emote thief" onclick="select(this);" src="checking/img/C_emotes/thief_shout.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_ballkicking.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_cheer.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_excited.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_liedown.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_provoke.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_shame.PNG">
+                    <img class="C_emote gardener" onclick="select(this);" src="checking/img/C_emotes/gardener_shout.PNG">
+                    <img class="C_emote magician" onclick="select(this);" src="checking/img/C_emotes/magician_cheer.PNG">
+                    <img class="C_emote magician" onclick="select(this);" src="checking/img/C_emotes/magician_liedown.PNG">
+                    <img class="C_emote magician" onclick="select(this);" src="checking/img/C_emotes/magician_provoke.PNG">
+                    <img class="C_emote magician" onclick="select(this);" src="checking/img/C_emotes/magician_shame.PNG">
+                    <img class="C_emote magician" onclick="select(this);" src="checking/img/C_emotes/magician_shout.PNG">
+                    <img class="C_emote explorer" onclick="select(this);" src="checking/img/C_emotes/explorer_cheer.PNG">
+                    <img class="C_emote explorer" onclick="select(this);" src="checking/img/C_emotes/explorer_liedown.PNG">
+                    <img class="C_emote explorer" onclick="select(this);" src="checking/img/C_emotes/explorer_provoke.PNG">
+                    <img class="C_emote explorer" onclick="select(this);" src="checking/img/C_emotes/explorer_shame.PNG">
+                    <img class="C_emote mercenary" onclick="select(this);" src="checking/img/C_emotes/mercenary_cheer.PNG">
+                    <img class="C_emote mercenary" onclick="select(this);" src="checking/img/C_emotes/mercenary_liedown.PNG">
+                    <img class="C_emote mercenary" onclick="select(this);" src="checking/img/C_emotes/mercenary_shame.PNG">
+                    <img class="C_emote mercenary" onclick="select(this);" src="checking/img/C_emotes/mercenary_shout.PNG">
+                    <img class="C_emote coordinator" onclick="select(this);" src="checking/img/C_emotes/coordinator_cheer.PNG">
+                    <img class="C_emote coordinator" onclick="select(this);" src="checking/img/C_emotes/coordinator_liedown.PNG">
+                    <img class="C_emote coordinator" onclick="select(this);" src="checking/img/C_emotes/coordinator_provoke.PNG">
+                    <img class="C_emote coordinator" onclick="select(this);" src="checking/img/C_emotes/coordinator_shame.PNG">
+                    <img class="C_emote coordinator" onclick="select(this);" src="checking/img/C_emotes/coordinator_shout.PNG">
+                    <img class="C_emote mechanic" onclick="select(this);" src="checking/img/C_emotes/mechanic_cheer.PNG">
+                    <img class="C_emote mechanic" onclick="select(this);" src="checking/img/C_emotes/mechanic_liedown.PNG">
+                    <img class="C_emote mechanic" onclick="select(this);" src="checking/img/C_emotes/mechanic_provoke.PNG">
+                    <img class="C_emote mechanic" onclick="select(this);" src="checking/img/C_emotes/mechanic_shame.PNG">
+                    <img class="C_emote mechanic" onclick="select(this);" src="checking/img/C_emotes/mechanic_shout.PNG">
+                    <img class="C_emote forward" onclick="select(this);" src="checking/img/C_emotes/forward_cheer.PNG">
+                    <img class="C_emote forward" onclick="select(this);" src="checking/img/C_emotes/forward_liedown.PNG">
+                    <img class="C_emote forward" onclick="select(this);" src="checking/img/C_emotes/forward_provoke.PNG">
+                    <img class="C_emote forward" onclick="select(this);" src="checking/img/C_emotes/forward_shame.PNG">
+                    <img class="C_emote forward" onclick="select(this);" src="checking/img/C_emotes/forward_shout.PNG">
+                    <img class="C_emote mindeye" onclick="select(this);" src="checking/img/C_emotes/mindeye_cheer.PNG">
+                    <img class="C_emote mindeye" onclick="select(this);" src="checking/img/C_emotes/mindeye_provoke.PNG">
+                    <img class="C_emote mindeye" onclick="select(this);" src="checking/img/C_emotes/mindeye_shame.PNG">
+                    <img class="C_emote priestess" onclick="select(this);" src="checking/img/C_emotes/priestess_cheer.PNG">
+                    <img class="C_emote priestess" onclick="select(this);" src="checking/img/C_emotes/priestess_liedown.PNG">
+                    <img class="C_emote priestess" onclick="select(this);" src="checking/img/C_emotes/priestess_provoke.PNG">
+                    <img class="C_emote priestess" onclick="select(this);" src="checking/img/C_emotes/priestess_shout.PNG">
+                    <img class="C_emote perfumer" onclick="select(this);" src="checking/img/C_emotes/perfumer_liedown.PNG">
+                    <img class="C_emote perfumer" onclick="select(this);" src="checking/img/C_emotes/perfumer_provoke.PNG">
+                    <img class="C_emote perfumer" onclick="select(this);" src="checking/img/C_emotes/perfumer_shout.PNG">
+                    <img class="C_emote cowboy" onclick="select(this);" src="checking/img/C_emotes/cowboy_liedown.PNG">
+                    <img class="C_emote cowboy" onclick="select(this);" src="checking/img/C_emotes/cowboy_provoke.PNG">
+                    <img class="C_emote cowboy" onclick="select(this);" src="checking/img/C_emotes/cowboy_shame.PNG">
+                    <img class="C_emote cowboy" onclick="select(this);" src="checking/img/C_emotes/cowboy_shout.PNG">
+                    <img class="C_emote dancer" onclick="select(this);" src="checking/img/C_emotes/dancer_shame.PNG">
+                    <img class="C_emote dancer" onclick="select(this);" src="checking/img/C_emotes/dancer_whipcrack.PNG">
+                    <img class="C_emote seer" onclick="select(this);" src="checking/img/C_emotes/seer_liedown.PNG">
+                    <img class="C_emote seer" onclick="select(this);" src="checking/img/C_emotes/seer_shame.PNG">
+                    <img class="C_emote embalmer" onclick="select(this);" src="checking/img/C_emotes/embalmer_liedown.PNG">
+                    <img class="C_emote prospector" onclick="select(this);" src="checking/img/C_emotes/prospector_cheer.PNG">
+                    <img class="C_emote prospector" onclick="select(this);" src="checking/img/C_emotes/prospector_liedown.PNG">
+                    <img class="C_emote prospector" onclick="select(this);" src="checking/img/C_emotes/prospector_provoke.PNG">
+                    <img class="C_emote enchantress" onclick="select(this);" src="checking/img/C_emotes/enchantress_liedown.PNG">
+                    <img class="C_emote enchantress" onclick="select(this);" src="checking/img/C_emotes/enchantress_provoke.PNG">
+                    <img class="C_emote wildling" onclick="select(this);" src="checking/img/C_emotes/wildling_cheer.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/acrobat_cheer.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                    <img class="C_emote " onclick="select(this);" src="checking/img/C_emotes/.PNG">
+                </div>
+                <div class="B_grade motion">
+                    <img class="B_motion" onclick="select(this);" src="checking/img/B_motions/">
+                </div>
+                <div class="C_grade motion">
+                    <img class="C_motion" onclick="select(this);" src="checking/img/C_motions/">
+                </div>
+                <div class="C_grade graffiti">
+                    <img class="C_griffiti" onclick="select(this);" src="checking/img/C_graffitis/">
+                </div>
+                <div class="D_grade graffiti">
+                    <img class="D_graffiti" onclick="select(this);" src="checking/img/D_graffitis/">
+                </div>
+            </div>
+            <footer>
+                <p>
+                    made by pinerose, 2021.9.28<br>
+                    S / A 등급 스킨 / 악세 출처:<br>
+                    2020.10.01 람<br>
+                    2021.8.27 자헤드<br>
+                    B / C 등급 및 시즌 18-2 이후 S / A 등급은 <br>
+                    'identity v wiki'에서 가져왔습니다.<br>
+                    CCL : CC-BY-SA
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>
