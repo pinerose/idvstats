@@ -257,8 +257,13 @@ body{
         height: 10rem;
     }
 
-    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce, img.B_emote, img.C_emote, img.B_motion, img.C_motion, img.C_graffiti, img.D_graffiti{
+    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce, img.B_emote, img.C_emote, img.C_graffiti, img.D_graffiti{
         height: 7rem;
+    }
+
+    img.B_motion, img.C_motion{
+        height: 9rem;
+        width: 16%;
     }
 
     img.B_skin, img.C_skin, img.B_acce, img.C_acce, img.B_emote, img.C_emote, img.B_motion, img.C_motion, img.C_graffiti, img.D_graffiti{
