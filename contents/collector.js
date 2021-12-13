@@ -6,13 +6,13 @@ selector = 'hidden';
 function show_menu(){
     switch (menu){
         case 'hidden':
-            document.querySelector('#contents_nav').style.display = 'flex';
+            document.querySelector('#collector_setting').style.display = 'flex';
             menu = 'shown';
             document.querySelector('#selector').style.display = 'none';
             selector = 'hidden';
             break;
         case 'shown':
-            document.querySelector('#contents_nav').style.display = 'none';
+            document.querySelector('#collector_setting').style.display = 'none';
             menu = 'hidden';
             break;
     }
@@ -23,7 +23,7 @@ function show_selector(){
         case 'hidden':
             document.querySelector('#selector').style.display = 'flex';
             selector = 'shown';
-            document.querySelector('#contents_nav').style.display = 'none';
+            document.querySelector('#collector_setting').style.display = 'none';
             menu = 'hidden';
             break;
         case 'shown':
@@ -287,28 +287,6 @@ function select(self){
     }
 }
 
-
-let body_background = 'aliceblue';
-function switch_bgcolor(){
-    switch (body_background){
-        case 'aliceblue':
-            document.querySelector('#wrap').style.backgroundColor = 'black';
-            document.querySelector('#wrap').style.color = 'white';
-            document.querySelector('#selector').style.color = 'black';
-            document.querySelector('#wrap').style.filter = 'brightness(0.7)';
-            document.querySelector('#skin_checking').style.filter = 'brightness(1.2)';
-            document.querySelector('#selector').style.backgroundColor = 'aliceblue';
-            body_background = 'black';
-            break;
-        case 'black':
-            document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
-            document.querySelector('#wrap').style.color = 'black';
-            document.querySelector('#wrap').style.filter = 'brightness(1)';
-            body_background = 'aliceblue';
-            break;
-    }
-}
-
 let menubar = 'shown';
 function hide_menubar(){
     switch (menubar){
@@ -317,7 +295,9 @@ function hide_menubar(){
                 x.style.display = 'none';
             }
             document.querySelector('#selector').style.display = 'none';
+            document.querySelector('#collector_setting').style.display = 'none';
             menubar = 'hidden';
+            menu = 'hidden';
             selector = 'hidden';
             break;
         case 'hidden':
@@ -430,4 +410,73 @@ function goto_next_info(){
             present_info = 1;
             break;
     }
+}
+
+function set_collection(input){
+    switch (input){
+        case 'skin_width':
+            let skin_width = document.getElementById('skin_width').value;
+            skin_width = skin_width.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+            skin_width = skin_width.replace(/\:javascript/gi, "");
+            for (let x of document.querySelectorAll('div img')){
+                x.style.width = skin_width + '%';
+            }
+            /* 0; alert('hello, world!'); name = 1 
+            &#x3A;&#x6A;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;*/
+            break;
+        case 'skin_margin_width':
+            let skin_margin_width = document.getElementById('skin_margin_width').value;
+            skin_margin_width = skin_margin_width.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+            skin_margin_width = skin_margin_width.replace(/\:javascript/gi, "");
+            for (let x of document.querySelectorAll('div img')){
+                x.style.paddingLeft = skin_margin_width/2 + '%';
+                x.style.paddingRight = skin_margin_width/2 + '%';
+            }
+            break;
+        case 'skin_margin_height':
+            let skin_margin_height = document.getElementById('skin_margin_height').value;
+            skin_margin_height = skin_margin_height.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+            skin_margin_height = skin_margin_height.replace(/\:javascript/gi, "");
+            for (let x of document.querySelectorAll('div img')){
+                x.style.paddingTop = skin_margin_height/2 + '%';
+                x.style.paddingBottom = skin_margin_height/2 + '%';
+            }
+            break;
+        case 'bgcolor':
+            let bgcolor = document.getElementById('bgcolor').value;
+            bgcolor = bgcolor.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+            bgcolor = bgcolor.replace(/\:javascript/gi, "");
+            document.querySelector('#wrap').style.backgroundColor = bgcolor;
+            switch (bgcolor){
+                case 'grey':
+                    document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
+                    alert('회색은 사용하실 수 없습니다!');
+                    break;
+                case 'gray':
+                    document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
+                    alert('회색은 사용하실 수 없습니다!');
+                    break;
+                case '':
+                    document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
+                    break;
+            }
+            if (bgcolor == 'black'){
+                document.querySelector('#wrap').style.color = 'white';
+                document.querySelector('#selector').style.color = 'black';
+                document.querySelector('#wrap').style.filter = 'brightness(0.7)';
+                document.querySelector('#skin_checking').style.filter = 'brightness(1.2)';
+                document.querySelector('#selector').style.backgroundColor = 'aliceblue';
+            } else {
+                document.querySelector('#wrap').style.color = 'black';
+                document.querySelector('#wrap').style.filter = 'brightness(1)';
+                document.querySelector('#skin_checking').style.filter = 'brightness(1)';
+            }
+            break;
+        case 'collection_title':
+            let collection_title = document.getElementById('collection_title').value;
+            collection_title = collection_title.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+            collection_title = collection_title.replace(/\:javascript/gi, "");
+            document.querySelector('h2').innerText = collection_title;
+            break;
+        }
 }

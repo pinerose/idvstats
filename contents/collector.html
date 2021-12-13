@@ -28,18 +28,17 @@
                 <h2 onclick="hide_menubar()">idvstats</h2>
                 <span onclick="show_selector();" id="right_icon">추가기능</span>
             </div>
-            <nav id="contents_nav">
-                <li><a href="">캐릭터 정보</a></li>
-                <li><a href="">캐릭터 티어</a></li>
-                <li><a href="">스킨 체크표</a></li>
-                <li><a href="">캐릭터 스탯</a></li>
-                <li><a href="">제작중...</a></li>
-            </nav>
+            <div id="collector_setting">
+                <h3>스킨표 설정</h3>
+                <input id="skin_width" placeholder="스킨 가로길이 (기본설정 12.5%)" onchange="set_collection('skin_width');"><span>%</span>
+                <input id="skin_margin_width" placeholder="스킨 사진 좌우간격 (기본설정 0%)" onchange="set_collection('skin_margin_width');"><span>%</span>
+                <input id="skin_margin_height" placeholder="스킨 사진 상하간격 (기본설정 0%)" onchange="set_collection('skin_margin_height');"><span>%</span>
+                <input id="bgcolor" placeholder="배경색" onchange="set_collection('bgcolor');"><span>(영어로)</span>
+                <input id="collection_title" placeholder="스킨표 이름" onchange="set_collection('collection_title');">
+            </div>
             <div id="selector">
                 <div id="settings">
-                    <button onclick="switch_bgcolor();">배경색 바꾸기</button>
                     <button onclick="show_selected();">선택스킨 표시</button>
-                    <button onclick="informations();">상세설명</button>
                 </div>
                 <div id="category_selector">
                     <h2>분류기준 선택</h2>

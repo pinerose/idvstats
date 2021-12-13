@@ -87,11 +87,12 @@ body{
         #contents_title h2{
             width: 70%;
             height: 100%;
-            font-size: 7rem;
-            line-height: 9rem;
+            font-size: 6.5rem;
+            line-height: 10rem;
+            font-family: 'Times New Roman', 'Noto Serif KR';
         }
 
-    #contents_nav, #selector{
+    #collector_setting, #selector{
         width: calc(90% - 1px);
         height: calc(80rem - 1px);
         margin-bottom: 2rem;
@@ -102,16 +103,32 @@ body{
     }
 
         /* 메뉴바 디자인 */
-        #contents_nav{
+        #collector_setting{
             border-right: 1px solid gray;
+            
         }
 
-        #contents_nav li{
-            width: 85%;
-            height: 8rem;
-            margin-left: 15%;
+        #collector_setting h3{
+            width: 94%;
+            margin: 1.5% 3%;
+            height: 5rem;
             font-size: 3rem;
+            line-height: 5rem;
+        }
+
+        #collector_setting input{
+            width: 65%;
+            height: 5rem;
+            margin: 3%;
+            font-size: 2.5rem;
             line-height: 8rem;
+        }
+
+        #collector_setting span{
+            width: 22%;
+            height: 5rem;
+            margin: 3% 1.5%;
+            line-height: 5rem;
         }
 
     #selector{
@@ -261,10 +278,10 @@ body{
         height: 7rem;
     }
 
-    img.B_motion, img.C_motion{
+    /*img.B_motion, img.C_motion{
         height: 9rem;
         width: 16%;
-    }
+    }*/
 
     img.B_skin, img.C_skin, img.B_acce, img.C_acce, img.B_emote, img.C_emote, img.B_motion, img.C_motion, img.C_graffiti, img.D_graffiti{
         display: none;
@@ -298,4 +315,3 @@ body{
             font-size: 2.5rem;
             line-height: 4rem;
         }
-        
