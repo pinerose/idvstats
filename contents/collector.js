@@ -427,7 +427,7 @@ function set_collection(input){
         case 'skin_margin_width':
             let skin_margin_width = document.getElementById('skin_margin_width').value;
             skin_margin_width = skin_margin_width.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
-            skin_margin_width = skin_margin_width.replace(/\:javascript/gi, "");
+            bgcolor = bgcolor.replace(/:javascript|&#x3A;|&#x6A;|&#x61;|&#x76;|&#x61;|&#x73;|&#x63;|&#x72;|&#x69;|&#x70;|&#x74;/gi, "");
             for (let x of document.querySelectorAll('div img')){
                 x.style.paddingLeft = skin_margin_width/2 + '%';
                 x.style.paddingRight = skin_margin_width/2 + '%';
@@ -436,7 +436,7 @@ function set_collection(input){
         case 'skin_margin_height':
             let skin_margin_height = document.getElementById('skin_margin_height').value;
             skin_margin_height = skin_margin_height.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
-            skin_margin_height = skin_margin_height.replace(/\:javascript/gi, "");
+            bgcolor = bgcolor.replace(/:javascript|&#x3A;|&#x6A;|&#x61;|&#x76;|&#x61;|&#x73;|&#x63;|&#x72;|&#x69;|&#x70;|&#x74;/gi, "");
             for (let x of document.querySelectorAll('div img')){
                 x.style.paddingTop = skin_margin_height/2 + '%';
                 x.style.paddingBottom = skin_margin_height/2 + '%';
@@ -445,14 +445,13 @@ function set_collection(input){
         case 'bgcolor':
             let bgcolor = document.getElementById('bgcolor').value;
             bgcolor = bgcolor.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
-            bgcolor = bgcolor.replace(/\:javascript/gi, "");
+            bgcolor = bgcolor.replace(/:javascript|&#x3A;|&#x6A;|&#x61;|&#x76;|&#x61;|&#x73;|&#x63;|&#x72;|&#x69;|&#x70;|&#x74;/gi, "");
+            bgcolor = bgcolor.replace(/black|#000000/gi, "black");
+            bgcolor = bgcolor.replace(/gray|grey|#808080/gi, "grey")
+            bgcolor = bgcolor.replace(/azalea/, "#f8d4d1")
             document.querySelector('#wrap').style.backgroundColor = bgcolor;
             switch (bgcolor){
                 case 'grey':
-                    document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
-                    alert('회색은 사용하실 수 없습니다!');
-                    break;
-                case 'gray':
                     document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
                     alert('회색은 사용하실 수 없습니다!');
                     break;
@@ -475,8 +474,16 @@ function set_collection(input){
         case 'collection_title':
             let collection_title = document.getElementById('collection_title').value;
             collection_title = collection_title.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
-            collection_title = collection_title.replace(/\:javascript/gi, "");
+            bgcolor = bgcolor.replace(/:javascript|&#x3A;|&#x6A;|&#x61;|&#x76;|&#x61;|&#x73;|&#x63;|&#x72;|&#x69;|&#x70;|&#x74;/gi, "");
             document.querySelector('h2').innerText = collection_title;
             break;
         }
 }
+
+window.addEventListener('beforeunload', (event) => { 
+    // 명세에 따라 preventDefault는 호출해야하며, 기본 동작을 방지합니다. 
+    event.preventDefault(); 
+    
+    // 대표적으로 Chrome에서는 returnValue 설정이 필요합니다. 
+    event.returnValue = ''; 
+});
