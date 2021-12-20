@@ -3,8 +3,53 @@
 body{
     touch-action: manipulation;
 }
+/* 빗줄기 효과 */
+#loading_background i {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#loading_background{
+    background: black;
+    overflow: hidden;
+}
+
+i{
+    position: absolute;
+    height: 200px;
+    background: linear-gradient(transparent, white);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: animate 5s linear infinite;
+}
+
+i:nth-child(3n+1){
+    background: linear-gradient(transparent, aqua);
+}
+
+i:nth-child(3n+2){
+    background: linear-gradient(transparent, lime);
+}
+
+i:nth-child(3n){
+    background: linear-gradient(transparent, red);
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(-200px);
+    }
+
+    100%{
+        transform: translateY(calc(120rem + 200px));
+    }
+}
+/* 꾸미기 끝 */
 
 #loading_screen{
+    color: gray;
+    background: black;
     width: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -12,7 +57,7 @@ body{
     text-align: center;
     font-size: 2.5rem;
     line-height: 5rem;
-    height: 100rem;
+    height: 120rem;
 }
 
     #loading_screen button{
@@ -49,6 +94,9 @@ body{
     }
 
 #wrap{
+    background: black;
+    color: white;
+    filter: brightness(0.7);
     width: 100%;
     display: none;
     flex-flow: row wrap;
@@ -274,7 +322,7 @@ body{
         height: 10rem;
     }
 
-    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce, img.B_emote, img.C_emote, img.C_graffiti, img.D_graffiti{
+    div img.S_acce, div img.A_acce, div img.B_acce, div img.C_acce, img.B_emote, img.C_emote, img.B_motion, img.C_motion, img.C_graffiti, img.D_graffiti{
         height: 7rem;
     }
 

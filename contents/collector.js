@@ -371,6 +371,7 @@ function onloaded_table(){
 
 function exit_screen(){
     document.querySelector('#loading_screen').style.display = 'none';
+    document.querySelector('#loading_background').style.display = 'none';
     document.querySelector('#wrap').style.display = 'flex';
 }
 
@@ -449,14 +450,13 @@ function set_collection(input){
             bgcolor = bgcolor.replace(/black|#000000/gi, "black");
             bgcolor = bgcolor.replace(/gray|grey|#808080/gi, "grey");
             bgcolor = bgcolor.replace(/azalea/, "#f8d4d1");
-            document.querySelector('#wrap').style.backgroundColor = bgcolor;
             switch (bgcolor){
                 case 'grey':
                     document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
                     alert('회색은 사용하실 수 없습니다!');
                     break;
                 case '':
-                    document.querySelector('#wrap').style.backgroundColor = 'aliceblue';
+                    bgcolor = 'black';
                     break;
             }
             if (bgcolor == 'black'){
@@ -470,6 +470,7 @@ function set_collection(input){
                 document.querySelector('#wrap').style.filter = 'brightness(1)';
                 document.querySelector('#skin_checking').style.filter = 'brightness(1)';
             }
+            document.querySelector('#wrap').style.backgroundColor = bgcolor;
             break;
         case 'collection_title':
             let collection_title = document.getElementById('collection_title').value;
